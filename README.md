@@ -1,108 +1,156 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+Readme
+Table of contents:
+Theme, Epic and User Stories
+Design and UX
+Wireframes
+Database model
+Features
+Future Features
+SEO and Marketing
+Technologies
+Testing
+Code Validation
+Browser Compatibility
+Accessibility Testing
+Performance Testing
+Manual Testing
+User Stories Testing
+Debugging and known bugs
+Deployment
+Credits
+Resources
+Acknowledgements
+Name
+Live link: 
+Screenshot:
+Theme, Epic and User Stories
+Theme
+To sell interesting wizard hats (and other wizard associated clothing items) online.
+Epic
+This website will provide the user with an array of wizardly hats and other clothing items, products both expected and unexpected. The website will be simple and easy to use; a good experience for the user that will make their time in the shop, so to speak, welcoming. Each product will have Dungeons and Dragons style stats (link) which will be calculated and presented at checkout along with a randomly generated name (link) to ‘create’ a wizard based on these products. The user can choose to accept the generated wizard name and stats, or keep shopping to get a different wizard.
 
-Welcome USER_NAME,
+User stories
+User
+As a user, I can clearly see the purpose of the site when I land on the home page so that I stay on the site.
+As a user, I can clearly understand the products I am considering purchasing. so that I can make informed decisions.
+As a user, I have the option to create a custom made hat so that I can have something that better suits me.
+As a user, I can get an instant quote for a custom hat so that I know how much I will be spending.
+As a user, I can complete the payment process quickly and easily so that I don’t get distracted/dissuaded and leave.
+As a user, I will be notified by email when my order has been placed successfully, so that I have trust in the website and I have the order details in a convenient place.
+As a user, I have the option for my information to be saved for future purchases so that I can save time on future purchases.
+As a user, I can edit or delete my user information so that I can have the correct information.
+As a user, I can easily find the site terms and conditions so that I can use the site knowing I am protected.
+As a user, I can see the stats of each item, so that I can have an experience outside of the standard online shopping experience.
+As a user, I can see the final stats of my outfit, so that I can have an experience outside of the standard online shopping experience.
+As a **user** I can **see the shopping bag** so that **I can keep track of my shopping while I browse the site**.
+As a **user** I can **view my order history** so that **I know what I have already ordered**.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+Owner/staff member
+As a staff member, I can add products to my shop so that users can see the products I have available.
+staff edit and delete
+As a staff member, I can control stock levels so that I do not accidentally over or undersell a product.
+As a staff member, I will be notified by email if an order comes in so that I can action the sale.
+As a staff member, I can view my orders and see the current order status so that I know if there is an order I have to process.
+As a staff member, I can easily provide the site terms and conditions so that I can communicate with users and increase the legitimacy of my website.
+Clear design
+Ts and Cs prominent in footer
+As a staff member, I can use web marketing to increase traffic to my site.
+As a staff member, I will be provided with search engine optimisation for my site so that I can receive increased traffic and sales.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+User/Owner
+As a user/staff member, I can sign in and out intuitively so that I can use the website easily.
+As a user/staff member, I can navigate the website easily and intuitively.
 
-## Gitpod Reminders
+Design and UX
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+Wireframes
 
-`python3 -m http.server`
+Home page
+Shop page
+Shopping bag view
+Checkout view
+Standard hat product detail
+Custom hat page
+User profile page
+About Us page (related links)
 
-A blue button should appear to click: _Make Public_,
+Database model
+Made in Lucidchart.
 
-Another blue button should appear to click: _Open Browser_.
+###Features
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
 
-A blue button should appear to click: _Make Public_,
+Future Features
 
-Another blue button should appear to click: _Open Browser_.
+SEO and Marketing
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+[Link to Readme documention for SEO and marketing](/SEO_MKTG_README.md)
 
-To log into the Heroku toolbelt CLI:
+Technologies
+Languages used:
+Python 3
+HTML5
+CSS
+Javascript
+Frameworks, Libraries and Programs Used:
+Django/allauth - Python framework
+Bootstrap - CSS package
+AWS - for hosting the images
+SQLite (default Django database)
+EmailJS/Django email - for sending the personalised/automated emails
+GitHub - for hosting the site
+Heroku - for the deployment of the site
+Gitpod - for editing the files
+Testing
+Code Validation
+Python validator
+Javascript validator
+HTML validator
+CSS validator
+Browser Compatibility
+Browser Compatibility checks were run using BrowserStack and my computer. The results are:
+Firefox - 
+Chrome - 
+Opera - 
+Microsoft Edge - 
+Due to Bootstrap the styling is not ideal on some browser/OS combinations - this is as per the Bootstrap documentation below. All systems still function as needed on all combinations. Bootstrap Browser Compatibility
+Accessibility Testing
+Accessibility testing was conducted using Accessibility Test.org. The results are:
+Performance Testing
+Performance testing was conducted using Lighthouse. The results are:
+Manual Testing
+I sent the live link to friends and family members for testing and feedback. The site was received positively; design and usability suggestions were considered and acted on. The site was also put up in the Code Institute Slack community for feedback.
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+Debugging and known bugs
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
 
-------
+Deployment
 
-## Release History
-
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
-
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
-
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
-
-**July 2 2021:** Remove extensions that are not available in Open VSX.
-
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
-
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
-
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
-
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
+Publishing
+The project was deployed using Heroku. The process is as follows:
+Once you have signed up to Heroku, on the top right of the dashboard there is a button labelled 'New'. This will open a dropdown; please select 'Create new app'. On the next page you can choose your region and a name for the project. Then click 'Create app'.
+On the next page there is a menu along the top. Navigate to 'Settings', where you will find the config vars. Scroll down to the section named 'Config vars' and click on the button labelled 'Reveal config vars'. Cloudinary (AWS?) and Postgres will both need config vars as per your own details. You will also need to set a secret key. Once the config vars are saved, back in Gitpod save them in an env.py file. Make sure to add env.py to your .gitignore list so that your config vars do not become publically available on Github.
+If you scroll back to the top of the page you will find the 'Deploy' tab, which has multiple options for deployment. I used Github for this project. When you click on the Github button a bar will come up for you to search for the repo you wish to connect to.
+Once you have connected, you have the option to deploy automatically (the app will update every time you push) or manually (update only when you choose). I chose automatic but you can do what suits you.
+After the first push/update, your app will be ready to go!
+Forking and Cloning
+To save a copy of the code and work on it yourself, here are the steps for forking and cloning using Github:
+In the repository, click the 'Fork' button, which is on the top right-hand side, next to 'Star'.
+Github will automatically create a new repo, which is forked from the original. If you would like to clone it you have two options:
+Within the repository, click the 'Code' dropdown, which is located next to 'Add File' on the right (underneath the Settings tab); there is an option to download all files and save a copy locally.
+In the same 'Code' dropdown, you can opt to open the code with GitHub Desktop and work from there.
+Resources
+Django 3.2 documentation
+Bootstrap documentation
+Cloudinary/Django documentation/AWS
+EmailJS documentation
+Guidance with updating and deleting Page instances from GeeksforGeeks.
+Photo editing from Pixlr.
+Favicon generated from Favicon.io
+ERD made with Lucidchart
+Wireframes made with Balsamiq.
+Credits
+Placeholder image from artist Bee; used with permission from the artist.
+All other images from Pexels.
+In code credits as marked.
+Acknowledgements
