@@ -8,6 +8,22 @@ body {
     height: calc(100vh - 164px);
 }
 
+
+/* Landing page */
 .dropdown-menu {
     background-color: black;
+}
+
+.landing-page-links {
+    display: flex;
+    justify-content: end;
+}
+
+.landing-page-links a {
+    text-decoration-line: none;
+    color: white;
+}
+
+.landing-page-links a:hover {
+    color: purple;
 }
