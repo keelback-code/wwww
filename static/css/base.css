@@ -2,9 +2,12 @@ html {
     height: 100%;
 }
 
-
 body {
     background: url('/media/landing-page-hero.jpg') no-repeat center center fixed;
     background-size: cover;
     height: calc(100vh - 164px);
+}
+
+.dropdown-menu {
+    background-color: black;
 }
