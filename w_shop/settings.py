@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'django.contrib.staticfiles',
     'crispy_forms',
+    'landing_page',
     'products',
 ]
 
@@ -71,7 +72,10 @@ ROOT_URLCONF = 'w_shop.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+            os.path.join(BASE_DIR, 'templates', 'allauth')
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -79,13 +83,33 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',  # allows html to access MEDIA_URL
+                # 'bag.contexts.bag_contents',
             ],
+            'builtins': [
+                'crispy_forms.templatetags.crispy_forms_tags',  # these two lines mean you don't have use to use load crispy on every page
+                'crispy_forms.templatetags.crispy_forms_field',
+            ]
         },
     },
 ]
 
 WSGI_APPLICATION = 'w_shop.wsgi.application'
 
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+# ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+# ACCOUNT_EMAIL_REQUIRED = True
+# ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+# ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
+# ACCOUNT_USERNAME_MIN_LENGTH = 4
+# LOGIN_URL = '/accounts/login/'
+# LOGIN_REDIRECT_URL = '/'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
@@ -140,8 +164,54 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# if 'USE_AWS' in os.environ:
+#     # Cache control for files that don't need to change often
+#     AWS_S3_OBJECT_PARAMETERS = {
+#         'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+#         'CacheControl': 'max-age=94608000',
+#     }
+
+#     # Bucket Config
+#     AWS_STORAGE_BUCKET_NAME = 'elyserh-bado'
+#     AWS_S3_REGION_NAME = 'eu-west-1'
+#     AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+#     AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+#     AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'  # bucket name defined above
+
+#     # Static and media files (when collect static is run)
+#     STATICFILES_STORAGE = 'custom_storages.StaticStorage'  # this is from Class set in custom_storages file
+#     STATICFILES_LOCATION = 'static'  # telling settings to save static files here
+#     DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+#     MEDIAFILES_LOCATION = 'media'
+
+#     # Override static and media URLs in production using new locations set above
+#     STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+#     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Stripe
+
+# FREE_DELIVERY_THRESHOLD = 50
+# STANDARD_DELIVERY_PERCENTAGE = 10
+# STRIPE_CURRENCY = 'eur'
+# STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY', '')  # '' sets to default blank
+# STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY', '')
+# STRIPE_WH_SECRET = os.environ.get('STRIPE_WH_SECRET', '')
+
+# # DEFAULT_FROM_EMAIL = 'boutiqueado@example.com'
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_USE_TLS = True
+# EMAIL_PORT = 587
+# EMAIL_HOST = 'smtp-mail.outlook.com'
+# EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+# EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
+# DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
