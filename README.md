@@ -150,7 +150,6 @@ Favicon generated from Favicon.io
 ERD made with Lucidchart
 Wireframes made with Balsamiq.
 Credits
-Placeholder image from artist Bee; used with permission from the artist.
-All other images from Pexels.
+All images from Pexels.
 In code credits as marked.
 Acknowledgements
