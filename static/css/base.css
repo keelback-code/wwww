@@ -11,6 +11,7 @@ body {
     background-size: cover;
     height: calc(100vh - 164px);
     font-family: 'Anek Latin', monospace, sans-serif;
+    color: antiquewhite;
 }
 
 .navbar-brand {
@@ -35,4 +36,37 @@ body {
 
 .landing-page-links a:hover {
     color: purple;
+}
+
+/* Product details page */
+
+/* .page-heading {
+    width: 20rem;
+    background-color: antiquewhite;
+    color: black;
+    display: flex;
+    justify-content: center; 
+} */
+
+.product-detail-container {
+    width: 25rem;
+    background-color: antiquewhite;
+    color: black;
+}
+
+/* CSS for enlarging images on hover from: https://success.appen.com/hc/en-us/articles/202703155-CSS-Guide-to-Enlarge-Images-on-Hover */
+.card-img {
+    max-width: 250px;
+    height: auto;
+    top: -50px;
+    left: -35px;
+    z-index: 999;
+    cursor: pointer;
+    -webkit-transition-property: all;
+    -webkit-transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease;
+}
+
+.card-img:hover {
+    transform: scale(2);
 }
