@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Anek+Latin&family=Raleway&display=swap');
+
+/* Universal */
+
 html {
     height: 100%;
 }
@@ -6,13 +10,18 @@ body {
     background: url('/media/landing-page-hero.jpg') no-repeat center center fixed;
     background-size: cover;
     height: calc(100vh - 164px);
+    font-family: 'Anek Latin', monospace, sans-serif;
 }
 
+.navbar-brand {
+    font-family: 'Raleway', monospace, sans-serif;
+}
 
-/* Landing page */
 .dropdown-menu {
     background-color: black;
 }
+
+/* Landing page */
 
 .landing-page-links {
     display: flex;
