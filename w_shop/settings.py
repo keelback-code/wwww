@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'landing_page',
     'products',
     'custom_products',
-    'bag',
+    'loot',
     'checkout',
     'profiles',
 ]
