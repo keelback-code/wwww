@@ -1,3 +1,8 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def checkout(request):
+    """
+    Function to retrieve wizard battle blog posts.
+    """
+    return render(request, 'checkout/checkout.html')
