@@ -19,7 +19,8 @@ body {
 }
 
 .dropdown-menu {
-    background-color: black;
+    background-color: rgb(5, 5, 51);
+    color:antiquewhite;
 }
 
 /* Landing page */
@@ -51,7 +52,7 @@ body {
 .product-detail-container {
     width: 25rem;
     background-color: antiquewhite;
-    color: black;
+    color: rgb(5, 5, 51);
 }
 
 /* CSS for enlarging images on hover from: https://success.appen.com/hc/en-us/articles/202703155-CSS-Guide-to-Enlarge-Images-on-Hover */
@@ -68,5 +69,5 @@ body {
 }
 
 .card-img:hover {
-    transform: scale(2);
+    transform: scale(1.8);
 }

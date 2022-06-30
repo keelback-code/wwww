@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'loot',
     'checkout',
     'profiles',
+    'wizard_battles',
 ]
 
 SITE_ID = 1
