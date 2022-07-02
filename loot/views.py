@@ -1,3 +1,8 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def view_loot(request):
+    """
+    Function to retrieve the loot (shopping bag) page.
+    """
+    return render(request, 'loot/view_loot.html')
