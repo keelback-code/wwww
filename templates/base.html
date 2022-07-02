@@ -78,7 +78,7 @@
     {% if messages %}
     <div class="message-container">
         <!-- Code for toasts from Code Institute Boutique Ado project -->
-        <!-- message levels defined in django/bootstrap -->
+        <!-- message levels defined in django/Bootstrap -->
         {% for message in messages %}
         {% with message.level as level %}
             {% if level == 40 %}
@@ -102,9 +102,21 @@
     {% endblock content %}
 
 
-<footer class="container">
-
-</footer>
+    <footer class="container">
+        <div class="row">
+            <div class="col">
+                <p>Join Newsletter</p>
+            </div>
+            <div class="col universal-link-styles">
+                <a href="{% url 'terms_and_conditions' %}">Ts and Cs</a>
+            </div>
+            <div class="col universal-link-styles">
+                <a href="#"><i class="fa-brands fa-instagram pr-4"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter mr-4"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook-square mr-4"></i></a>
+            </div>
+        </div>
+    </footer>
 
 <!-- <script>
     setTimeout(function () {

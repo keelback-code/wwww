@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'checkout',
     'profiles',
     'wizard_battles',
+    'operations',
 ]
 
 SITE_ID = 1

@@ -28,4 +28,5 @@ urlpatterns = [
     path('loot/', include('loot.urls')),
     path('profiles/', include('profiles.urls')),
     path('wizard_battles/', include('wizard_battles.urls')),
+    path('operations/', include('operations.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

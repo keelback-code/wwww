@@ -6,6 +6,8 @@ html {
     height: 100%;
 }
 
+/* Code for background image from Code Institute's Boutique Ado walkthrough */
+
 body {
     background: url('/media/landing-page-hero.jpg') no-repeat center center fixed;
     background-size: cover;
@@ -23,6 +25,14 @@ body {
     color:antiquewhite;
 }
 
+/* .icon-test i {
+    opacity: 0;
+}
+
+.icon-test i:hover {
+    opacity: 1;
+} */
+
 /* Landing page */
 
 .landing-page-links {
@@ -30,24 +40,18 @@ body {
     justify-content: end;
 }
 
-.landing-page-links a {
+.landing-page-links a,
+.universal-link-styles a {
     text-decoration-line: none;
-    color: white;
+    color: antiquewhite;
 }
 
-.landing-page-links a:hover {
+.landing-page-links a:hover,
+.universal-link-styles a:hover {
     color: purple;
 }
 
 /* Product details page */
-
-/* .page-heading {
-    width: 20rem;
-    background-color: antiquewhite;
-    color: black;
-    display: flex;
-    justify-content: center; 
-} */
 
 .product-detail-container {
     width: 25rem;
@@ -71,3 +75,4 @@ body {
 .card-img:hover {
     transform: scale(1.8);
 }
+/* end */
