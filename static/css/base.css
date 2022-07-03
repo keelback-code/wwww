@@ -80,3 +80,17 @@ body {
     transform: scale(1.8);
 }
 /* end */
+
+/* Privacy policy page */
+.light-background-container {
+    background-color: antiquewhite;
+    color: rgb(5, 5, 51);
+}
+
+.p-p-heading {
+    width: 40rem;
+}
+
+.p-p-text {
+    width: 60rem;
+}
