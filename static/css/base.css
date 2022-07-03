@@ -46,6 +46,22 @@ body {
     color: purple;
 }
 
+/* // Code for back to top button from W3 https://www.w3schools.com/howto/howto_js_scroll_to_top.asp  */
+.back-btn {
+	display: none;
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	z-index: 99;
+	border: none;
+	outline: none;
+	background: rgb(5, 5, 51);
+	color: antiquewhite;
+	cursor: pointer;
+	border-radius: 100px;
+	font-size: 30px;
+}
+
 /* Landing page */
 
 .landing-page-links {
