@@ -33,6 +33,19 @@ body {
     opacity: 1;
 } */
 
+.universal-link-styles a,
+.universal-link-styles,
+.landing-page-links a {
+    text-decoration-line: none;
+    color: antiquewhite;
+}
+
+.universal-link-styles a:hover,
+.universal-link-styles:hover,
+.landing-page-links a:hover {
+    color: purple;
+}
+
 /* Landing page */
 
 .landing-page-links {
@@ -40,16 +53,7 @@ body {
     justify-content: end;
 }
 
-.landing-page-links a,
-.universal-link-styles a {
-    text-decoration-line: none;
-    color: antiquewhite;
-}
 
-.landing-page-links a:hover,
-.universal-link-styles a:hover {
-    color: purple;
-}
 
 /* Product details page */
 

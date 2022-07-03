@@ -1,8 +1,8 @@
 from django.shortcuts import render
 
 
-def ts_and_cs(request):
+def privacy_policy(request):
     """
     Function to retrieve the user profile page.
     """
-    return render(request, 'operations/terms_and_conditions.html')
+    return render(request, 'operations/privacy_policy.html')
