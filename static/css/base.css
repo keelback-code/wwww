@@ -46,6 +46,17 @@ body {
     color: purple;
 }
 
+.btn-navy {
+    background-color: rgb(5, 5, 51);
+    color: antiquewhite;
+}
+
+.btn-navy:hover {
+    background-color: antiquewhite;
+    color: rgb(5, 5, 51);
+    border: 2px solid rgb(5, 5, 51);
+}
+
 /* // Code for back to top button from W3 https://www.w3schools.com/howto/howto_js_scroll_to_top.asp  */
 .back-btn {
 	display: none;
@@ -109,4 +120,12 @@ body {
 
 .p-p-text {
     width: 60rem;
+}
+
+/* Battle arena styling */
+
+.form-container {
+    width: 35rem;
+    background-color: antiquewhite;
+    color: rgb(5, 5, 51);
 }
