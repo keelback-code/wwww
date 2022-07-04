@@ -1,5 +1,7 @@
-Readme
-Table of contents:
+## Readme
+
+### Table of contents:
+
 Theme, Epic and User Stories
 Design and UX
 Wireframes
@@ -237,6 +239,8 @@ Wireframes made with Balsamiq.
 Privacy Policy generated from (Privacy Policy Generator)[https://www.privacypolicygenerator.info].
 
 ### Credits
+
+Assistance on toasts, shopping basket functionality (loot) (?) from Code Institute's Boutique Ado code walkthrough.
 
 All images from Pexels.
 

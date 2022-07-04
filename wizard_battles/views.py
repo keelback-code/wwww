@@ -11,7 +11,13 @@ def battle_arena(request):
     """
     Function to retrieve a view of all wizard battle blog posts.
     """
-    return render(request, 'wizard_battles/battle_arena.html')
+    # battles = Post.objects.all()
+
+    context = {
+        "all_battles": Post.objects.all()
+    }
+
+    return render(request, 'wizard_battles/battle_arena.html', context)
 
 
 # @login_required  # maybe?
@@ -22,7 +28,7 @@ def view_battle(request, slug):
     battle = get_object_or_404(Post, slug=slug)
 
     context = {
-        "battle": battle
+        'battle': battle
     }
 
     return render(request, 'wizard_battles/wizard_battle.html', context)
@@ -30,7 +36,6 @@ def view_battle(request, slug):
 
 @login_required
 def create_battle(request):
-# class CreateBattle(generic.CreateView):
     """
     Function to create wizard battle blog posts.
     """
@@ -45,9 +50,9 @@ def create_battle(request):
             to_save.author = request.user
             to_save.save()
             messages.success(request, 'Wizard Battle successfully started!')
-            return redirect(reverse('landing_page'))
+            return redirect(reverse('battle_arena'))
         else:
-            messages.error(request, 'Wizard Battle aborted. Please try again.')
+            messages.error(request, 'Wizard Battle attempt abandoned. Please try again.')
     else:
         form = PostForm()
 
@@ -57,3 +62,48 @@ def create_battle(request):
     }
 
     return render(request, template, context)
+
+
+@login_required
+def edit_battle(request, slug):
+    """
+    Function to retrieve individual wizard battle blog posts for editing.
+    """
+    if not request.user.is_superuser:
+        messages.error(request, 'Apologies, only staff can access this.')
+        return redirect(reverse('landing_page'))
+
+    battle = get_object_or_404(Post, slug=slug)
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES, instance=battle)
+        if form.is_valid():
+            battle = form.save()
+            messages.success(request, 'Wizard Battle successfully updated!')
+            return redirect(reverse('battle_arena'))
+        else:
+            messages.error(request, 'Wizard Battle update attempt abandoned. Please try again.')
+    else:
+        form = PostForm(instance=battle)
+
+    template = 'wizard_battles/edit_battle.html'
+    context = {
+        'form': form,
+        'battle': battle
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def delete_battle(request, slug):
+    """
+    Function to delete wizard battle blog posts.
+    """
+    if not request.user.is_superuser:
+        messages.error(request, 'Apologies, only staff can access this.')
+        return redirect(reverse('landing_page'))
+    
+    battle = get_object_or_404(Post, slug=slug)
+    battle.delete()
+    messages.success(request, 'Wizard Battle deleted.')
+    return redirect(reverse('battle_arena'))

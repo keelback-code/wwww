@@ -6,10 +6,15 @@
     <h1 class="fs-2">wizard battle post</h1>
 </div>
 
+{{ battle.title }}
+{{ battle.text_content }}
+{{ battle.image_one }}
+{{ battle.image_two }}
+
 {% if request.user.is_staff %}
-<ul>
-    <li><a href="{% url 'edit_battle' %}">Edit Battle</a></li>
-    <li><a href="{% url 'delete_battle' %}">Delete Battle</a></li>
+<ul class="universal-link-styles" style="list-style-type:none;">
+    <li><a href="{% url 'edit_battle' battle.slug %}">Edit Battle</a></li>
+    <li><a href="{% url 'delete_battle' battle.slug %}">Delete Battle</a></li>
 </ul>
 {% else %}
 {% endif %}
