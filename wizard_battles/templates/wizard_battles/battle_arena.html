@@ -2,5 +2,14 @@
 {% load static %}
 
 {% block content %}
-<h1>battle_arena</h1>
+<div class="text-center rounded mx-auto my-2">
+<h1 class="fs-2">battle_arena</h1>
+</div>
+
+{% if request.user.is_staff %}
+<ul>
+    <a href="{% url 'create_battle' %}">Create Battle</a>
+</ul>
+{% else %}
+{% endif %}
 {% endblock %}

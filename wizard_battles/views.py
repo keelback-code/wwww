@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
@@ -14,45 +14,46 @@ def battle_arena(request):
     return render(request, 'wizard_battles/battle_arena.html')
 
 
-def view_battle(request):
+# @login_required  # maybe?
+def view_battle(request, slug):
     """
     Function to retrieve individual wizard battle blog posts.
     """
-    return render(request, 'wizard_battles/wizard_battle.html')
+    battle = get_object_or_404(Post, slug=slug)
+
+    context = {
+        "battle": battle
+    }
+
+    return render(request, 'wizard_battles/wizard_battle.html', context)
 
 
-# def create_battle(request):
-class CreateBattle(generic.CreateView):
+@login_required
+def create_battle(request):
+# class CreateBattle(generic.CreateView):
     """
     Function to create wizard battle blog posts.
     """
-    def get(self, request, *args, **kwargs):
+    if not request.user.is_staff:
+        messages.error(request, 'Apologies, only staff can access this.')
+        return redirect(reverse('landing_page'))
 
-        return render(
-            request,
-            "wizard_battles/create_battle.html",
-            {
-                "post_form": PostForm()
-            }
-        )
-
-    def post(self, request, *args, **kwargs):
-        post_form = PostForm(request.POST, request.FILES)
-        if post_form.is_valid():
-            write_post = post_form.save(commit=False)
-            write_post.creator = request.user
-            write_post.save()
-            messages.success(request, 'Post created successfully.')
-            return redirect('landing_page')
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES)
+        if form.is_valid():
+            to_save = form.save(commit=False)
+            to_save.author = request.user
+            to_save.save()
+            messages.success(request, 'Wizard Battle successfully started!')
+            return redirect(reverse('landing_page'))
         else:
-            messages.error(request, 'Post not saved, please try again.')
-            post_form = PostForm()
+            messages.error(request, 'Wizard Battle aborted. Please try again.')
+    else:
+        form = PostForm()
 
-        return render(
-            request,
-            "wizard_battles/create_battle.html",
-            {
-                "post_form": post_form,
-            }
-        )
-    # return render(request, 'wizard_battles/create_battle.html')
+    template = 'wizard_battles/create_battle.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
