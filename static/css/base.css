@@ -131,3 +131,11 @@ body {
     background-color: antiquewhite;
     color: rgb(5, 5, 51);
 }
+
+.battle-card {
+    width: 35rem;
+    background-color: antiquewhite;
+    color: rgb(5, 5, 51);
+    text-decoration: none;
+    color: rgb(5, 5, 51);
+}

@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% load crispy_forms_tags %}
+
 {% block content %}
 <div class="text-center rounded mx-auto my-2">
     <h1 class="fs-2">wizard battle post</h1>
@@ -13,9 +15,26 @@
 
 {% if request.user.is_staff %}
 <ul class="universal-link-styles" style="list-style-type:none;">
-    <li><a href="{% url 'edit_battle' battle.slug %}">Edit Battle</a></li>
-    <li><a href="{% url 'delete_battle' battle.slug %}">Delete Battle</a></li>
+    <li><a href="{% url 'edit_battle' battle.slug %}">Edit Battle <i class="fa-solid fa-hat-wizard"></i></a></li>
+    <li><a href="{% url 'delete_battle' battle.slug %}">Delete Battle <i class="fa-solid fa-hat-wizard"></i></a></li>
 </ul>
 {% else %}
 {% endif %}
+
+<div class="text-center rounded mx-auto my-2">
+    <h2 class="fs-4">leave a comment</h1>
+</div>
+
+<div class="form-container text-center rounded mx-auto my-2">
+    <form method="post" action="{% url 'view_battle' battle.slug %}" enctype="multipart/form-data">
+        {{ form | crispy }}
+        {% csrf_token %}
+        <button type="submit" class="btn btn-md btn-navy my-2">Submit</button>
+    </form>
+</div>
+
+{{ comments.name }}
+{{ comments.comment_body }}
+
+
 {% endblock %}

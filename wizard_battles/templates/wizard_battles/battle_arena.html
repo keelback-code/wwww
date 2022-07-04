@@ -8,14 +8,24 @@
 
 {% for battle in all_battles %}
 
-<a href="{% url 'view_battle' battle.slug %}"><p>{{ battle.title }}</p></a>
+<div class="card text-center battle-card col-md-6 col-lg-4">
+    <div class="card-body">
+        <a class="card-title" href="{% url 'view_battle' battle.slug %}"><p>{{ battle.title }}</p></a>
+    </div>
+</div>
 
 
-{% endfor %}
+            
+
+{% if forloop.counter|divisibleby:3 %}
+<div class="row justify-content-center">
+    {% endif %}
+    {% endfor %}
+</div>
 
 {% if request.user.is_staff %}
-<ul>
-    <a href="{% url 'create_battle' %}">Create Battle</a>
+<ul class="universal-link-styles">
+    <a href="{% url 'create_battle' %}">Create Battle <i class="fa-solid fa-hat-wizard"></i></a>
 </ul>
 {% else %}
 {% endif %}

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post
+from .models import Post, Comment
 
 
 class PostAdmin(admin.ModelAdmin):
@@ -8,4 +8,13 @@ class PostAdmin(admin.ModelAdmin):
     """
     list_display = ("title", "author",)
 
+
+class CommentAdmin(admin.ModelAdmin):
+    """
+    Class for seeing comments in the Django Admin.
+    """
+    list_display = ("name",)
+
+
 admin.site.register(Post, PostAdmin)
+admin.site.register(Comment, CommentAdmin)

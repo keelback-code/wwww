@@ -26,9 +26,27 @@ def view_battle(request, slug):
     Function to retrieve individual wizard battle blog posts.
     """
     battle = get_object_or_404(Post, slug=slug)
+    form = CommentForm()
+    comments = Comment.objects.filter(post=battle)  # this needs to be fixed, not filtering correctly
+
+    if request.method == 'POST':
+        form = CommentForm(request.POST, request.FILES)
+        if form.is_valid():
+            to_save = form.save(commit=False)
+            to_save.post = battle
+            to_save.save()
+            messages.success(request, 'Comment successfully sent by raven!')
+            return redirect(reverse('battle_arena'))
+        else:
+            messages.error(request, 'Your comment was not received by the wizards. Please try again.')
+    else:
+        form = CommentForm()
+
 
     context = {
-        'battle': battle
+        'battle': battle,
+        'form': form,
+        'comments': comments
     }
 
     return render(request, 'wizard_battles/wizard_battle.html', context)
