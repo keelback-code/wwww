@@ -9,7 +9,7 @@ class Post(models.Model):
     """
     slug = models.SlugField(unique=True, primary_key=True)
     title = models.CharField(max_length=250)
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="battle_posts")
     text_content = models.TextField()
     image_one = models.ImageField(null=True, blank=True, default="placeholder_one")
     image_two = models.ImageField(null=True, blank=True, default="placeholder_two")
@@ -19,3 +19,16 @@ class Post(models.Model):
     
     def get_absolute_url(self):
         return reverse("wizard_battle", kwargs={"slug": self.slug})
+    
+
+class Comment(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
+    name = models.CharField(max_length=80)
+    comment_body = models.TextField()
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['created_on']
+    
+    def __str__(self):
+        return f"Comment {self.body} by {self.name}"
