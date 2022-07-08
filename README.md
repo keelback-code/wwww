@@ -59,7 +59,7 @@ As a user, I have the option for my information to be saved for future purchases
 
 As a user, I can edit or delete my user information so that I can have the correct information.
 
-As a user, I can easily find the site terms and conditions so that I can use the site knowing I am protected.
+As a user, I can easily find the site's privacy policy so that I can use the site knowing I am protected.
 
 As a user, I can see the stats of each item, so that I can have an experience outside of the standard online shopping experience.
 
@@ -68,6 +68,9 @@ As a user, I can see the final stats of my outfit, so that I can have an experie
 As a **user** I can **see the shopping bag** so that **I can keep track of my shopping while I browse the site**.
 
 As a **user** I can **view my order history** so that **I know what I have already ordered**.
+
+As a **user** I can **comment on blog posts** so that **I can take part in the battle arena**.
+
 
 #### Owner/staff member
 
@@ -81,13 +84,16 @@ As a staff member, I will be notified by email if an order comes in so that I ca
 
 As a staff member, I can view my orders and see the current order status so that I know if there is an order I have to process.
 
-As a staff member, I can easily provide the site terms and conditions so that I can communicate with users and increase the legitimacy of my website.
+As a staff member, I can easily provide the site privacy policy so that I can communicate with users and increase the legitimacy of my website.
 
 Clear design
 
 Ts and Cs prominent in footer
 
+
 As a staff member, I can use web marketing to increase traffic to my site.
+
+As a staff member, I can add blog posts to my site so that I can show expertise on the subject and correspond with my web marketing.
 
 As a staff member, I will be provided with search engine optimisation for my site so that I can receive increased traffic and sales.
 

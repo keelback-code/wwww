@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import dj_database_url
 import os
+from django.contrib.messages import constants as messages
 if os.path.isfile('env.py'):
     import env
 
@@ -108,6 +109,8 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
+
+ACCOUNT_EMAIL_VERIFICATION = 'none'  # temporary
 
 # ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 # ACCOUNT_EMAIL_REQUIRED = True
