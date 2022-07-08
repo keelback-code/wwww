@@ -8,13 +8,13 @@
 <div class="form-container text-center rounded mx-auto my-2">
     <h1 class="fs-2">Edit product</h1>
 </div>
-<!-- <div class="form-container text-center rounded mx-auto my-2">
-    <form method="post" action="{% url 'create_battle' %}" enctype="multipart/form-data">
+<div class="form-container text-center rounded mx-auto my-2">
+    <form method="post" action="{% url 'edit_standard_product' product.pk %}" enctype="multipart/form-data">
         {{ form | crispy }}
         {% csrf_token %}
         <button type="submit" class="btn btn-md btn-navy my-2">Submit</button>
     </form>
-</div> -->
+</div>
 
 
 {% endblock %}
