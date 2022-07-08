@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.mixins import LoginRequiredMixin
+# from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
 from django.views import generic, View
 from .models import Post, Comment
@@ -87,7 +87,7 @@ def edit_battle(request, slug):
     """
     Function to retrieve individual wizard battle blog posts for editing.
     """
-    if not request.user.is_superuser:
+    if not request.user.is_staff:
         messages.error(request, 'Apologies, only staff can access this.')
         return redirect(reverse('landing_page'))
 
@@ -117,7 +117,7 @@ def delete_battle(request, slug):
     """
     Function to delete wizard battle blog posts.
     """
-    if not request.user.is_superuser:
+    if not request.user.is_staff:
         messages.error(request, 'Apologies, only staff can access this.')
         return redirect(reverse('landing_page'))
     
