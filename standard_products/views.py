@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 
-from .models import StandardProduct, Category
+from .models import StandardProduct, Stat
 from .forms import StandardProductForm
 
 
@@ -16,7 +16,7 @@ def all_products(request):
 
     # set query to None so there's no error when page is loaded without a search term
     query = None
-    categories = None
+    stats = None
     sort = None
     direction = None  # this is for direction of sorting
 
@@ -27,10 +27,8 @@ def all_products(request):
             if sortkey == 'name':
                 sortkey = 'lower_name'  # to allow for lower case
                 products = products.annotate(lower_name=Lower('name'))  # to allow for lower case
-            if sortkey == 'category':
-                sortkey = 'category__name'  # double underscore allows us to drill into a related model
             if sortkey == 'stat':
-                sortkey = 'stat__name'
+                sortkey = 'stat__name'  # double underscore allows us to drill into a related model
 
             if 'direction' in request.GET:
                 direction = request.GET['direction']
@@ -39,15 +37,10 @@ def all_products(request):
             products = products.order_by(sortkey)  # this is actually sorting it
 
 
-        if 'category' in request.GET:
-            categories = request.GET['category'].split(',')
-            products = products.filter(category__name__in=categories)
-            categories = Category.objects.filter(name__in=categories)
-        
-        # if 'stat' in request.GET:
-        #     stats = request.GET['stat'].split(',')
-        #     products = products.filter(stats__name__in=stats)
-        #     stats = Stats.objects.filter(name__in=stats)
+        if 'stat' in request.GET:
+            stats = request.GET['stat'].split(',')
+            products = products.filter(stat__name__in=stats)
+            stats = Stat.objects.filter(name__in=stats)
 
         if 'q' in request.GET:
             query = request.GET['q']
@@ -64,11 +57,13 @@ def all_products(request):
     context = {
         'products': products,
         'search_term': query,
-        'current_categories': categories,
+        'current_stats': stats,
         'current_sorting': current_sorting,
     }
 
-    return render(request, 'standard_products/products.html', context)
+    template = 'standard_products/products.html'
+
+    return render(request, template, context)
 
 
 def product_detail(request, product_id):

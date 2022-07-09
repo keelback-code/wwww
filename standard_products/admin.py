@@ -1,19 +1,19 @@
 from django.contrib import admin
-from .models import StandardProduct, Category
+from .models import StandardProduct, Stat
 
 
 class StandardProductAdmin(admin.ModelAdmin):
     list_display = (
         'sku',
         'name',
-        'category',
+        'stat',
         'price',
     )
 
     ordering = ('name',)
 
 
-class CategoryAdmin(admin.ModelAdmin):
+class StatAdmin(admin.ModelAdmin):
     list_display = (
         'friendly_name',
         'name',
@@ -21,4 +21,4 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 admin.site.register(StandardProduct, StandardProductAdmin)
-admin.site.register(Category, CategoryAdmin)
+admin.site.register(Stat, StatAdmin)

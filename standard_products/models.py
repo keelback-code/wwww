@@ -1,15 +1,15 @@
 from django.db import models
 
 
-class Category(models.Model):
+class Stat(models.Model):
     """
     Model for categorising and filtering the standard products.
     Based on Code Institute Boutique Ado project.
     """
     class Meta:
-        verbose_name_plural = 'Categories'
+        verbose_name_plural = 'Stats'
         
-    name = models.CharField(max_length=254)
+    name = models.CharField(max_length=100)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
 
     def __str__(self):
@@ -23,7 +23,7 @@ class StandardProduct(models.Model):
     """
     Model for standard products.
     """
-    category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
+    stat = models.ForeignKey('Stat', null=True, blank=True, on_delete=models.SET_NULL)
     sku = models.CharField(max_length=254, null=True, blank=True)
     name = models.CharField(max_length=254)
     description = models.TextField()
