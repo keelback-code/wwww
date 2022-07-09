@@ -23,7 +23,8 @@ class StandardProduct(models.Model):
     """
     Model for standard products.
     """
-    stat = models.ForeignKey('Stat', null=True, blank=True, on_delete=models.SET_NULL)
+    stat_one = models.ForeignKey('Stat', null=True, blank=True, on_delete=models.SET_NULL, related_name="stat_one")
+    stat_two = models.ForeignKey('Stat', null=True, blank=True, on_delete=models.SET_NULL, related_name="stat_two")
     sku = models.CharField(max_length=254, null=True, blank=True)
     name = models.CharField(max_length=254)
     description = models.TextField()
