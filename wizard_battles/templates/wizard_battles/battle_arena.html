@@ -2,17 +2,49 @@
 {% load static %}
 
 {% block content %}
-<div class="text-center rounded mx-auto my-2">
-    <h1 class="fs-2">battle_arena</h1>
+
+<div class="rounded product-detail-container mx-auto">
+    <h1 class="text-center fs-2 m-2">Battle Arena</h1>
 </div>
 
-{% for battle in all_battles %}
-
-<div class="card text-center battle-card col-md-6 col-lg-4">
-    <div class="card-body">
-        <a class="card-title" href="{% url 'view_battle' battle.slug %}"><p>{{ battle.title }}</p></a>
+<div class="container">
+    <div class="row">
+        {% for battle in all_battles %}
+        <div class="col-6 mx-auto">
+            <div class="card text-center battle-card h-100">
+                <div class="card-body">
+                    {% if battle.image_one %}
+                        <a href="#">
+                            <img class="card-img-top img-fluid" src="{{ battle.image_one.url }}"
+                                alt="{{ battle.title }}">
+                        </a>
+                        {% else %}
+                        <a href="#">
+                            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png"
+                                alt="{{ battle.title }}">
+                        </a>
+                        {% endif %}
+                        {% if battle.image_two %}
+                        <a href="#">
+                            <img class="card-img-top img-fluid" src="{{ battle.image_two.url }}"
+                                alt="{{ battle.title }}">
+                        </a>
+                        {% else %}
+                        <a href="#">
+                            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png"
+                                alt="{{ battle.title }}">
+                        </a>
+                        {% endif %}
+                        
+                    <a class="card-title" href="{% url 'view_battle' battle.slug %}"><p>{{ battle.title }}</p></a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+
+
+
 
 
             
@@ -24,9 +56,9 @@
 </div>
 
 {% if request.user.is_staff %}
-<ul class="universal-link-styles">
-    <a href="{% url 'create_battle' %}">Create Battle <i class="fa-solid fa-hat-wizard"></i></a>
-</ul>
-{% else %}
+<div class="rounded form-container mx-auto text-center m-5" style="width: 15rem;">
+    <a class="reversed-link-styles" href="{% url 'create_battle' %}">Create Battle <i class="fa-solid fa-hat-wizard"></i></a>
+</div>
 {% endif %}
+
 {% endblock %}

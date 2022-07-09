@@ -133,6 +133,7 @@ body {
     width: 60rem;
 }
 
+/* Standard product pages */
 
 .all-product-card {
     background-color: antiquewhite;
@@ -152,5 +153,4 @@ body {
     background-color: antiquewhite;
     color: rgb(5, 5, 51);
     text-decoration: none;
-    color: rgb(5, 5, 51);
 }
