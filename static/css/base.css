@@ -149,8 +149,16 @@ body {
 }
 
 .battle-card {
-    width: 35rem;
+    width: 50rem;
     background-color: antiquewhite;
     color: rgb(5, 5, 51);
     text-decoration: none;
+}
+
+  
+.image-grid-container {
+    display: grid;
+
+    /* For 2 columns */
+    grid-template-columns: auto auto;
 }

@@ -10,33 +10,24 @@
 <div class="container">
     <div class="row">
         {% for battle in all_battles %}
-        <div class="col-6 mx-auto">
+        <div class="col-md-8 mx-auto m-4">
             <div class="card text-center battle-card h-100">
-                <div class="card-body">
+                <div class="card-body image-grid-container">
                     {% if battle.image_one %}
-                        <a href="#">
-                            <img class="card-img-top img-fluid" src="{{ battle.image_one.url }}"
-                                alt="{{ battle.title }}">
-                        </a>
-                        {% else %}
-                        <a href="#">
-                            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png"
-                                alt="{{ battle.title }}">
-                        </a>
-                        {% endif %}
-                        {% if battle.image_two %}
-                        <a href="#">
-                            <img class="card-img-top img-fluid" src="{{ battle.image_two.url }}"
-                                alt="{{ battle.title }}">
-                        </a>
-                        {% else %}
-                        <a href="#">
-                            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png"
-                                alt="{{ battle.title }}">
-                        </a>
-                        {% endif %}
-                        
-                    <a class="card-title" href="{% url 'view_battle' battle.slug %}"><p>{{ battle.title }}</p></a>
+                    <img class="img-fluid" src="{{ battle.image_one.url }}" alt="{{ battle.title }}">
+                    {% else %}
+                    <img class="img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ battle.title }}">
+                    {% endif %}
+                    {% if battle.image_two %}
+                    <img class="img-fluid" src="{{ battle.image_two.url }}" alt="{{ battle.title }}">
+                    {% else %}
+                    <img class="img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ battle.title }}">
+                    {% endif %}
+                    <div class="text-center">
+                    <a class="card-title reversed-link-styles fs-4 text-center" href="{% url 'view_battle' battle.slug %}">
+                        {{ battle.title }}
+                    </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -47,7 +38,7 @@
 
 
 
-            
+
 
 {% if forloop.counter|divisibleby:3 %}
 <div class="row justify-content-center">
@@ -57,7 +48,8 @@
 
 {% if request.user.is_staff %}
 <div class="rounded form-container mx-auto text-center m-5" style="width: 15rem;">
-    <a class="reversed-link-styles" href="{% url 'create_battle' %}">Create Battle <i class="fa-solid fa-hat-wizard"></i></a>
+    <a class="reversed-link-styles" href="{% url 'create_battle' %}">Create Battle <i
+            class="fa-solid fa-hat-wizard"></i></a>
 </div>
 {% endif %}
 

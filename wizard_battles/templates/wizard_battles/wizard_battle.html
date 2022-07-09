@@ -5,21 +5,29 @@
 
 {% block content %}
 <div class="text-center rounded mx-auto my-2">
-    <h1 class="fs-2">wizard battle post</h1>
+    <h1 class="fs-2">{{ battle.title }}</h1>
 </div>
 
-{{ battle.title }}
-{{ battle.text_content }}
-<img src="{{ battle.image_one }}" alt="Image of the first wizard in the battle">
-<img src="{{ battle.image_two }}" alt="Image of the second wizard in the battle">
-
+<div class="card text-center product-detail-container mx-auto">
+    <div class="card-body">
+        <p>{{ battle.text_content }}</p>
+        <img src="{{ battle.image_one.url }}" alt="Image of the first wizard in the battle">
+        <img src="{{ battle.image_two.url }}" alt="Image of the second wizard in the battle">
+    </div>
+</div>
 
 {% if request.user.is_staff %}
-<ul class="universal-link-styles" style="list-style-type:none;">
-    <li><a href="{% url 'edit_battle' battle.slug %}">Edit Battle <i class="fa-solid fa-hat-wizard"></i></a></li>
-    <li><a href="{% url 'delete_battle' battle.slug %}">Delete Battle <i class="fa-solid fa-hat-wizard"></i></a></li>
-</ul>
-{% else %}
+
+<div class="rounded form-container mx-auto text-center m-1" style="width: 15rem;">
+    <a class="reversed-link-styles" href="{% url 'edit_battle' battle.slug %}">Edit Battle <i
+            class="fa-solid fa-hat-wizard"></i></a>
+</div>
+<div class="rounded form-container mx-auto text-center m-1" style="width: 15rem;">
+    <a class="reversed-link-styles" href="{% url 'delete_battle' battle.slug %}">Delete Battle <i
+            class="fa-solid fa-hat-wizard"></i></a>
+</div>
+
+
 {% endif %}
 
 <div class="text-center rounded mx-auto my-2">
