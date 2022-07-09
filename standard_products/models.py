@@ -29,6 +29,7 @@ class StandardProduct(models.Model):
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
     image = models.ImageField(null=True, blank=True)
+    image_alt_text = models.CharField(max_length=254, null=True, blank=True)
     stock_level = models.IntegerField(default=1)
     # stat_category_one = models.CharField(max_length=254, null=True, blank=True)
     # stat_number_one = models.IntegerField(null=True, blank=True)
