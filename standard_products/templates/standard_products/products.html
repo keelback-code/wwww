@@ -65,7 +65,7 @@
                             <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
                         </a>
                         {% else %}
-                        <a href="#">
+                        <a href="{% url 'product_detail' product.id %}">
                             <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png"
                                 alt="{{ product.name }}">
                         </a>
@@ -88,9 +88,9 @@
 
                                     {% if request.user.is_staff %}
                                     <small class="ml-3">
-                                        <a href="#">Edit</a>
-                                        <a class="text-danger"
-                                            href="#">Delete</a>
+                                        <a href="{% url 'edit_standard_product' product.id %}">Edit</a>
+                                        <a class="ml-3"
+                                            href="{% url 'delete_standard_product' product.id %}">Delete</a>
                                     </small>
                                     {% endif %}
                                 </div>
@@ -98,27 +98,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- below code is to render line beneath each line, checks numbers as it changes with viewports -->
-                {% if forloop.counter|divisibleby:1 %}
-                <div class="col-12 d-sm-none mb-5">
-                    <hr>
-                </div>
-                {% endif %}
-                {% if forloop.counter|divisibleby:2 %}
-                <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
-                    <hr>
-                </div>
-                {% endif %}
-                {% if forloop.counter|divisibleby:3 %}
-                <div class="col-12 d-none d-lg-block d-xl-none mb-5">
-                    <hr>
-                </div>
-                {% endif %}
-                {% if forloop.counter|divisibleby:4 %}
-                <div class="col-12 d-none d-xl-block mb-5">
-                    <hr>
-                </div>
-                {% endif %}
+          
                 {% endfor %}
             </div>
         </div>
