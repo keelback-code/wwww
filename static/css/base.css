@@ -46,6 +46,16 @@ body {
     color: purple;
 }
 
+.reversed-link-styles {
+    text-decoration-line: none;
+    color: rgb(5, 5, 51);
+}
+
+.reversed-link-styles:hover {
+    text-decoration: underline;
+    color: rgb(5, 5, 51);
+}
+
 .btn-navy {
     background-color: rgb(5, 5, 51);
     color: antiquewhite;
@@ -123,6 +133,11 @@ body {
     width: 60rem;
 }
 
+
+.all-product-card {
+    background-color: antiquewhite;
+    color: rgb(5, 5, 51);
+}
 
 /* Battle arena styling */
 

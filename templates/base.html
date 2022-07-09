@@ -73,24 +73,14 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Products
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item text-light" href="{% url 'all_products' %}">Hats and Accessories</a>
-                            <a class="dropdown-item text-light" href="{% url 'custom_hats' %}">Custom Hats</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Stats
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item text-light" href="{% url 'all_products' %}">Courage</a>
-                            <a class="dropdown-item text-light" href="{% url 'custom_hats' %}">Cool</a>
-                            <a class="dropdown-item text-light" href="{% url 'custom_hats' %}">Sun Protection</a>
-                            <a class="dropdown-item text-light" href="{% url 'custom_hats' %}">Spell Casting</a>
-                            <a class="dropdown-item text-light" href="{% url 'custom_hats' %}">Stealth</a>
+                            <a class="dropdown-item text-light" href="{% url 'all_products' %}?stat=Courage">Courage</a>
+                            <a class="dropdown-item text-light" href="{% url 'all_products' %}?stat=Cool">Cool</a>
+                            <a class="dropdown-item text-light" href="{% url 'all_products' %}?stat=Sun Protection">Sun Protection</a>
+                            <a class="dropdown-item text-light" href="{% url 'all_products' %}?stat=Spell Casting">Spell Casting</a>
+                            <a class="dropdown-item text-light" href="{% url 'all_products' %}?stat=Stealth">Stealth</a>
                         </div>
                     </li>
                     <li class="nav-item">

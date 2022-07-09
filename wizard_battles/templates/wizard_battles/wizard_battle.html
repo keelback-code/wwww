@@ -10,8 +10,9 @@
 
 {{ battle.title }}
 {{ battle.text_content }}
-{{ battle.image_one }}
-{{ battle.image_two }}
+<img src="{{ battle.image_one }}" alt="Image of the first wizard in the battle">
+<img src="{{ battle.image_two }}" alt="Image of the second wizard in the battle">
+
 
 {% if request.user.is_staff %}
 <ul class="universal-link-styles" style="list-style-type:none;">
