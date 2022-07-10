@@ -3,15 +3,21 @@
 
 {% block content %}
 
-<div class="rounded product-detail-container mx-auto">
+<div class="rounded product-detail-container col-md-8 mx-auto">
     <h1 class="text-center fs-2 m-2">Battle Arena</h1>
 </div>
 
+{% for battle in all_battles %}
 <div class="container">
     <div class="row">
-        {% for battle in all_battles %}
         <div class="col-md-8 mx-auto m-4">
             <div class="card text-center battle-card h-100">
+                <div>
+                    <a class="card-title reversed-link-styles fs-4 justify-content-center"
+                        href="{% url 'view_battle' battle.slug %}">
+                        {{ battle.title }}
+                    </a>
+                </div>
                 <div class="card-body image-grid-container">
                     {% if battle.image_one %}
                     <img class="img-fluid" src="{{ battle.image_one.url }}" alt="{{ battle.title }}">
@@ -23,11 +29,6 @@
                     {% else %}
                     <img class="img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ battle.title }}">
                     {% endif %}
-                    <div class="text-center">
-                    <a class="card-title reversed-link-styles fs-4 text-center" href="{% url 'view_battle' battle.slug %}">
-                        {{ battle.title }}
-                    </div>
-                    </a>
                 </div>
             </div>
         </div>
@@ -35,16 +36,7 @@
 </div>
 
 
-
-
-
-
-
-{% if forloop.counter|divisibleby:3 %}
-<div class="row justify-content-center">
-    {% endif %}
-    {% endfor %}
-</div>
+{% endfor %}
 
 {% if request.user.is_staff %}
 <div class="rounded form-container mx-auto text-center m-5" style="width: 15rem;">

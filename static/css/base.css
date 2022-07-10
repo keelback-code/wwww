@@ -140,6 +140,7 @@ body {
     color: rgb(5, 5, 51);
 }
 
+
 /* Battle arena styling */
 
 .form-container {
@@ -155,10 +156,7 @@ body {
     text-decoration: none;
 }
 
-  
 .image-grid-container {
     display: grid;
-
-    /* For 2 columns */
     grid-template-columns: auto auto;
 }

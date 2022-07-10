@@ -4,20 +4,26 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<div class="text-center rounded mx-auto my-2">
-    <h1 class="fs-2">{{ battle.title }}</h1>
+
+<div class="rounded product-detail-container mx-auto">
+    <h1 class="text-center m-2 fs-2 heading">{{ battle.title }}</h1>
 </div>
 
 <div class="card text-center product-detail-container mx-auto">
     <div class="card-body">
         <p>{{ battle.text_content }}</p>
-        <img src="{{ battle.image_one.url }}" alt="Image of the first wizard in the battle">
-        <img src="{{ battle.image_two.url }}" alt="Image of the second wizard in the battle">
+        <img class="p-1" src="{{ battle.image_one.url }}" alt="Image of the first wizard in the battle">
+        <img class="p-1" src="{{ battle.image_two.url }}" alt="Image of the second wizard in the battle">
     </div>
 </div>
 
-{% if request.user.is_staff %}
+<div class="m-5">
+<div class="rounded form-container mx-auto text-center m-1" style="width: 15rem;">
+    <a class="reversed-link-styles" href="{% url 'battle_arena' %}">Back to Battle Arena<i
+            class="fa-solid fa-hat-wizard"></i></a>
+</div>
 
+{% if request.user.is_staff %}
 <div class="rounded form-container mx-auto text-center m-1" style="width: 15rem;">
     <a class="reversed-link-styles" href="{% url 'edit_battle' battle.slug %}">Edit Battle <i
             class="fa-solid fa-hat-wizard"></i></a>
@@ -26,12 +32,18 @@
     <a class="reversed-link-styles" href="{% url 'delete_battle' battle.slug %}">Delete Battle <i
             class="fa-solid fa-hat-wizard"></i></a>
 </div>
-
-
 {% endif %}
+</div>
+
+{% for comment in comments %}  
+    <div class="rounded product-detail-container mx-auto">
+        <p class="text-center m-2">Comment: {{ comment.comment_body }}</p>
+        <p class="text-center m-2">By: {{ comment.name }}</p>
+    </div>
+{% endfor %}
 
 <div class="text-center rounded mx-auto my-2">
-    <h2 class="fs-4">leave a comment</h1>
+    <h2 class="fs-4 mt-4">Leave a comment:</h1>
 </div>
 
 <div class="form-container text-center rounded mx-auto my-2">
@@ -41,9 +53,5 @@
         <button type="submit" class="btn btn-md btn-navy my-2">Submit</button>
     </form>
 </div>
-
-{{ comments.name }}
-{{ comments.comment_body }}
-
 
 {% endblock %}

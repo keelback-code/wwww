@@ -28,6 +28,7 @@ def view_battle(request, slug):
     battle = get_object_or_404(Post, slug=slug)
     form = CommentForm()
     comments = Comment.objects.filter(post=battle)  # this needs to be fixed, not filtering correctly
+    # comments = Comment.objects.all()
 
     if request.method == 'POST':
         form = CommentForm(request.POST, request.FILES)
