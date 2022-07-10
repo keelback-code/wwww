@@ -211,10 +211,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # FREE_DELIVERY_THRESHOLD = 50
 # STANDARD_DELIVERY_PERCENTAGE = 10
-# STRIPE_CURRENCY = 'eur'
-# STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY', '')  # '' sets to default blank
-# STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY', '')
-# STRIPE_WH_SECRET = os.environ.get('STRIPE_WH_SECRET', '')
+STRIPE_CURRENCY = 'eur'
+STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY', '')  # '' sets to default blank
+STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY', '')
+STRIPE_WH_SECRET = os.environ.get('STRIPE_WH_SECRET', '')
 
 # # DEFAULT_FROM_EMAIL = 'boutiqueado@example.com'
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
