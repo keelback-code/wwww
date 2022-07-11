@@ -9,7 +9,7 @@
 
 <div class="card text-center product-detail-container mx-auto">
     <div class="card-body">
-        <img src="#" class="card-img" alt="{{ product.img_alt_text }}">
+        <img src="{{ product.image.url }}" class="card-img" alt="{{ product.img_alt_text }}">
         <p>{{ product.description }}</p>
         <p>€{{ product.price }}</p>
     </div>
@@ -19,7 +19,7 @@
     <form class="form" action="{% url 'add_to_loot' product.id %}" method="POST">
         {% csrf_token %}
         <div class="form-row">
-           
+            
             <div class="col-12">
                 <p class="mt-3"><strong>Quantity:</strong></p>
                 <div class="form-group w-50">
@@ -51,15 +51,16 @@
                     <span class="icon">
                         <i class="fas fa-chevron-left"></i>
                     </span>
-                    <span class="text-uppercase" style="color:antiquewhite;">Keep Shopping</span>
+                    <span class="text-uppercase">Keep Shopping</span>
                 </a>
-                <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to Bag" style="color:antiquewhite;">
+                <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to Bag">
             </div>
             <input type="hidden" name="redirect_url" value="{{ request.path }}">
            
         </div>
     </form>
 </div>
+
 
 {% endblock %}
 

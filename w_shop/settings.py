@@ -91,7 +91,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',  # allows html to access MEDIA_URL
-                # 'bag.contexts.bag_contents',
+                'loot.contexts.loot_contents',
             ],
             'builtins': [
                 'crispy_forms.templatetags.crispy_forms_tags',  # these two lines mean you don't have use to use load crispy on every page

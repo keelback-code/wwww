@@ -16,6 +16,10 @@ body {
     color: antiquewhite;
 }
 
+.icon {
+    color: antiquewhite;
+}
+
 .navbar-brand {
     font-family: 'Raleway', monospace, sans-serif;
 }

@@ -9,7 +9,7 @@ def view_loot(request):
     Function that renders the loot page.
     """
 
-    return render(request, 'loot/view_loot.html')
+    return render(request, 'loot/loot.html')
 
 
 def add_to_loot(request, item_id):

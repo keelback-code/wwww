@@ -1,6 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib.auth.decorators import login_required
-# from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
 from django.views import generic, View
 from .models import Post, Comment
@@ -11,8 +10,6 @@ def battle_arena(request):
     """
     Function to retrieve a view of all wizard battle blog posts.
     """
-    # battles = Post.objects.all()
-
     context = {
         "all_battles": Post.objects.all()
     }
@@ -20,15 +17,13 @@ def battle_arena(request):
     return render(request, 'wizard_battles/battle_arena.html', context)
 
 
-# @login_required  # maybe?
 def view_battle(request, slug):
     """
     Function to retrieve individual wizard battle blog posts.
     """
     battle = get_object_or_404(Post, slug=slug)
     form = CommentForm()
-    comments = Comment.objects.filter(post=battle)  # this needs to be fixed, not filtering correctly
-    # comments = Comment.objects.all()
+    comments = Comment.objects.filter(post=battle)
 
     if request.method == 'POST':
         form = CommentForm(request.POST, request.FILES)
