@@ -1,8 +1,13 @@
 from django.shortcuts import render
+from .models import CustomProduct
+from .forms import CustomProductForm
 
 
-def custom_hats(request):
+def design_custom_hat(request):
     """
     Function to retrieve the page to get a quote for a custom hat.
     """
-    return render(request, 'custom_products/custom_hats.html')
+    context = {
+        "form": CustomProductForm()
+    }
+    return render(request, 'custom_products/custom_hats.html', context)

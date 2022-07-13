@@ -1,6 +1,7 @@
 import random
 import string
 from django.db import models
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 
 def random_sku_generator(chars=string.ascii_lowercase + string.digits):
@@ -15,8 +16,8 @@ class CustomProduct(models.Model):
     Model for custom products.
     """
     sku = models.CharField(max_length=254, null=True, blank=True)
-    brim_width = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
-    hat_height = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
+    brim_width = models.IntegerField(default=5, validators=[MinValueValidator(5), MaxValueValidator(20)], null=True, blank=True)
+    hat_height = models.IntegerField(default=20, validators=[MinValueValidator(20), MaxValueValidator(35)], null=True, blank=True)
     color = models.CharField(max_length=254, null=True, blank=True)
     patch = models.CharField(max_length=254, null=True, blank=True)
     price = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)  # or in views?
@@ -27,20 +28,20 @@ class CustomProduct(models.Model):
         """
         # self.price = 0
 
-        if self.brim_width == "1":
+        if self.brim_width >= 10:
             self.price = self.price + 5
-        elif self.brim_width == "2":
+        elif self.brim_width >= 15:
             self.price = self.price + 10
-        elif self.brim_width == "3":
+        elif self.brim_width >= 20:
             self.price = self.price + 15
         else:
             self.price = self.price + 0
         
-        if self.hat_height == "1":
+        if self.hat_height >= 25:
             self.price = self.price + 5
-        elif self.hat_height == "2":
+        elif self.hat_height >= 30:
             self.price = self.price + 10
-        elif self.hat_height == "3":
+        elif self.hat_height >= 35:
             self.price = self.price + 15
         else:
             self.price = self.price + 0
@@ -58,5 +59,5 @@ class CustomProduct(models.Model):
         """
         Function for saving while generating a random sku.
         """
-        self.slug = random_sku_generator()
+        self.sku = random_sku_generator()
         super().save(*args, **kwargs)
