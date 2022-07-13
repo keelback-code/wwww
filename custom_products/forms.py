@@ -8,4 +8,4 @@ class CustomProductForm(forms.ModelForm):
     """
     class Meta:
         model = CustomProduct
-        fields = '__all__'
+        fields = ('brim_width', 'hat_height', 'color', 'patch',)
