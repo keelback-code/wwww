@@ -1,4 +1,14 @@
+import random
+import string
 from django.db import models
+from django.core.validators import MaxValueValidator, MinValueValidator
+
+
+def random_sku_generator(chars=string.ascii_lowercase + string.digits):
+    """
+    Function for creating a random sku.
+    """
+    return ''.join(random.choice(chars) for _ in range(8))
 
 
 class Stat(models.Model):
@@ -31,10 +41,14 @@ class StandardProduct(models.Model):
     image = models.ImageField(null=True, blank=True)
     image_alt_text = models.CharField(max_length=254, null=True, blank=True)
     stock_level = models.IntegerField(default=1)
-    # stat_category_one = models.CharField(max_length=254, null=True, blank=True)
-    # stat_number_one = models.IntegerField(null=True, blank=True)
-    # stat_category_two = models.CharField(max_length=254, null=True, blank=True)
-    # stat_number_two = models.IntegerField(null=True, blank=True)
 
     def __str__(self):
         return self.name
+    
+    def save(self, *args, **kwargs):
+        """
+        Function for generating a random sku.
+        """
+        self.sku = random_sku_generator()
+        super().save(*args, **kwargs)
+        return self.sku

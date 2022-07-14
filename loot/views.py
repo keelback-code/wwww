@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
 from django.contrib import messages
 from standard_products.models import StandardProduct
+# from custom_products.models import CustomProduct
 
 # Based on Code Institute Boutique Ado project.
 
@@ -12,7 +13,7 @@ def view_loot(request):
     return render(request, 'loot/loot.html')
 
 
-def add_to_loot(request, item_id):
+def standard_add_to_loot(request, item_id):
     """
     Function to add a quantity of the specified product to the bag.
     """
@@ -37,7 +38,7 @@ def add_to_loot(request, item_id):
     return redirect(redirect_url)
 
 
-def adjust_loot(request, item_id):
+def standard_adjust_loot(request, item_id):
     """
     Function to adjust the quantity of products in the bag.
     """
@@ -57,7 +58,7 @@ def adjust_loot(request, item_id):
     return redirect(reverse('view_loot'))
 
 
-def remove_from_loot(request, item_id):
+def standard_remove_from_loot(request, item_id):
     """
     Function to remove an item from the shopping bag.
     """

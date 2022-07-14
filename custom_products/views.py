@@ -56,11 +56,10 @@ class DesignCustomHat(View):
             priced_form = form.save(commit=False)
             priced_form.price = price
             product = form.save()
-            messages.success(request, 'Product successfully saved!')
             return redirect(reverse('final_quote', args=[product.id]))
         else:
             messages.error(request,
-                 'Product was not added. Width must be at least 5cm and height at least 20cm.\
+                 'Quote was not generated. Width must be at least 5cm and height at least 20cm.\
                  Please try again.')
             form = CustomProductForm()
 

@@ -42,47 +42,8 @@ class CustomProduct(models.Model):
 
     def save(self, *args, **kwargs):
         """
-        Function for saving while generating a random sku and calculating the price.
+        Function for generating a random sku.
         """
-        # self.price = 20
-
-        # if self.brim_width <= 10:
-        #     print("a reached")
-        #     self.price = self.price + 5
-        # elif self.brim_width <= 15:
-        #     print("b reached")
-        #     self.price = self.price + 10
-        # elif self.brim_width <= 20:
-        #     print("c reached")
-        #     self.price = self.price + 15
-        # else:
-        #     print("d reached")
-        #     self.price = self.price + 0
-        
-        # if self.hat_height <= 25:
-        #     print("e reached")
-        #     self.price = self.price + 5
-        # elif self.hat_height <= 30:
-        #     print("f reached")
-        #     self.price = self.price + 10
-        # elif self.hat_height <= 35:
-        #     print("g reached")
-        #     self.price = self.price + 15
-        # else:
-        #     print("h reached")
-        #     self.price = self.price + 0
-        
-        # if self.patch == 'NONE':
-        #     print("i reached")
-        #     self.price = self.price + 0
-        # else:
-        #     print("j reached")
-        #     self.price = self.price + 2
-        
-        # print(self.price)
-        # save price fed in by js?
-        # super().save(*args, **kwargs)
-        # return self.price
         self.sku = random_sku_generator()
         super().save(*args, **kwargs)
         return self.sku

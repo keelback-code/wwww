@@ -12,7 +12,7 @@
     <form method="post" action="{% url 'design_custom_hat' %}" enctype="multipart/form-data">
         {{ form | crispy }}
         {% csrf_token %}
-        <button type="submit" class="btn btn-md btn-navy my-2">Submit</button>
+        <button type="submit" class="btn btn-md btn-navy my-2">Generate Quote</button>
     </form>
 </div>
 

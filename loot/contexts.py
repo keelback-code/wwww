@@ -1,7 +1,7 @@
 from decimal import Decimal
 from django.conf import settings
 from django.shortcuts import get_object_or_404
-from standard_products.models import StandardProduct  # import custom later
+from standard_products.models import StandardProduct
 
 
 def loot_contents(request):
@@ -9,15 +9,12 @@ def loot_contents(request):
     Context processor for the shopping bag (loot) functionality.
     Based on Code Institute Boutique Ado project.
     """
-
     loot_items = []
     total = 0
     product_count = 0
     loot = request.session.get('loot', {})
 
     for item_id, item_data in loot.items():
-        # sizes are just dicts (our code turned them into dicts, 
-        # so a check for an int only shows there is no size)
         if isinstance(item_data, int):
             product = get_object_or_404(StandardProduct, pk=item_id)
             total += item_data * product.price
