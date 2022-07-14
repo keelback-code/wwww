@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="form-container text-center rounded mx-auto my-2">
+    <h1 class="fs-2">Custom quote (final)</h1>
+</div>
+<h2>{{ product.price }}</h2>
+<p>{{ product.sku }}</p>
+<p>{{ product.brim_width }}</p>
+<p>{{ product.hat_height }}</p>
+<p>{{ product.patch }}</p>
+<p>{{ product.color }}</p>
+
+
+
+
+{% endblock %}
