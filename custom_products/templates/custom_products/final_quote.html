@@ -6,14 +6,15 @@
 <div class="form-container text-center rounded mx-auto my-2">
     <h1 class="fs-2">Custom quote (final)</h1>
 </div>
-<h2>{{ product.price }}</h2>
-<p>{{ product.sku }}</p>
-<p>{{ product.brim_width }}</p>
-<p>{{ product.hat_height }}</p>
-<p>{{ product.patch }}</p>
-<p>{{ product.color }}</p>
+<div class="form-container text-center rounded mx-auto my-2">
+    <h2>The price for your custom hat is €{{ product.price }}.</h2>
+    <h3>The details are:</h3>
+    <p>Brim width: {{ product.brim_width }}cm</p>
+    <p>Height: {{ product.hat_height }}cm</p>
+    <p>Colour: {{ product.color }}</p>
+    <p>Patch: {{ product.patch }}</p>
+</div>
 
-
-
+<p>{{ product.sku }} - ref for elyse</p>
 
 {% endblock %}
