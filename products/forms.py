@@ -41,7 +41,7 @@ class HatTwoForm(forms.ModelForm):
     Form for designing a custom hat.
     """
     spell_choices = [
-        ('A', "Grow"),
+        ('A', "Freeze"),
         ('B', "Whither"),
         ('C', "Overexplain"),
     ]
@@ -64,6 +64,71 @@ class HatTwoForm(forms.ModelForm):
     variable_one = forms.ChoiceField(choices=spell_choices)
     variable_two = forms.ChoiceField(choices=hat_floppiness)
     variable_three = forms.ChoiceField(choices=patch_choices_two)
+
+    class Meta:
+        model = Product
+        fields = ('color', 'stat', 'variable_one', 'variable_two', 'variable_three',)
+    
+
+class CloakForm(forms.ModelForm):
+    """
+    Form for designing a custom cloak.
+    """
+    cloak_length = [
+        ('A', "Mini"),
+        ('B', "Midi"),
+        ('C', "So Long You'll Step On It"),
+    ]
+
+    cloak_pattern = [
+        ('A', "Tartan"),
+        ('B', "Leaves"),
+        ('C', "Bowling alley carpet"),
+    ]
+
+    clasp_choices = [
+        ('LOTR', "Leaf clasp"),
+        ('SHAKE', "Two hands shaking"),
+        ('RBOW', "Rainbow"),
+        ('SNAKE', "Snake"),
+        ('NONE', "None"),
+    ]
+
+    variable_one = forms.ChoiceField(choices=cloak_length)
+    variable_two = forms.ChoiceField(choices=cloak_pattern)
+    variable_three = forms.ChoiceField(choices=clasp_choices)
+
+    class Meta:
+        model = Product
+        fields = ('color', 'stat', 'variable_one', 'variable_two', 'variable_three',)
+
+
+class WandForm(forms.ModelForm):
+    """
+    Form for designing a custom wand.
+    """
+    wand_length = [
+        ('A', "10cm"),
+        ('B', "15cm"),
+        ('C', "20cm"),
+    ]
+
+    wand_point = [
+        ('A', "Cactus"),
+        ('B', "Orb"),
+        ('C', "Ice lolly (never melts, not edible)"),
+    ]
+
+    starting_spells = [
+        ('CRUSH', "Crush your enemies"),
+        ('SEE', "See them driven before you"),
+        ('HEAR', "Hear the lamentation of the women"),
+        ('NONE', "None"),
+    ]
+
+    variable_one = forms.ChoiceField(choices=wand_length)
+    variable_two = forms.ChoiceField(choices=wand_point)
+    variable_three = forms.ChoiceField(choices=starting_spells)
 
     class Meta:
         model = Product
