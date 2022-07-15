@@ -55,8 +55,8 @@ class DesignCustomHat(View):
         if form.is_valid():
             priced_form = form.save(commit=False)
             priced_form.price = price
-            product = form.save()
-            return redirect(reverse('final_quote', args=[product.id]))
+            cust_product = form.save()
+            return redirect(reverse('final_quote', args=[cust_product.id]))
         else:
             messages.error(request,
                  'Quote was not generated. Width must be at least 5cm and height at least 20cm.\
@@ -71,12 +71,12 @@ class DesignCustomHat(View):
         return render(request, template, context)
 
 
-def final_quote(request, product_id):
+def final_quote(request, cust_product_id):
     
-    product = get_object_or_404(CustomProduct, pk=product_id)
+    cust_product = get_object_or_404(CustomProduct, pk=cust_product_id)
 
     context = {
-        'product': product,
+        'cust_product': cust_product,
     }
 
     return render(request, 'custom_products/final_quote.html', context)
