@@ -11,7 +11,7 @@ def view_loot(request):
     return render(request, 'loot/loot.html')
 
 
-def standard_add_to_loot(request, item_id):
+def add_to_loot(request, item_id):
     """
     Function to add a quantity of the specified product to the bag.
     """
@@ -24,11 +24,11 @@ def standard_add_to_loot(request, item_id):
 
     if item_id in list(loot.keys()):
         loot[item_id] += quantity
-        messages.success(request, f'Updated {product.name} quantity to {loot[item_id]}')
+        messages.success(request, f'Updated custom product quantity to {loot[item_id]}')
         print("success")
     else:
         loot[item_id] = quantity
-        messages.success(request, f'Added {product.name} to your bag.')
+        messages.success(request, f'Added custom product to your bag.')
 
     request.session['loot'] = loot # this overwrites variable with the updated version
     print(loot)
@@ -36,7 +36,7 @@ def standard_add_to_loot(request, item_id):
     return redirect(redirect_url)
 
 
-def standard_adjust_loot(request, item_id):
+def adjust_loot(request, item_id):
     """
     Function to adjust the quantity of products in the bag.
     """
@@ -47,16 +47,16 @@ def standard_adjust_loot(request, item_id):
 
     if quantity > 0:
         loot[item_id] = quantity
-        messages.success(request, f'Updated {product.name} quantity to {loot[item_id]}')
+        messages.success(request, f'Updated custom product quantity to {loot[item_id]}')
     else:
         loot.pop(item_id)
-        messages.success(request, f'Removed {product.name} from your loot bag')
+        messages.success(request, f'Removed custom product from your loot bag')
 
     request.session['loot'] = loot
     return redirect(reverse('view_loot'))
 
 
-def standard_remove_from_loot(request, item_id):
+def remove_from_loot(request, item_id):
     """
     Function to remove an item from the shopping bag.
     """
@@ -65,7 +65,7 @@ def standard_remove_from_loot(request, item_id):
     try:
         product = get_object_or_404(Product, pk=item_id)
         loot.pop(item_id)
-        messages.success(request, f'Removed {product.name} from your loot')
+        messages.success(request, f'Removed custom product from your loot')
 
         request.session['loot'] = loot
         # return this instead of redirect

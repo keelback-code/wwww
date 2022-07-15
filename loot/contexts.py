@@ -5,18 +5,21 @@ from django.shortcuts import get_object_or_404
 from products.models import Product
 
 def loot_contents(request):
-
-    bag_items = []
+    """
+    Function to make loot bag available across the site;
+    based on Code Institute's Boutique Ado code walkthrough.
+    """
+    loot_items = []
     total = 0
     product_count = 0
-    bag = request.session.get('bag', {})
+    loot = request.session.get('loot', {})
 
-    for item_id, item_data in bag.items():
+    for item_id, item_data in loot.items():
         if isinstance(item_data, int):
             product = get_object_or_404(Product, pk=item_id)
             total += item_data * product.price
             product_count += item_data
-            bag_items.append({
+            loot_items.append({
                 'item_id': item_id,
                 'quantity': item_data,  # correct to be item data that was passed in
                 'product': product,
@@ -33,7 +36,7 @@ def loot_contents(request):
     # grand_total = delivery + total
     
     context = {
-        'bag_items': bag_items,
+        'loot_items': loot_items,
         'total': total,
         'product_count': product_count,
         # 'delivery': delivery,
