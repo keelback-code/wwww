@@ -6,101 +6,63 @@
 <!-- <div class="overlay"></div> -->
 <div class="container-fluid">
     <div class="row">
-        <div class="col text-center mt-3">
-            <h2 class="logo-font">Products</h2>
-            {% for s in current_stats %}
-            <a class="category-badge universal-link-styles" href="{% url 'all_products' %}?stat={{ s.name }}">
-                <span class="p-2 mt-2">{{ s.friendly_name }}</span>
-            </a>
-            {% endfor %}
-            <hr class="w-50 mb-1">
-        </div>
-    </div>
-    <div class="row">
-        <div class="product-container col-10 offset-1">
-            <div class="row mt-1 mb-2">
-                <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
-                    <div class="sort-select-wrapper w-50">
-                        <select id="sort-selector"
-                            class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
-                            <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Explore
-                                by...
-                            </option>
-                            <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price
-                                (low to high)</option>
-                            <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price
-                                (high to low)</option>
-                            <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name
-                                (A-Z)</option>
-                            <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name
-                                (Z-A)</option>
-                            <option value="stat_asc" {% if current_sorting == 'stat_asc' %}selected{% endif %}>
-                                Stat (A-Z)</option>
-                            <option value="stat_desc" {% if current_sorting == 'stat_desc' %}selected{% endif %}>Stat
-                                (Z-A)</option>
-                        </select>
-                    </div>
+
+        <h2 class="logo-font text-center">Products</h2>
+
+
+        <div class="col-md-6">
+            <div class="card text-center battle-card">
+                <div>
+                    <a class="card-title reversed-link-styles fs-4" href="{% url 'custom_hat_one' %}">Hat One
+                    </a>
                 </div>
-                <div class="col-12 col-md-6 order-md-first">
-                    <p class="mt-3 text-center text-md-left">
-                        {% if search_term or current_stats or current_sorting != 'None_None' %}
-                        <span class="small"><a class="universal-link-styles" href="{% url 'all_products' %}">Products
-                                Home</a> | </span>
-                        {% endif %}
-                        {{ products|length }} Products{% if search_term %} found for
-                        <strong>"{{ search_term }}"</strong>{% endif %}
-                    </p>
+                <div class="card-body image-grid-container">
+                    <a href="{% url 'custom_hat_one' %}"><img class="img-fluid" src="{{ MEDIA_URL }}blue-top-hat.jpg"
+                            alt="wiz img"></a>
                 </div>
             </div>
-            <div class="row">
-                {% for product in products %}
-                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                    <div class="card h-100 w-100 border-0">
-                        {% if product.image %}
-                        <a href="{% url 'product_detail' product.id %}">
-                            <img class="card-img-top" src="{{ product.image.url }}"
-                                alt="{{ product.img_alt_text }}">
-                        </a>
-                        {% else %}
-                        <a href="{% url 'product_detail' product.id %}">
-                            <img class="card-img-top" src="{{ MEDIA_URL }}noimage.png"
-                                alt="{{ product.name }}">
-                        </a>
-                        {% endif %}
-                        <div class="card-body pb-0 all-product-card">
-                            <p class="mb-0">{{ product.name }}</p>
-                        </div>
-                        <div class="card-footer all-product-card pt-0 border-0 text-left">
-                            <div class="row">
-                                <div class="col">
-                                    <p class="fs-5 mb-0 text-left font-weight-bold">€{{ product.price }}</p>
+        </div>
 
-                                    {% if request.user.is_staff %}
-                                    <small>
-                                        <a class="ml-3 reversed-link-styles"
-                                            href="{% url 'edit_standard_product' product.id %}">Edit</a>
-                                        <a class="ml-3 reversed-link-styles"
-                                            href="{% url 'delete_standard_product' product.id %}">Delete</a>
-                                    </small>
-                                    {% endif %}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <div class="col-md-6">
+            <div class="card text-center battle-card">
+                <div>
+                    <a class="card-title reversed-link-styles fs-4" href="{% url 'custom_hat_two' %}">Hat Two
+                    </a>
                 </div>
-
-                {% endfor %}
+                <div class="card-body image-grid-container">
+                    <a href="{% url 'custom_hat_two' %}"><img class="img-fluid" src="{{ MEDIA_URL }}black-straw-hat.jpg"
+                            alt="wiz img"></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card text-center battle-card">
+                <div>
+                    <a class="card-title reversed-link-styles fs-4" href="{% url 'custom_hat_one' %}">Cloak
+                    </a>
+                </div>
+                <div class="card-body image-grid-container">
+                    <a href="{% url 'custom_hat_one' %}"><img class="img-fluid" src="{{ MEDIA_URL }}forest-green-cloak.jpg"
+                            alt="wiz img"></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card text-center battle-card">
+                <div>
+                    <a class="card-title reversed-link-styles fs-4" href="{% url 'custom_hat_one' %}">Wand
+                    </a>
+                </div>
+                <div class="card-body image-grid-container">
+                    <a href="{% url 'custom_hat_one' %}"><img class="img-fluid" src="{{ MEDIA_URL }}cactus-wand.jpg"
+                            alt="wiz img"></a>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
-
-{% if request.user.is_staff %}
-<div class="rounded form-container mx-auto text-center m-5" style="width: 15rem;">
-    <a class="reversed-link-styles" href="{% url 'add_standard_product' %}">Add Product <i class="fa-solid fa-wand-sparkles"></i></a>
 </div>
-{% endif %}
+
 
 {% endblock %}
 

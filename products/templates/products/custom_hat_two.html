@@ -9,7 +9,7 @@
     <h1 class="fs-2">Design custom hat</h1>
 </div>
 <div class="form-container text-center rounded mx-auto my-2">
-    <form method="post" action="{% url 'design_custom_hat' %}" enctype="multipart/form-data">
+    <form method="post" action="{% url 'custom_hat_two' %}" enctype="multipart/form-data">
         {{ form | crispy }}
         {% csrf_token %}
         <button type="submit" class="btn btn-md btn-navy my-2">Generate Quote</button>
