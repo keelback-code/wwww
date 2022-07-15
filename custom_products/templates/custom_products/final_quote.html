@@ -13,7 +13,22 @@
     <p>Height: {{ cust_product.hat_height }}cm</p>
     <p>Colour: {{ cust_product.color }}</p>
     <p>Patch: {{ cust_product.patch }}</p>
-</div>
+
+    <form class="form" action="{% url 'final_quote' cust_product.id %}" method="POST">
+        {% csrf_token %}
+            <div>
+                <a href="{% url 'design_custom_hat' %}" class="btn btn-md btn-navy my-2">
+                    <span class="icon">
+                        <i class="fas fa-chevron-left"></i>
+                    </span>
+                    <span>Discard</span>
+                </a>
+                <input type="submit" class="btn btn-md btn-navy my-2" value="Add to Loot">
+            </div>
+            <input type="hidden" name="redirect_url" value="{{ request.path }}">
+    </form>
+
+
 
 <p>{{ cust_product.sku }} - ref for elyse</p>
 

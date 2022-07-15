@@ -75,6 +75,8 @@ def final_quote(request, cust_product_id):
     
     cust_product = get_object_or_404(CustomProduct, pk=cust_product_id)
 
+    # if request == 'POST':
+
     context = {
         'cust_product': cust_product,
     }
