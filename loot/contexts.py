@@ -1,7 +1,7 @@
 from decimal import Decimal
 from django.conf import settings
 from django.shortcuts import get_object_or_404
-from standard_products.models import StandardProduct
+from standard_products.models import Product
 
 
 def loot_contents(request):
@@ -16,7 +16,7 @@ def loot_contents(request):
 
     for item_id, item_data in loot.items():
         if isinstance(item_data, int):
-            product = get_object_or_404(StandardProduct, pk=item_id)
+            product = get_object_or_404(Product, pk=item_id)
             total += item_data * product.price
             product_count += item_data
             loot_items.append({

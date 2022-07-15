@@ -1,23 +1,36 @@
 from django import forms
-from .models import StandardProduct, Stat
+from .models import Product
 
 
-class StandardProductForm(forms.ModelForm):
+class HatOneForm(forms.ModelForm):
     """
-    Form for dealing with standard products.
-    Based on Code Institute Boutique Ado project.
+    Form for designing a custom hat.
     """
+    brim_width = [
+        ('5', "5cm"),
+        ('10', "10cm"),
+        ('15', "15cm"),
+    ]
+
+    hat_height = [
+        ('15', "15cm"),
+        ('20', "20cm"),
+        ('25', "25cm"),
+    ]
+
+    patch_choices = [
+        ('STAR', "Star"),
+        ('MOON', "Crescent moon"),
+        ('PRIDE', "Pride flag"),
+        ('TRANS', "Trans flag"),
+        ('ANARCHY', "Anarchy patch"),
+        ('NONE', "None"),
+    ]
+
+    variable_one = forms.ChoiceField(choices=brim_width)
+    variable_two = forms.ChoiceField(choices=hat_height)
+    variable_three = forms.ChoiceField(choices=patch_choices)
+
     class Meta:
-        model = StandardProduct
-        fields = '__all__'
-    
-    image = forms.ImageField(label='Image', required=False)
-    
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        stats = Stat.objects.all()
-        friendly_names = [(s.id, s.get_friendly_name()) for s in stats]
-
-        self.fields['stat'].choices = friendly_names
-        for field_name, field in self.fields.items():
-            field.widget.attrs['class'] = 'border-black rounded-0'
+        model = Product
+        fields = ('color', 'stat', 'variable_one', 'variable_two', 'variable_three',)

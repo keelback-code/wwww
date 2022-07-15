@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
 from django.contrib import messages
-from standard_products.models import StandardProduct
+from standard_products.models import Product
 # from custom_products.models import CustomProduct
 
 # Based on Code Institute Boutique Ado project.
@@ -18,7 +18,7 @@ def standard_add_to_loot(request, item_id):
     Function to add a quantity of the specified product to the bag.
     """
 
-    product = get_object_or_404(StandardProduct, pk=item_id)
+    product = get_object_or_404(Product, pk=item_id)
     quantity = int(request.POST.get('quantity'))   # will come from template as string so must convert
     redirect_url = request.POST.get('redirect_url')
     loot = request.session.get('loot', {})  # looks for session and initializes to empty dict if doesn't
@@ -43,7 +43,7 @@ def standard_adjust_loot(request, item_id):
     Function to adjust the quantity of products in the bag.
     """
 
-    product = get_object_or_404(StandardProduct, pk=item_id)  # this is here so messages can access info
+    product = get_object_or_404(Product, pk=item_id)  # this is here so messages can access info
     quantity = int(request.POST.get('quantity'))
     loot = request.session.get('loot', {})
 
@@ -65,7 +65,7 @@ def standard_remove_from_loot(request, item_id):
 
     # checks for size first so that just deletes that size, not all products
     try:
-        product = get_object_or_404(StandardProduct, pk=item_id)
+        product = get_object_or_404(Product, pk=item_id)
         loot.pop(item_id)
         messages.success(request, f'Removed {product.name} from your loot')
 

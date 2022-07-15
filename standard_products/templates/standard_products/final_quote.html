@@ -7,14 +7,14 @@
     <h1 class="fs-2">Custom quote (final)</h1>
 </div>
 <div class="form-container text-center rounded mx-auto my-2">
-    <h2>The price for your custom hat is €{{ cust_product.price }}.</h2>
+    <h2>The price for your custom hat is €{{ product.price }}.</h2>
     <h3>The details are:</h3>
-    <p>Brim width: {{ cust_product.brim_width }}cm</p>
-    <p>Height: {{ cust_product.hat_height }}cm</p>
-    <p>Colour: {{ cust_product.color }}</p>
-    <p>Patch: {{ cust_product.patch }}</p>
+    <p>Brim width: {{ product.variable_one }}cm</p>
+    <p>Height: {{ product.variable_two }}cm</p>
+    <p>Colour: {{ product.color }}</p>
+    <p>Patch: {{ product.variable_three }}</p>
 
-    <form class="form" action="{% url 'final_quote' cust_product.id %}" method="POST">
+    <form class="form" action="{% url 'final_quote' product.id %}" method="POST">
         {% csrf_token %}
             <div>
                 <a href="{% url 'design_custom_hat' %}" class="btn btn-md btn-navy my-2">
@@ -30,6 +30,6 @@
 
 
 
-<p>{{ cust_product.sku }} - ref for elyse</p>
+<p>{{ product.sku }} - ref for elyse</p>
 
 {% endblock %}
