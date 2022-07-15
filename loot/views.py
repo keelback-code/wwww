@@ -1,9 +1,7 @@
 from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
 from django.contrib import messages
-from standard_products.models import Product
-# from custom_products.models import CustomProduct
+from products.models import Product
 
-# Based on Code Institute Boutique Ado project.
 
 def view_loot(request):
     """

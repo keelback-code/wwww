@@ -1,29 +1,27 @@
+
 from decimal import Decimal
 from django.conf import settings
 from django.shortcuts import get_object_or_404
-from standard_products.models import Product
-
+from products.models import Product
 
 def loot_contents(request):
-    """
-    Context processor for the shopping bag (loot) functionality.
-    Based on Code Institute Boutique Ado project.
-    """
-    loot_items = []
+
+    bag_items = []
     total = 0
     product_count = 0
-    loot = request.session.get('loot', {})
+    bag = request.session.get('bag', {})
 
-    for item_id, item_data in loot.items():
+    for item_id, item_data in bag.items():
         if isinstance(item_data, int):
             product = get_object_or_404(Product, pk=item_id)
             total += item_data * product.price
             product_count += item_data
-            loot_items.append({
+            bag_items.append({
                 'item_id': item_id,
                 'quantity': item_data,  # correct to be item data that was passed in
                 'product': product,
             })
+       
 
     # if total < settings.FREE_DELIVERY_THRESHOLD:
     #     delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
@@ -31,11 +29,11 @@ def loot_contents(request):
     # else:
     #     delivery = 0
     #     free_delivery_delta = 0
-
+    
     # grand_total = delivery + total
-
+    
     context = {
-        'loot_items': loot_items,
+        'bag_items': bag_items,
         'total': total,
         'product_count': product_count,
         # 'delivery': delivery,

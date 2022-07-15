@@ -37,11 +37,6 @@ def all_products(request):
             products = products.order_by(sortkey)  # this is actually sorting it
 
 
-        if 'stat' in request.GET:
-            stats = request.GET['stat'].split(',')
-            products = products.filter(stat__name__in=stats)
-            stats = Stat.objects.filter(name__in=stats)
-
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
@@ -61,7 +56,7 @@ def all_products(request):
         'current_sorting': current_sorting,
     }
 
-    template = 'standard_products/products.html'
+    template = 'products/products.html'
 
     return render(request, template, context)
 
@@ -77,7 +72,7 @@ def product_detail(request, product_id):
         # 'search_term': query,
     }
 
-    return render(request, 'standard_products/product_detail.html', context)
+    return render(request, 'products/product_detail.html', context)
 
 
 # @login_required
@@ -158,7 +153,7 @@ class DesignCustomHat(View):
     """
     def get(self, request):
         form = HatOneForm()
-        template = 'standard_products/custom_hats.html'
+        template = 'products/custom_hats.html'
         context = {
             'form': form,
         }
@@ -171,8 +166,6 @@ class DesignCustomHat(View):
         brim_width = request.POST['variable_one']
         hat_height = request.POST['variable_two']
         patch = request.POST['variable_three']
-        # brim = int(brim_width)
-        # height = int(hat_height)
         price = 20
 
         if brim_width == '5':
@@ -211,7 +204,7 @@ class DesignCustomHat(View):
                  Please try again.')
             form = HatOneForm()
 
-        template = 'standard_products/custom_hats.html'
+        template = 'products/custom_hats.html'
         context = {
             'form': form,
         }
@@ -229,5 +222,5 @@ def final_quote(request, product_id):
         'product': product,
     }
 
-    return render(request, 'standard_products/final_quote.html', context)
+    return render(request, 'products/final_quote.html', context)
 
