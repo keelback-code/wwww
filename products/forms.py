@@ -27,9 +27,9 @@ class HatOneForm(forms.ModelForm):
         ('NONE', "None"),
     ]
 
-    variable_one = forms.ChoiceField(choices=brim_width)
-    variable_two = forms.ChoiceField(choices=hat_height)
-    variable_three = forms.ChoiceField(choices=patch_choices)
+    variable_one = forms.ChoiceField(choices=brim_width, label="Brim Width")
+    variable_two = forms.ChoiceField(choices=hat_height, label="Hat Height")
+    variable_three = forms.ChoiceField(choices=patch_choices, label="Patch Options")
 
     class Meta:
         model = Product
@@ -61,9 +61,9 @@ class HatTwoForm(forms.ModelForm):
         ('NONE', "None"),
     ]
 
-    variable_one = forms.ChoiceField(choices=spell_choices)
-    variable_two = forms.ChoiceField(choices=hat_floppiness)
-    variable_three = forms.ChoiceField(choices=patch_choices_two)
+    variable_one = forms.ChoiceField(choices=spell_choices, label="Built-in Spell Options")
+    variable_two = forms.ChoiceField(choices=hat_floppiness, label="Hat Floppiness")
+    variable_three = forms.ChoiceField(choices=patch_choices_two, label="Patch Options")
 
     class Meta:
         model = Product
@@ -94,9 +94,9 @@ class CloakForm(forms.ModelForm):
         ('NONE', "None"),
     ]
 
-    variable_one = forms.ChoiceField(choices=cloak_length)
-    variable_two = forms.ChoiceField(choices=cloak_pattern)
-    variable_three = forms.ChoiceField(choices=clasp_choices)
+    variable_one = forms.ChoiceField(choices=cloak_length, label="Length")
+    variable_two = forms.ChoiceField(choices=cloak_pattern, label="Pattern")
+    variable_three = forms.ChoiceField(choices=clasp_choices, label="Clasp")
 
     class Meta:
         model = Product
@@ -126,9 +126,9 @@ class WandForm(forms.ModelForm):
         ('NONE', "None"),
     ]
 
-    variable_one = forms.ChoiceField(choices=wand_length)
-    variable_two = forms.ChoiceField(choices=wand_point)
-    variable_three = forms.ChoiceField(choices=starting_spells)
+    variable_one = forms.ChoiceField(choices=wand_length, label="Length")
+    variable_two = forms.ChoiceField(choices=wand_point, label="Pointy End")
+    variable_three = forms.ChoiceField(choices=starting_spells, label="Starting Spell")
 
     class Meta:
         model = Product

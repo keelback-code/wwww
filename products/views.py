@@ -10,7 +10,7 @@ from .forms import HatOneForm, HatTwoForm, CloakForm, WandForm
 
 def calc_variables(variable_one, variable_two, variable_three):
     """
-    Function to calculate the variables for each product.
+    Top level function to calculate the variables for each following product.
     """
     price = 20
 
@@ -38,27 +38,6 @@ def calc_variables(variable_one, variable_two, variable_three):
         price = price + 2 
 
     return price
-
-
-def all_products(request):
-    """
-    Function to retrieve all products.
-    """
-    return render(request, 'products/products.html')
-
-
-def product_detail(request, product_id):
-    """
-    Function to retrieve the details of an individual product.
-    """
-    product = get_object_or_404(Product, pk=product_id)
-
-    context = {
-        'product': product,
-        # 'search_term': query,
-    }
-
-    return render(request, 'products/product_detail.html', context)
 
 
 class DesignCustomHat(View):
@@ -170,6 +149,63 @@ class DesignCustomCloak(View):
         }
 
         return render(request, template, context)
+
+
+class DesignCustomWand(View):
+    """
+    Class to get a quote for a custom cloak.
+    """
+    def get(self, request):
+        form = WandForm()
+        template = 'products/custom_wand.html'
+        context = {
+            'form': form,
+        }
+
+        return render(request, template, context)
+
+
+    def post(self, request):
+        form = WandForm(request.POST) 
+        wand_length = request.POST['variable_one']
+        wand_point = request.POST['variable_two']
+        starting_spells = request.POST['variable_three']
+        
+        if form.is_valid():
+            priced_form = form.save(commit=False)
+            priced_form.price = calc_variables(wand_length, wand_point, starting_spells)
+            product = form.save()
+            return redirect(reverse('final_quote', args=[product.id]))
+        else:
+            messages.error(request, 'Quote was not generated. Please try again.')
+            form = WandForm()
+
+        template = 'products/custom_wand.html'
+        context = {
+            'form': form,
+        }
+
+        return render(request, template, context)
+
+
+def all_products(request):
+    """
+    Function to retrieve all products.
+    """
+    return render(request, 'products/products.html')
+
+
+def product_detail(request, product_id):
+    """
+    Function to retrieve the details of an individual product.
+    """
+    product = get_object_or_404(Product, pk=product_id)
+
+    context = {
+        'product': product,
+    }
+
+    return render(request, 'products/product_detail.html', context)
 
 
 def final_quote(request, product_id):

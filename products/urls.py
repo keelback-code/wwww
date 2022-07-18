@@ -6,6 +6,7 @@ urlpatterns = [
     path('product_detail/<int:product_id>/', views.product_detail, name='product_detail'),
     path('custom_hat_one/', views.DesignCustomHat.as_view(), name='custom_hat_one'),
     path('custom_hat_two/', views.DesignCustomHatTwo.as_view(), name='custom_hat_two'),
-    path('ccustom_cloakloak/', views.DesignCustomCloak.as_view(), name='custom_cloak'),
+    path('custom_cloak/', views.DesignCustomCloak.as_view(), name='custom_cloak'),
+    path('custom_wand/', views.DesignCustomWand.as_view(), name='custom_wand'),
     path('final_quote/<int:product_id>/', views.final_quote, name='final_quote'),
 ]
