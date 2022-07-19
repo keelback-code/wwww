@@ -7,24 +7,24 @@ class HatOneForm(forms.ModelForm):
     Form for designing a custom hat.
     """
     brim_width = [
-        ('A', "5cm"),
-        ('B', "10cm"),
-        ('C', "15cm"),
+        ('Brim - 5cm', "5cm"),
+        ('Brim - 10cm', "10cm"),
+        ('Brim - 15cm', "15cm"),
     ]
 
     hat_height = [
-        ('A', "15cm"),
-        ('B', "20cm"),
-        ('C', "25cm"),
+        ('Height - 15cm', "15cm"),
+        ('Height - 20cm', "20cm"),
+        ('Height - 25cm', "25cm"),
     ]
 
     patch_choices = [
-        ('STAR', "Star"),
-        ('MOON', "Crescent moon"),
-        ('PRIDE', "Pride flag"),
-        ('TRANS', "Trans flag"),
-        ('ANARCHY', "Anarchy patch"),
-        ('NONE', "None"),
+        ('Patch - Star', "Star"),
+        ('Patch - Moon', "Crescent moon"),
+        ('Patch - Pride flag', "Pride flag"),
+        ('Patch - Trans flag', "Trans flag"),
+        ('Patch - Anarchy', "Anarchy patch"),
+        ('Patch - None', "None"),
     ]
 
     variable_one = forms.ChoiceField(choices=brim_width, label="Brim Width")
@@ -41,24 +41,24 @@ class HatTwoForm(forms.ModelForm):
     Form for designing a custom hat.
     """
     spell_choices = [
-        ('A', "Freeze"),
-        ('B', "Whither"),
-        ('C', "Overexplain"),
+        ('Spell - Freeze', "Freeze"),
+        ('Spell - Whither', "Whither"),
+        ('Spell - Overexplain', "Overexplain"),
     ]
 
     hat_floppiness = [
-        ('A', "Fairly"),
-        ('B', "Very floppy"),
-        ('C', "Very extremely floppy"),
+        ('Fairly floppy', "Fairly"),
+        ('Very floppy', "Very floppy"),
+        ('Very extremely floppy', "Very extremely floppy"),
     ]
 
     patch_choices_two = [
-        ('NONBINARY', "Nonbinary flag"),
-        ('LESBIAN', "Lesbian flag"),
-        ('GENDERQUEER', "Genderqueer flag"),
-        ('GOOSE', "Goose"),
-        ('MOOSE', "Moose"),
-        ('NONE', "None"),
+        ('Patch - Nonbinary flag', "Nonbinary flag"),
+        ('Patch - Lesbian flag', "Lesbian flag"),
+        ('Patch - Genderqueer flag', "Genderqueer flag"),
+        ('Patch - Goose', "Goose"),
+        ('Patch - Moose', "Moose"),
+        ('Patch - None', "None"),
     ]
 
     variable_one = forms.ChoiceField(choices=spell_choices, label="Built-in Spell Options")
@@ -75,23 +75,23 @@ class CloakForm(forms.ModelForm):
     Form for designing a custom cloak.
     """
     cloak_length = [
-        ('A', "Mini"),
-        ('B', "Midi"),
-        ('C', "So Long You'll Step On It"),
+        ('Length - Mini', "Mini"),
+        ('Length - Midi', "Midi"),
+        ('Length - So Long You Will Step On It', "So Long You Will Step On It"),
     ]
 
     cloak_pattern = [
-        ('A', "Tartan"),
-        ('B', "Leaves"),
-        ('C', "Bowling alley carpet"),
+        ('Pattern - Tartan', "Tartan"),
+        ('Pattern - Leaves', "Leaves"),
+        ('Pattern - Bowling alley carpet', "Bowling alley carpet"),
     ]
 
     clasp_choices = [
-        ('LOTR', "Leaf clasp"),
-        ('SHAKE', "Two hands shaking"),
-        ('RBOW', "Rainbow"),
-        ('SNAKE', "Snake"),
-        ('NONE', "None"),
+        ('Clasp - LOTR Leaf clasp', "Leaf clasp"),
+        ('Clasp - Two hands shaking', "Two hands shaking"),
+        ('Clasp - Rainbow', "Rainbow"),
+        ('Clasp - Snake', "Snake"),
+        ('Clasp - None', "None"),
     ]
 
     variable_one = forms.ChoiceField(choices=cloak_length, label="Length")
@@ -108,22 +108,22 @@ class WandForm(forms.ModelForm):
     Form for designing a custom wand.
     """
     wand_length = [
-        ('A', "10cm"),
-        ('B', "15cm"),
-        ('C', "20cm"),
+        ('Length - 10cm', "10cm"),
+        ('Length - 15cm', "15cm"),
+        ('Length - 20cm', "20cm"),
     ]
 
     wand_point = [
-        ('A', "Cactus"),
-        ('B', "Orb"),
-        ('C', "Ice lolly (never melts, not edible)"),
+        ('Point - Cactus', "Cactus"),
+        ('Point - Orb', "Orb"),
+        ('Point - Ice Lolly', "Ice Lolly (never melts, not edible)"),
     ]
 
     starting_spells = [
-        ('CRUSH', "Crush your enemies"),
-        ('SEE', "See them driven before you"),
-        ('HEAR', "Hear the lamentation of the women"),
-        ('NONE', "None"),
+        ('Spell - Crush', "Crush your enemies"),
+        ('Spell - See', "See them driven before you"),
+        ('Spell - Hear', "Hear the lamentation of the women"),
+        ('Spell - None', "None"),
     ]
 
     variable_one = forms.ChoiceField(choices=wand_length, label="Length")

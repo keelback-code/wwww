@@ -1,38 +1,41 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
-from django.db.models import Q
-from django.db.models.functions import Lower
-from django.views import generic, View
+from django.views import View
 from .models import Product
 from .forms import HatOneForm, HatTwoForm, CloakForm, WandForm
 
 
-def calc_variables(variable_one, variable_two, variable_three):
+def calc_variables(variable_one, variable_two, variable_three, a, b, c, d, e, f):
     """
-    Top level function to calculate the variables for each following product.
+    Top level function to calculate the variables
+    for each following custom product.
     """
     price = 20
-
-    if variable_one == 'A':
+    # A = 'A'
+    # B = 'B'
+    # C = 'C'
+    # D = 'D'
+    # E = 'E'
+    # F = 'F'
+    if variable_one == a:
         price = price + 5
-    elif variable_one == 'B':
+    elif variable_one == b:
         price = price + 10
-    elif variable_one == 'C':
+    elif variable_one == c:
         price = price + 15
     else:
         price + 0
 
-    if variable_two == 'A':
+    if variable_two == d:
         price = price + 5
-    elif variable_two == 'B':
+    elif variable_two == e:
         price = price + 10
-    elif variable_two == 'C':
+    elif variable_two == f:
         price = price + 15
     else:
         price = price + 0
 
-    if variable_three == 'NONE':
+    if variable_three == 'None':
         price = price + 0
     else:
         price = price + 2 
@@ -59,10 +62,13 @@ class DesignCustomHat(View):
         brim_width = request.POST['variable_one']
         hat_height = request.POST['variable_two']
         patch = request.POST['variable_three']
-
+        
         if form.is_valid():
             priced_form = form.save(commit=False)
-            priced_form.price = calc_variables(brim_width, hat_height, patch)
+            priced_form.price = calc_variables(
+                brim_width, hat_height, patch, 
+                "Brim - 5cm", "Brim - 10cm", "Brim - 15cm", 
+                "Height - 15cm", "Height - 20cm", "Height - 25cm")
             product = form.save()
             return redirect(reverse('final_quote', args=[product.id]))
         else:
@@ -79,7 +85,7 @@ class DesignCustomHat(View):
 
 class DesignCustomHatTwo(View):
     """
-    Class to get a quote for a custom hat.
+    Class to get a quote for a second custom hat.
     """
     def get(self, request):
         form = HatTwoForm()
@@ -96,10 +102,13 @@ class DesignCustomHatTwo(View):
         spell_choices = request.POST['variable_one']
         hat_floppiness = request.POST['variable_two']
         patch = request.POST['variable_three']
-        
+
         if form.is_valid():
             priced_form = form.save(commit=False)
-            priced_form.price = calc_variables(spell_choices, hat_floppiness, patch)
+            priced_form.price = calc_variables(
+                spell_choices, hat_floppiness, patch, 
+                "Spell - Freeze", "Spell - Whither", "Spell - Overexplain", 
+                "Fairly floppy", "Very floppy", "Very extremely floppy")
             product = form.save()
             return redirect(reverse('final_quote', args=[product.id]))
         else:
@@ -136,7 +145,10 @@ class DesignCustomCloak(View):
         
         if form.is_valid():
             priced_form = form.save(commit=False)
-            priced_form.price = calc_variables(cloak_length, cloak_pattern, clasp_choices)
+            priced_form.price = calc_variables(
+                cloak_length, cloak_pattern, clasp_choices, 
+                "Length - Mini", "Length - Midi", "Length - So Long You Will Step On It", 
+                "Pattern - Tartan", "Pattern - Leaves", "Pattern - Bowling alley carpet")
             product = form.save()
             return redirect(reverse('final_quote', args=[product.id]))
         else:
@@ -173,7 +185,10 @@ class DesignCustomWand(View):
         
         if form.is_valid():
             priced_form = form.save(commit=False)
-            priced_form.price = calc_variables(wand_length, wand_point, starting_spells)
+            priced_form.price = calc_variables(
+                wand_length, wand_point, starting_spells, 
+                "Length - 10cm", "Length - 15cm", "Length - 20cm", 
+                "Point - Cactus", "Point - Orb", "Point - Ice Lolly")
             product = form.save()
             return redirect(reverse('final_quote', args=[product.id]))
         else:
@@ -213,6 +228,11 @@ def final_quote(request, product_id):
     Function to display a quote for a custom product.
     """
     product = get_object_or_404(Product, pk=product_id)
+
+    # if variable_one == 'A':
+    #     variable_one = request.POST['variable_one']
+    # elif variable_two == 'D':
+    #     variable_two = request.POST['variable_two']
 
     context = {
         'product': product,

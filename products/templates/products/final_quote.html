@@ -7,16 +7,12 @@
     <h1 class="fs-2">Custom quote (final)</h1>
 </div>
 <div class="form-container text-center rounded mx-auto my-2">
-    <h2>The price for your custom item is €{{ product.price }}.</h2>
+    <h2>The price for your custom item is ${{ product.price }}.</h2>
     <h3>The details are:</h3>
-    <p>Brim width: {{ product.variable_one }}cm</p>
-    <p>Height: {{ product.variable_two }}cm</p>
+    <p>{{ product.variable_one }}</p>
+    <p>{{ product.variable_two }}</p>
     <p>Colour: {{ product.color }}</p>
     <p>Patch: {{ product.variable_three }}</p>
-
-
-
-
 
 <p>{{ product.sku }} - ref for elyse</p>
 
