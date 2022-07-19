@@ -45,9 +45,11 @@ def adjust_loot(request, item_id):
     quantity = int(request.POST.get('quantity'))
     loot = request.session.get('loot', {})
 
-    if quantity > 0:
+    if quantity <= 10:
         loot[item_id] = quantity
         messages.success(request, f'Updated custom product quantity to {loot[item_id]}')
+    elif quantity > 10:
+        messages.error(request, f'Unable to add more than 10 custom products')
     else:
         loot.pop(item_id)
         messages.success(request, f'Removed custom product from your loot bag')
