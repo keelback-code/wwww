@@ -1,17 +1,16 @@
 from django import forms
-from .models import Order
+from .models import UserProfile
+"""
+Form to create a user profile, based on Code Institute's Boutique Ado walkthrough.
+"""
 
-
-class OrderForm(forms.ModelForm):
-    """
-    Model form for orders, based on Code Institute's Boutique Ado walkthrough.
-    """ 
+class UserProfileForm(forms.ModelForm):
     class Meta:
-        model = Order
-        fields = ('full_name', 'email', 'phone_number',
-                  'street_address1', 'street_address2',
-                  'town_or_city', 'postcode', 'country',)
+        model = UserProfile
+        # render all fields except user, coz that should never change
+        exclude = ('user',)
 
+    # override init method
     def __init__(self, *args, **kwargs):
         """
         Add placeholders and classes, remove auto-generated
@@ -20,24 +19,22 @@ class OrderForm(forms.ModelForm):
         # call init, then create dict with nicer looking labels
         super().__init__(*args, **kwargs)
         placeholders = {
-            'full_name': 'Full Name',
-            'email': 'Email Address',
-            'phone_number': 'Phone Number',
-            'postcode': 'Postal Code',
-            'town_or_city': 'Town or City',
-            'street_address1': 'Street Address 1',
-            'street_address2': 'Street Address 2',
+            'default_phone_number': 'Phone Number',
+            'default_postcode': 'Postal Code',
+            'default_town_or_city': 'Town or City',
+            'default_street_address1': 'Street Address 1',
+            'default_street_address2': 'Street Address 2',
         }
 
         # autofocus means cursor will start here, then iterate through fields
         # include check for country
-        self.fields['full_name'].widget.attrs['autofocus'] = True
+        self.fields['default_phone_number'].widget.attrs['autofocus'] = True
         for field in self.fields:
-            if field != 'country':
+            if field != 'default_country':
                 if self.fields[field].required:
                     placeholder = f'{placeholders[field]} *'  # this adds * if required
                 else:
                     placeholder = placeholders[field]
                 self.fields[field].widget.attrs['placeholder'] = placeholder  # this sets placeholders to their values set in the dict above
-            self.fields[field].widget.attrs['class'] = 'stripe-style-input'  # adds a custom css class
+            self.fields[field].widget.attrs['class'] = 'border-black rounded-0 profile-form-input'  # adds a custom css class
             self.fields[field].label = False  # removes form fields labels, as we added our own

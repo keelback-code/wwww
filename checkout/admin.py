@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .models import Order, OrderLineItem
 """
-Classes to see checkout objects in the admin, based on Code Institute's Boutique Ado wakthrough.
+Classes to see checkout objects in the admin, based on Code Institute's Boutique Ado walkthrough.
 """ 
 
 class OrderLineItemAdminInline(admin.TabularInline):
