@@ -1,11 +1,10 @@
 /*
     Core logic/payment flow for this comes from here:
-    https://stripe.com/docs/payments/accept-a-payment   ???? docs have changed but this still works except webhooks?
+    https://stripe.com/docs/payments/accept-a-payment
     CSS from here: 
     https://stripe.com/docs/stripe-js
 */
 
-// slice first and last char from each pub key to remove quotation marks
 var stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
 var clientSecret = $('#id_client_secret').text().slice(1, -1);
 var stripe = Stripe(stripePublicKey);
@@ -28,10 +27,8 @@ var style = {
 var card = elements.create('card', {style: style});
 card.mount('#card-element');
 
-
-
-// Handle realtime validation errors on the card element and display them clearly
-card.addEventListener('change', function(event) {
+// Handle realtime validation errors on the card element
+card.addEventListener('change', function (event) {
     var errorDiv = document.getElementById('card-errors');
     if (event.error) {
         var html = `
@@ -39,46 +36,37 @@ card.addEventListener('change', function(event) {
                 <i class="fas fa-times"></i>
             </span>
             <span>${event.error.message}</span>
-        ` // back ticks around html here
+        `;
         $(errorDiv).html(html);
     } else {
         errorDiv.textContent = '';
     }
 });
 
-// Handle form submit, copied from docs with a couple of changes
+// Handle form submit
 var form = document.getElementById('payment-form');
 
 form.addEventListener('submit', function(ev) {
     ev.preventDefault();
-    card.update({ 'disabled': true});  // this is to prevent multiple submissions
-    $('#submit-button').attr('disabled', true);  // this is also to prevent multiple submissions
+    card.update({ 'disabled': true});
+    $('#submit-button').attr('disabled', true);
     $('#payment-form').fadeToggle(100);
     $('#loading-overlay').fadeToggle(100);
 
-    // get boolean values of 'save info' box by seeing if it is checked
     var saveInfo = Boolean($('#id-save-info').attr('checked'));
-    // get csrf token from input that django generates
+    // From using {% csrf_token %} in the form
     var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
-    // create object to pass info through and create client secret for the payment intent
     var postData = {
         'csrfmiddlewaretoken': csrfToken,
         'client_secret': clientSecret,
         'save_info': saveInfo,
     };
-    // set up url to route to urls.py
-    var url = '/checkout/cache_checkout_data/'; 
+    var url = '/checkout/cache_checkout_data/';
 
-    // use post method to call postData and url
-    // here is where stripe sends the pax's info off
     $.post(url, postData).done(function () {
         stripe.confirmCardPayment(clientSecret, {
             payment_method: {
                 card: card,
-                // form data needs to be added to confirmed card payment method, form data is added like below
-                // use trim to get rid of white space. separate billing and shipping
-                // post code is only on ship as on billing it will come from stripe, and stripe will override
-                // it if we add it to billing
                 billing_details: {
                     name: $.trim(form.full_name.value),
                     phone: $.trim(form.phone_number.value),
@@ -104,7 +92,6 @@ form.addEventListener('submit', function(ev) {
             },
         }).then(function(result) {
             if (result.error) {
-                // shows error to pax, same as before
                 var errorDiv = document.getElementById('card-errors');
                 var html = `
                     <span class="icon" role="alert">
@@ -114,14 +101,11 @@ form.addEventListener('submit', function(ev) {
                 $(errorDiv).html(html);
                 $('#payment-form').fadeToggle(100);
                 $('#loading-overlay').fadeToggle(100);
-                card.update({ 'disabled': false});  // re-enables card to alow user to fix it
+                card.update({ 'disabled': false});
                 $('#submit-button').attr('disabled', false);
             } else {
                 if (result.paymentIntent.status === 'succeeded') {
                     form.submit();
-                    // there's a risk of pax closing the window before callback execution.
-                    // set up webhook or plugin to handle any busi-critical post payment action
-                    // or just include msg saying don't close the window?
                 }
             }
         });
