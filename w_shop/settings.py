@@ -124,21 +124,21 @@ ACCOUNT_EMAIL_VERIFICATION = 'none'  # temporary
 
 
 
-# if 'DATABASE_URL' in os.environ:
-#     DATABASES = {
-#         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-#     }
-# else:
-#     DATABASES = {
-#         'default': {
-#             'ENGINE': 'django.db.backends.sqlite3',
-#             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#         }
-#     }
-
-DATABASES = {
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+
+# DATABASES = {
+#         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+#     }
 
 
 # Password validation
@@ -215,11 +215,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Stripe
 
 # FREE_DELIVERY_THRESHOLD = 50
-# STANDARD_DELIVERY_PERCENTAGE = 10
+STANDARD_DELIVERY_PERCENTAGE = 10
 STRIPE_CURRENCY = 'eur'
 STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY', '')  # '' sets to default blank
 STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.environ.get('STRIPE_WH_SECRET', '')
+
 
 # # DEFAULT_FROM_EMAIL = 'boutiqueado@example.com'
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

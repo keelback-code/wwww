@@ -1,22 +1,16 @@
 {% extends "base.html" %}
 {% load static %}
-{% load bag_tools %}
+{% load loot_tools %}
 
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
 
-{% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
-    </div>
-{% endblock %}
+
 
 {% block content %}
     <div class="overlay"></div>
-    <div class="container">
+    <div class="container form-container text-center rounded mx-auto my-2">
         <div class="row">
             <div class="col">
                 <hr>
@@ -48,8 +42,6 @@
                             </a>
                         </div>
                         <div class="col-7">
-                            <p class="my-0"><strong>{{ item.product.name }}</strong></p>
-                            <p class="my-0 small">Size: {% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
                             <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
                         </div>
                         <div class="col-3 text-right">
@@ -101,7 +93,7 @@
 						</div>
                     </fieldset>
                     <fieldset class="px-3">
-                        <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
+                        <legend class="fieldset-label small px-2 w-auto">Payment</legend>
                         <!-- A Stripe card element will go here -->
                         <div class="mb-3" id="card-element"></div>
                         <!-- Used to display form errors -->

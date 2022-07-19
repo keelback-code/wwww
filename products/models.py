@@ -41,6 +41,6 @@ class Product(models.Model):
         """
         Function for generating a random sku.
         """
-        self.sku = random_sku_generator()
+        self.sku = random_sku_generator().upper()
         super().save(*args, **kwargs)
         return self.sku

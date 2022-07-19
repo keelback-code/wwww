@@ -1,4 +1,4 @@
-import uuid
+import shortuuid
 from django.db import models
 from django.db.models import Sum
 from django.conf import settings
@@ -13,7 +13,7 @@ class Order(models.Model):
     """
     Order model, will calculate bag as well as create order
     """   
-    order_number = models.CharField(max_length=32, null=False, editable=False)  # editable = False for customers to see their order no but not change it
+    order_number = models.CharField(max_length=8, null=False, editable=False)  # editable = False for customers to see their order no but not change it
     user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
                                      null=True, blank=True, related_name='orders')  # connects to profiles/models.py. set_null deletes user but we can keep order history
     full_name = models.CharField(max_length=50, null=False, blank=False)
@@ -36,7 +36,7 @@ class Order(models.Model):
         """
         func begins with '_' to indicate that func is private and will only be used within this class
         """
-        return uuid.uuid4().hex.upper()
+        return shortuuid.ShortUUID().random(length=8).upper()
 
     def update_total(self):
         """
@@ -44,10 +44,7 @@ class Order(models.Model):
         accounting for delivery costs.
         """
         self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum'] or 0  # add 0 here so it will never be None, just 0
-        if self.order_total < settings.FREE_DELIVERY_THRESHOLD:
-            self.delivery_cost = self.order_total * settings.STANDARD_DELIVERY_PERCENTAGE / 100
-        else:
-            self.delivery_cost = 0
+        self.delivery_cost = self.order_total * settings.STANDARD_DELIVERY_PERCENTAGE / 100
         # add order and delivery together to get grand total, then save
         self.grand_total = self.order_total + self.delivery_cost
         self.save()

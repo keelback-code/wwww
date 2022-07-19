@@ -3,7 +3,7 @@ from django.dispatch import receiver
 
 from .models import OrderLineItem
 """
-Signal for checkout objects, based on Code Institute's Boutique Ado wakthrough.
+Signal for checkout objects, based on Code Institute's Boutique Ado walkthrough.
 """ 
 
 @receiver(post_save, sender=OrderLineItem)
