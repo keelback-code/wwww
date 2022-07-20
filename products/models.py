@@ -2,7 +2,7 @@ import random
 import string
 from django.db import models
 
-def random_sku_generator(chars=string.ascii_lowercase + string.digits):
+def random_sku_generator(chars=string.ascii_uppercase + string.digits):
     """
     Function for creating a random sku.
     """
@@ -42,6 +42,6 @@ class Product(models.Model):
         """
         Function for generating a random sku.
         """
-        self.sku = random_sku_generator().upper()
+        self.sku = random_sku_generator()
         super().save(*args, **kwargs)
         return self.sku

@@ -26,10 +26,10 @@ def loot_contents(request):
                 'product': product,
             })
        
-    if request.user.is_authenticated:
-        delivery = 0
-    else:
-        delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
+    # if request.user.is_authenticated:
+    #     delivery = 0
+    # else:
+    delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
     grand_total = delivery + total
     
     context = {

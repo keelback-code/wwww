@@ -62,10 +62,9 @@ def remove_from_loot(request, item_id):
     """
     Function to remove an item from the shopping bag.
     """
-
-    # checks for size first so that just deletes that size, not all products
     try:
         product = get_object_or_404(Product, pk=item_id)
+        loot = request.session.get('loot', {})
         loot.pop(item_id)
         messages.success(request, f'Removed custom product from your loot')
 

@@ -1,10 +1,20 @@
-import shortuuid
+import random
+import string
 from django.db import models
 from django.db.models import Sum
 from django.conf import settings
 from django_countries.fields import CountryField
 from products.models import Product
 from profiles.models import UserProfile
+
+
+def random_generator(chars=string.ascii_uppercase + string.digits):
+    """
+    Function for creating a random sku.
+    """
+    return ''.join(random.choice(chars) for _ in range(8))
+
+
 """
 Models to create object for checkout, based on Code Institute's Boutique Ado wakthrough.
 """
@@ -32,11 +42,11 @@ class Order(models.Model):
     original_loot = models.TextField(null=False, blank=False, default='')  # contains original bag in text field
     stripe_pid = models.CharField(max_length=254, null=False, blank=False, default='')
 
-    def _generate_order_number(self):
-        """
-        func begins with '_' to indicate that func is private and will only be used within this class
-        """
-        return shortuuid.ShortUUID().random(length=8).upper()
+    # def _generate_order_number(self):
+    #     """
+    #     func begins with '_' to indicate that func is private and will only be used within this class
+    #     """
+    #     return shortuuid.ShortUUID().random(length=8).upper()
 
     def update_total(self):
         """
@@ -44,7 +54,12 @@ class Order(models.Model):
         accounting for delivery costs.
         """
         self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum'] or 0  # add 0 here so it will never be None, just 0
+        # if user_delivery is True:
+        #     self.delivery_cost = 0
+        # else:        
         self.delivery_cost = self.order_total * settings.STANDARD_DELIVERY_PERCENTAGE / 100
+        
+        
         # add order and delivery together to get grand total, then save
         self.grand_total = self.order_total + self.delivery_cost
         self.save()
@@ -55,7 +70,7 @@ class Order(models.Model):
         if it hasn't been set already.
         """
         if not self.order_number:
-            self.order_number = self._generate_order_number()
+            self.order_number = random_generator()
         super().save(*args, **kwargs)
 
     def __str__(self):

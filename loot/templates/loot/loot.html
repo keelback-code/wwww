@@ -5,15 +5,13 @@
 {% block content %}
 
 <div class="container mb-2">
-    <div class="row">
-        <div class="col">
-            <hr>
-            <h2 class="logo-font mb-4">Loot</h2>
-            <hr>
+   
+        <div class="form-container text-center rounded mx-auto my-2">
+            <h2 class="text-center rounded mx-auto my-2">Loot</h2>
         </div>
-    </div>
+  
 
-    <div class="row">
+    <div class="row form-container text-center rounded mx-auto my-2">
         <div class="col">
             {% if loot_items %}
             <!-- d-md-none is mobile only -->
@@ -32,7 +30,6 @@
                     <!-- generate row for each item -->
                     {% for item in loot_items %}
                         <div class="row">
-                            
                             <div class="col-12 col-sm-6 mb-2">
                                 {% include "loot/product-image.html" %}
                             </div>
@@ -102,9 +99,9 @@
                 <p class="lead mb-5">Your bag is empty.</p>
                 <a href="{% url 'all_products' %}" class="btn rounded">
                     <span class="icon">
-                        <i class="fas fa-chevron-left universal-link-styles"></i>
+                        <i class="fas fa-chevron-left reversed-link-styles"></i>
                     </span>
-                    <span class="universal-link-styles">Keep Exploring</span>
+                    <span class="reversed-link-styles">Keep Exploring</span>
                 </a>
             {% endif %}
         </div>
