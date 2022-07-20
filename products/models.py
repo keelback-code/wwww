@@ -16,8 +16,8 @@ class Product(models.Model):
     stat_choices = [
         ('Courage', "Courage"),
         ('Cool', "Cool"),
-        ('Sun_Protection', "Sun Protection"),
-        ('Spell_Casting', "Spell Casting"),
+        ('Sun Protection', "Sun Protection"),
+        ('Spell Casting', "Spell Casting"),
         ('Stealth', "Stealth"),
     ]
 
