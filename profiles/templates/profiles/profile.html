@@ -47,7 +47,7 @@
                                 <ul class="list-unstyled">
                                     {% for item in order.lineitems.all %}
                                         <li class="small">
-                                            {{ item.product.stat }} x {{ item.quantity }}
+                                            {{ item.product.product_type }} x {{ item.quantity }}
                                         </li>
                                     {% endfor %}
                                 </ul>

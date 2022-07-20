@@ -30,6 +30,7 @@ class Product(models.Model):
     ]
 
     sku = models.CharField(max_length=254, null=True, blank=True)
+    product_type = models.CharField(max_length=254, null=True, blank=True)
     stat = models.CharField(max_length=50, choices=stat_choices, default='COURAGE')
     price = models.IntegerField()
     color = models.CharField(max_length=20, choices=color_choices, default='PURPLE')

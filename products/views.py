@@ -64,6 +64,7 @@ class DesignCustomHat(View):
                 brim_width, hat_height, patch, 
                 "Brim - 5cm", "Brim - 10cm", "Brim - 15cm", 
                 "Height - 15cm", "Height - 20cm", "Height - 25cm")
+            priced_form.product_type = "Hat"
             product = form.save()
             return redirect(reverse('final_quote', args=[product.id]))
         else:
@@ -104,6 +105,7 @@ class DesignCustomHatTwo(View):
                 spell_choices, hat_floppiness, patch, 
                 "Spell - Freeze", "Spell - Wither", "Spell - Overexplain", 
                 "Fairly floppy", "Very floppy", "Very extremely floppy")
+            priced_form.product_type = "Floppy Hat"
             product = form.save()
             return redirect(reverse('final_quote', args=[product.id]))
         else:
@@ -144,6 +146,7 @@ class DesignCustomCloak(View):
                 cloak_length, cloak_pattern, clasp_choices, 
                 "Length - Mini", "Length - Midi", "Length - So Long You Will Step On It", 
                 "Pattern - Tartan", "Pattern - Leaves", "Pattern - Bowling alley carpet")
+            priced_form.product_type = "Cloak"
             product = form.save()
             return redirect(reverse('final_quote', args=[product.id]))
         else:
@@ -160,7 +163,7 @@ class DesignCustomCloak(View):
 
 class DesignCustomWand(View):
     """
-    Class to get a quote for a custom cloak.
+    Class to get a quote for a custom wand.
     """
     def get(self, request):
         form = WandForm()
@@ -184,6 +187,7 @@ class DesignCustomWand(View):
                 wand_length, wand_point, starting_spells, 
                 "Length - 10cm", "Length - 15cm", "Length - 20cm", 
                 "Point - Cactus", "Point - Orb", "Point - Ice Lolly")
+            priced_form.product_type = "Wand"
             product = form.save()
             return redirect(reverse('final_quote', args=[product.id]))
         else:
