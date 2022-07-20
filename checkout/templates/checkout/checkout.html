@@ -61,6 +61,14 @@
                         <p class="my-0">${{ delivery | floatformat:2 }}</p>
                         <p class="my-0"><strong>${{ grand_total | floatformat:2 }}</strong></p>
                     </div>
+                    <div class="col-7 offset-2">
+                        {% if user.is_authenticated %}
+                       
+                        {% else %}
+                        <p class="my-0"><a class="reversed-link-styles" href="{% url 'account_signup' %}" target="_blank"
+                            aria-label="Opens in a new tab">Sign up</a> for an account to qualify for free delivery!</p>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
             <div class="col-12 col-lg-6">
@@ -86,8 +94,10 @@
                                 <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
 							{% else %}
 								<label class="form-check-label" for="id-save-info">
-                                    <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or 
-                                    <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information
+                                    <a class="reversed-link-styles" href="{% url 'account_signup' %}" target="_blank"
+                                    aria-label="Opens in a new tab">Create an account</a> or 
+                                    <a class="reversed-link-styles" href="{% url 'account_login' %}" target="_blank"
+                                    aria-label="Opens in a new tab">login</a> to save this information
                                 </label>
 							{% endif %}
 						</div>

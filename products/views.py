@@ -11,12 +11,7 @@ def calc_variables(variable_one, variable_two, variable_three, a, b, c, d, e, f)
     for each following custom product.
     """
     price = 20
-    # A = 'A'
-    # B = 'B'
-    # C = 'C'
-    # D = 'D'
-    # E = 'E'
-    # F = 'F'
+
     if variable_one == a:
         price = price + 5
     elif variable_one == b:
@@ -107,7 +102,7 @@ class DesignCustomHatTwo(View):
             priced_form = form.save(commit=False)
             priced_form.price = calc_variables(
                 spell_choices, hat_floppiness, patch, 
-                "Spell - Freeze", "Spell - Whither", "Spell - Overexplain", 
+                "Spell - Freeze", "Spell - Wither", "Spell - Overexplain", 
                 "Fairly floppy", "Very floppy", "Very extremely floppy")
             product = form.save()
             return redirect(reverse('final_quote', args=[product.id]))

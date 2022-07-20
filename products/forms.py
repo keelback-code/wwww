@@ -42,7 +42,7 @@ class HatTwoForm(forms.ModelForm):
     """
     spell_choices = [
         ('Spell - Freeze', "Freeze"),
-        ('Spell - Whither', "Whither"),
+        ('Spell - Wither', "Wither"),
         ('Spell - Overexplain', "Overexplain"),
     ]
 
