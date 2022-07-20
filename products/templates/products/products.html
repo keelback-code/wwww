@@ -3,17 +3,15 @@
 
 {% block content %}
 
-<!-- <div class="overlay"></div> -->
 <div class="container-fluid">
+    <div class="form-container text-center rounded mx-auto my-2">
+        <h2>Products</h2>
+    </div>
     <div class="row">
-
-        <h2 class="logo-font text-center">Products</h2>
-
-
-        <div class="col-md-6">
+        <div class="col-12 col-md-6">
             <div class="card text-center battle-card">
                 <div>
-                    <a class="card-title reversed-link-styles fs-4" href="{% url 'custom_hat_one' %}">Hat One
+                    <a class="card-title reversed-link-styles" href="{% url 'custom_hat_one' %}"><strong>Hat One</strong>
                     </a>
                 </div>
                 <div class="card-body image-grid-container">
@@ -23,7 +21,7 @@
             </div>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-12 col-md-6">
             <div class="card text-center battle-card">
                 <div>
                     <a class="card-title reversed-link-styles fs-4" href="{% url 'custom_hat_two' %}">Hat Two
@@ -35,19 +33,20 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
+        
+        <div class="col-12 col-md-6">
             <div class="card text-center battle-card">
                 <div>
                     <a class="card-title reversed-link-styles fs-4" href="{% url 'custom_cloak' %}">Cloak
                     </a>
                 </div>
                 <div class="card-body image-grid-container">
-                    <a href="{% url 'custom_cloak' %}"><img class="img-fluid" src="{{ MEDIA_URL }}forest-green-cloak.jpg"
-                            alt="wiz img"></a>
+                    <a href="{% url 'custom_cloak' %}"><img class="img-fluid"
+                            src="{{ MEDIA_URL }}forest-green-cloak.jpg" alt="wiz img"></a>
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-12 col-md-6">
             <div class="card text-center battle-card">
                 <div>
                     <a class="card-title reversed-link-styles fs-4" href="{% url 'custom_wand' %}">Wand

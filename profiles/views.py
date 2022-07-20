@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import UserProfile
@@ -49,5 +49,20 @@ def order_history(request, order_number):
         'order': order,
         'from_profile': True,
     }
+
+    return render(request, template, context)
+
+
+@login_required
+def staff_order_history(request):
+    if not request.user.is_staff:
+        messages.error(request, 'Apologies, only staff can access this page.')
+        return redirect(reverse('landing_page'))
+    else:
+        orders = Order.objects.all()
+        template = 'profiles/staff_profile.html'
+        context = {
+            'orders': orders,
+        }
 
     return render(request, template, context)
