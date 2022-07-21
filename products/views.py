@@ -37,7 +37,7 @@ def calc_variables(variable_one, variable_two, variable_three, a, b, c, d, e, f)
 
     return price
 
-class StaffAddProduct(View):
+class StaffPathOne(View):
     def get(self, request):
         product_form = StaffProductForm()
         template = 'products/staff_path_one.html'
@@ -48,10 +48,13 @@ class StaffAddProduct(View):
         return render(request, template, context)
 
     def post(self, request):
-        product_form = StaffProductForm(request.POST)
+        product_form = StaffProductForm(request.POST, request.FILES)
         if product_form.is_valid():
             product_form.save()
             return redirect(reverse('staff_path_two'))
+            # passed_form_values = product_form.save(commit=False)
+            # product = product_form.save()
+            # return redirect(reverse('staff_path_two', args=[product.id]))
         else:
             messages.error(request, 'Product was not added. Please try again.')
             product_form = StaffProductForm()
@@ -63,11 +66,14 @@ class StaffAddProduct(View):
 
         return render(request, template, context)
 
-class StaffCustomise(View):
+
+class StaffPathTwo(View):
     def get(self, request):
+        # custom_product = get_object_or_404(Product, pk=product_id)
         custom_form = StaffCustomisationForm()
         template = 'products/staff_path_two.html'
         context = {
+            # 'custom_product': custom_product,
             'custom_form': custom_form,
         }
 
@@ -78,6 +84,9 @@ class StaffCustomise(View):
         if custom_form.is_valid():
             custom_form.save()
             return redirect(reverse('staff_path_three'))
+            # passed_form_values = custom_form.save(commit=False)
+            # product = custom_form.save()
+            # return redirect(reverse('staff_path_three', args=[product.id]))
         else:
             messages.error(request, 'Product was not added. Please try again.')
             custom_form = StaffCustomisationForm()
@@ -90,12 +99,13 @@ class StaffCustomise(View):
         return render(request, template, context)
 
 
-class StaffAddOptions(View):
+class StaffPathThree(View):
     def get(self, request):
         options_form = StaffOptionsForm()
         template = 'products/staff_path_three.html'
         context = {
-            'options_form': options_form
+            'options_form': options_form,
+            # 'custom_product': custom_product
         }
 
         return render(request, template, context)
@@ -286,14 +296,20 @@ def all_products(request):
     """
     Function to retrieve all products.
     """
-    return render(request, 'products/products.html')
+    products = CustomisationOptions.objects.all()
+
+    context = {
+        'products': products
+    }
+
+    return render(request, 'products/products.html', context)
 
 
 def product_detail(request, product_id):
     """
     Function to retrieve the details of an individual product.
     """
-    product = get_object_or_404(Product, pk=product_id)
+    product = get_object_or_404(CustomisationOptions, pk=product_id)
 
     context = {
         'product': product,
@@ -320,13 +336,23 @@ def final_quote(request, product_id):
     return render(request, 'products/final_quote.html', context)
 
 
-def staff_final(request, product_id):
-    custom_product = CustomisationOptions.objects.filter(pk=product_id)
+def product_detail(request, product_id):
+    product = get_object_or_404(CustomisationOptions, pk=product_id)
 
+    template = 'products/product_detail.html'
+    context = {
+            'product': product
+        }
+
+    return render(request, template, context)
+
+
+def staff_final(request, product_id):
+    product = get_object_or_404(CustomisationOptions, pk=product_id)
 
     template = 'products/staff_final.html'
     context = {
-            'custom_product': custom_product
+            'product': product
         }
 
     return render(request, template, context)

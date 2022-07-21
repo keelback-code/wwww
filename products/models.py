@@ -35,6 +35,7 @@ class Product(models.Model):
     stat = models.CharField(max_length=50, choices=stat_choices, default='COURAGE')
     price = models.IntegerField(verbose_name="Base Price")
     color = models.CharField(max_length=20, choices=color_choices, default='PURPLE')
+    image = models.ImageField(null=True, blank=True)
 
     def save(self, *args, **kwargs):
         """
@@ -54,7 +55,7 @@ class Customisation(models.Model):
 
 
 class CustomisationOptions(models.Model):
-    variable = models.ForeignKey(Customisation, on_delete=models.CASCADE, related_name="variable_one")
+    variable = models.ForeignKey(Customisation, on_delete=models.CASCADE, related_name="variable")
     option_one = models.CharField(max_length=254, null=True, blank=True)
     option_two = models.CharField(max_length=254, null=True, blank=True)
     option_three = models.CharField(max_length=254, null=True, blank=True)

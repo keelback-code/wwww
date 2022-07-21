@@ -7,59 +7,79 @@
     <div class="form-container text-center rounded mx-auto my-2">
         <h2>Products</h2>
     </div>
+    {% for product in products %}
     <div class="row">
         <div class="col-12 col-md-6">
             <div class="card text-center battle-card">
                 <div>
-                    <a class="card-title reversed-link-styles" href="{% url 'custom_hat_one' %}"><strong>Hat One</strong>
+                    <a class="card-title reversed-link-styles" href="{% url 'product_detail' product.id %}"><strong>{{ product.variable.associated_product.name }}</strong>
                     </a>
                 </div>
                 <div class="card-body image-grid-container">
-                    <a href="{% url 'custom_hat_one' %}"><img class="img-fluid" src="{{ MEDIA_URL }}blue-top-hat.jpg"
-                            alt="wiz img"></a>
+                    {% if product.variable.associated_product.image %}
+                    <img class="img-fluid rounded" src="{{ product.variable.associated_product.image.url }}"
+                        alt="Alt text here">
+                    {% else %}
+                    <img class="img-fluid rounded" src="{{ MEDIA_URL }}blue-top-hat.jpg" alt="wiz img">
+                    {% endif %}
                 </div>
             </div>
         </div>
+        {% endfor %}
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="card text-center battle-card">
+                    <div>
+                        <a class="card-title reversed-link-styles" href="{% url 'custom_hat_one' %}"><strong>Hat
+                                One</strong>
+                        </a>
+                    </div>
+                    <div class="card-body image-grid-container">
+                        <a href="{% url 'custom_hat_one' %}"><img class="img-fluid"
+                                src="{{ MEDIA_URL }}blue-top-hat.jpg" alt="wiz img"></a>
+                    </div>
+                </div>
+            </div>
 
-        <div class="col-12 col-md-6">
-            <div class="card text-center battle-card">
-                <div>
-                    <a class="card-title reversed-link-styles fs-4" href="{% url 'custom_hat_two' %}">Hat Two
-                    </a>
-                </div>
-                <div class="card-body image-grid-container">
-                    <a href="{% url 'custom_hat_two' %}"><img class="img-fluid" src="{{ MEDIA_URL }}black-straw-hat.jpg"
-                            alt="wiz img"></a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="col-12 col-md-6">
-            <div class="card text-center battle-card">
-                <div>
-                    <a class="card-title reversed-link-styles fs-4" href="{% url 'custom_cloak' %}">Cloak
-                    </a>
-                </div>
-                <div class="card-body image-grid-container">
-                    <a href="{% url 'custom_cloak' %}"><img class="img-fluid"
-                            src="{{ MEDIA_URL }}forest-green-cloak.jpg" alt="wiz img"></a>
+            <div class="col-12 col-md-6">
+                <div class="card text-center battle-card">
+                    <div>
+                        <a class="card-title reversed-link-styles fs-4" href="{% url 'custom_hat_two' %}">Hat Two
+                        </a>
+                    </div>
+                    <div class="card-body image-grid-container">
+                        <a href="{% url 'custom_hat_two' %}"><img class="img-fluid"
+                                src="{{ MEDIA_URL }}black-straw-hat.jpg" alt="wiz img"></a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-12 col-md-6">
-            <div class="card text-center battle-card">
-                <div>
-                    <a class="card-title reversed-link-styles fs-4" href="{% url 'custom_wand' %}">Wand
-                    </a>
+
+            <div class="col-12 col-md-6">
+                <div class="card text-center battle-card">
+                    <div>
+                        <a class="card-title reversed-link-styles fs-4" href="{% url 'custom_cloak' %}">Cloak
+                        </a>
+                    </div>
+                    <div class="card-body image-grid-container">
+                        <a href="{% url 'custom_cloak' %}"><img class="img-fluid"
+                                src="{{ MEDIA_URL }}forest-green-cloak.jpg" alt="wiz img"></a>
+                    </div>
                 </div>
-                <div class="card-body image-grid-container">
-                    <a href="{% url 'custom_wand' %}"><img class="img-fluid" src="{{ MEDIA_URL }}cactus-wand.jpg"
-                            alt="wiz img"></a>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="card text-center battle-card">
+                    <div>
+                        <a class="card-title reversed-link-styles fs-4" href="{% url 'custom_wand' %}">Wand
+                        </a>
+                    </div>
+                    <div class="card-body image-grid-container">
+                        <a href="{% url 'custom_wand' %}"><img class="img-fluid" src="{{ MEDIA_URL }}cactus-wand.jpg"
+                                alt="wiz img"></a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 
 

@@ -15,9 +15,11 @@ class StaffCustomisationForm(forms.ModelForm):
 
 
 class StaffOptionsForm(forms.ModelForm):
+
     class Meta:
         model = CustomisationOptions
         fields = '__all__'
+
 
 class HatOneForm(forms.ModelForm):
     """
