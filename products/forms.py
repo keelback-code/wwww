@@ -1,6 +1,23 @@
 from django import forms
-from .models import Product
+from .models import Product, Customisation, CustomisationOptions
 
+
+class StaffProductForm(forms.ModelForm):
+    class Meta:
+        model = Product
+        exclude = ('sku',)
+
+class StaffCustomisationForm(forms.ModelForm):
+
+    class Meta:
+        model = Customisation
+        fields = '__all__'
+
+
+class StaffOptionsForm(forms.ModelForm):
+    class Meta:
+        model = CustomisationOptions
+        fields = '__all__'
 
 class HatOneForm(forms.ModelForm):
     """

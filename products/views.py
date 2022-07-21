@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.views import View
-from .models import Product
-from .forms import HatOneForm, HatTwoForm, CloakForm, WandForm
+from .models import Product, Customisation, CustomisationOptions
+from .forms import HatOneForm, HatTwoForm, CloakForm, WandForm, StaffProductForm, StaffCustomisationForm, StaffOptionsForm
 
 
 def calc_variables(variable_one, variable_two, variable_three, a, b, c, d, e, f):
@@ -36,6 +36,86 @@ def calc_variables(variable_one, variable_two, variable_three, a, b, c, d, e, f)
         price = price + 2 
 
     return price
+
+class StaffAddProduct(View):
+    def get(self, request):
+        product_form = StaffProductForm()
+        template = 'products/staff_path_one.html'
+        context = {
+            'product_form': product_form,
+        }
+
+        return render(request, template, context)
+
+    def post(self, request):
+        product_form = StaffProductForm(request.POST)
+        if product_form.is_valid():
+            product_form.save()
+            return redirect(reverse('staff_path_two'))
+        else:
+            messages.error(request, 'Product was not added. Please try again.')
+            product_form = StaffProductForm()
+
+        template = 'products/staff_path_one.html'
+        context = {
+            'product_form': product_form,
+        }
+
+        return render(request, template, context)
+
+class StaffCustomise(View):
+    def get(self, request):
+        custom_form = StaffCustomisationForm()
+        template = 'products/staff_path_two.html'
+        context = {
+            'custom_form': custom_form,
+        }
+
+        return render(request, template, context)
+
+    def post(self, request):
+        custom_form = StaffCustomisationForm(request.POST)
+        if custom_form.is_valid():
+            custom_form.save()
+            return redirect(reverse('staff_path_three'))
+        else:
+            messages.error(request, 'Product was not added. Please try again.')
+            custom_form = StaffCustomisationForm()
+
+        template = 'products/staff_path_two.html'
+        context = {
+            'custom_form': custom_form,
+        }
+
+        return render(request, template, context)
+
+
+class StaffAddOptions(View):
+    def get(self, request):
+        options_form = StaffOptionsForm()
+        template = 'products/staff_path_three.html'
+        context = {
+            'options_form': options_form
+        }
+
+        return render(request, template, context)
+
+    def post(self, request):
+        options_form = StaffOptionsForm(request.POST)
+        if options_form.is_valid():
+            passed_form_values = options_form.save(commit=False)
+            product = options_form.save()
+            return redirect(reverse('staff_final', args=[product.id]))
+        else:
+            messages.error(request, 'Quote was not generated. Please try again.')
+            options_form = StaffOptionsForm()
+
+        template = 'products/staff_path_three.html'
+        context = {
+            'options_form': options_form
+        }
+
+        return render(request, template, context)
 
 
 class DesignCustomHat(View):
@@ -238,3 +318,15 @@ def final_quote(request, product_id):
     }
 
     return render(request, 'products/final_quote.html', context)
+
+
+def staff_final(request, product_id):
+    custom_product = CustomisationOptions.objects.filter(pk=product_id)
+
+
+    template = 'products/staff_final.html'
+    context = {
+            'custom_product': custom_product
+        }
+
+    return render(request, template, context)

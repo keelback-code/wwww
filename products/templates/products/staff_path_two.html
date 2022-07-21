@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="form-container text-center rounded mx-auto my-2">
+        <h2>Staff test 2</h2>
+    </div>
+    <div class="form-container text-center rounded mx-auto my-2">
+        <form method="post" action="{% url 'staff_path_two' %}" enctype="multipart/form-data">
+            {{ custom_form | crispy }}
+            {% csrf_token %}
+            <button type="submit" class="btn btn-md btn-navy my-2">Continue</button>
+        </form>
+        
+    </div>
+
+</div>
+
+
+{% endblock %}
