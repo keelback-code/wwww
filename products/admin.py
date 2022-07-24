@@ -1,33 +1,25 @@
 from django.contrib import admin
-from .models import Product, Customisation, CustomisationOptions
+from .models import Product, StaffSubmission
 
 
 class ProductAdmin(admin.ModelAdmin):
     list_display = (
-        'sku',
+        'product_type',
         'stat',
     )
 
-    ordering = ('sku',)
+    ordering = ('product_type',)
 
 
-class CustomisationAdmin(admin.ModelAdmin):
+class StaffSubmissionAdmin(admin.ModelAdmin):
     list_display = (
-        'associated_product',
-        'variable_name',
+        'staff_member',
+        'product_type',
+        'created_on',
     )
 
-    ordering = ('associated_product',)
+    ordering = ('created_on',)
 
-
-class CustomisationOptionsAdmin(admin.ModelAdmin):
-    list_display = (
-        'variable',
-    )
-
-    ordering = ('variable',)
 
 admin.site.register(Product, ProductAdmin)
-admin.site.register(Customisation, CustomisationAdmin)
-admin.site.register(CustomisationOptions, CustomisationOptionsAdmin)
-
+admin.site.register(StaffSubmission, StaffSubmissionAdmin)

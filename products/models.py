@@ -1,12 +1,5 @@
-import random
-import string
 from django.db import models
-
-def random_sku_generator(chars=string.ascii_uppercase + string.digits):
-    """
-    Function for creating a random sku.
-    """
-    return ''.join(random.choice(chars) for _ in range(8))
+from django.contrib.auth.models import User
 
 
 class Product(models.Model):
@@ -29,33 +22,34 @@ class Product(models.Model):
         ('Orange', "Orange"),
     ]
 
-    sku = models.CharField(max_length=254, null=True, blank=True)
-    name = models.CharField(max_length=254, null=True, blank=True)
     product_type = models.CharField(max_length=254, null=True, blank=True)
     stat = models.CharField(max_length=50, choices=stat_choices, default='COURAGE')
-    price = models.IntegerField(verbose_name="Base Price")
+    price = models.IntegerField()
     color = models.CharField(max_length=20, choices=color_choices, default='PURPLE')
+    variable_one = models.CharField(max_length=254, null=True, blank=True)
+    variable_two = models.CharField(max_length=254, null=True, blank=True)
+    variable_three = models.CharField(max_length=254, null=True, blank=True)
+
+
+class StaffSubmission(models.Model):
+    """
+    Model for allowing staff to submit products and store the data.
+    """
+    staff_member = models.ForeignKey(User, on_delete=models.CASCADE)
+    product_type = models.CharField(max_length=50, null=True, blank=True)
+    stat = models.BooleanField()
+    color = models.BooleanField()
+    variable_one = models.CharField(max_length=50, null=True, blank=True)
+    variable_one_option_one = models.CharField(max_length=254, null=True, blank=True)
+    variable_one_option_two = models.CharField(max_length=254, null=True, blank=True)
+    variable_one_option_three = models.CharField(max_length=254, null=True, blank=True)
+    variable_two = models.CharField(max_length=50, null=True, blank=True)
+    variable_two_option_one = models.CharField(max_length=254, null=True, blank=True)
+    variable_two_option_two = models.CharField(max_length=254, null=True, blank=True)
+    variable_two_option_three = models.CharField(max_length=254, null=True, blank=True)
+    variable_three = models.CharField(max_length=50, null=True, blank=True)
+    variable_three_option_one = models.CharField(max_length=254, null=True, blank=True)
+    variable_three_option_two = models.CharField(max_length=254, null=True, blank=True)
+    variable_three_option_three = models.CharField(max_length=254, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
-
-    def save(self, *args, **kwargs):
-        """
-        Function for generating a random sku.
-        """
-        self.sku = random_sku_generator()
-        super().save(*args, **kwargs)
-        return self.sku
-    
-    def __str__(self):
-        return self.name
-
-
-class Customisation(models.Model):
-    associated_product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name="products", null=True, blank=True)  # try to remove null later
-    variable_name = models.CharField(max_length=254, null=True, blank=True)
-
-
-class CustomisationOptions(models.Model):
-    variable = models.ForeignKey(Customisation, on_delete=models.CASCADE, related_name="variable")
-    option_one = models.CharField(max_length=254, null=True, blank=True)
-    option_two = models.CharField(max_length=254, null=True, blank=True)
-    option_three = models.CharField(max_length=254, null=True, blank=True)
+    created_on = models.DateTimeField(auto_now_add=True)

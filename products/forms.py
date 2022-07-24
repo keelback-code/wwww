@@ -1,23 +1,10 @@
 from django import forms
-from .models import Product, Customisation, CustomisationOptions
+from .models import Product, StaffSubmission
 
 
-class StaffProductForm(forms.ModelForm):
+class StaffSubmissionForm(forms.ModelForm):
     class Meta:
-        model = Product
-        exclude = ('sku',)
-
-class StaffCustomisationForm(forms.ModelForm):
-
-    class Meta:
-        model = Customisation
-        fields = '__all__'
-
-
-class StaffOptionsForm(forms.ModelForm):
-
-    class Meta:
-        model = CustomisationOptions
+        model = StaffSubmission
         fields = '__all__'
 
 
