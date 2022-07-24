@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.views import View
+from django.contrib.auth.models import User
 from .models import Product, StaffSubmission
 from .forms import HatOneForm, HatTwoForm, CloakForm, WandForm, StaffSubmissionForm
 
@@ -51,7 +52,6 @@ class DesignCustomHat(View):
 
         return render(request, template, context)
 
-
     def post(self, request):
         form = HatOneForm(request.POST) 
         brim_width = request.POST['variable_one']
@@ -85,13 +85,13 @@ class DesignCustomHatTwo(View):
     """
     def get(self, request):
         form = HatTwoForm()
+
         template = 'products/custom_hat_two.html'
         context = {
             'form': form,
         }
 
         return render(request, template, context)
-
 
     def post(self, request):
         form = HatTwoForm(request.POST) 
@@ -126,13 +126,13 @@ class DesignCustomCloak(View):
     """
     def get(self, request):
         form = CloakForm()
+
         template = 'products/custom_cloak.html'
         context = {
             'form': form,
         }
 
         return render(request, template, context)
-
 
     def post(self, request):
         form = CloakForm(request.POST) 
@@ -201,22 +201,49 @@ class DesignCustomWand(View):
 
         return render(request, template, context)
 
-class StaffSubmitView(View):
 
+class StaffSubmitView(View):
+    """
+    Class for staff members to submit a request for a product.
+    """
     def get(self, request):
+        if not request.user.is_staff:
+            messages.error(request, 'Apologies, only staff can access this.')
+            return redirect(reverse('landing_page'))
+
         form = StaffSubmissionForm()
 
+        template = 'products/staff_submission.html'
         context = {
             'form': form
         }
 
-        return render(request, 'products/staff_submission.html', context)
+        return render(request, template, context)
+    
+    def post(self, request):
+        form = StaffSubmissionForm(request.POST, request.FILES) 
+        if form.is_valid():
+            staff_form = form.save(commit=False)
+            staff_form.staff_member = request.user
+            form.save()
+            return redirect(reverse('landing_page'))
+        else:
+            messages.error(request, 'Product was not submitted. Please try again.')
+            form = StaffSubmissionForm()
+
+        template = 'products/staff_submission.html'
+        context = {
+            'form': form,
+        }
+
+        return render(request, template, context)
+
 
 def all_products(request):
     """
     Function to retrieve all products.
     """
-    products = Products.objects.all()
+    products = Product.objects.all()
 
     context = {
         'products': products

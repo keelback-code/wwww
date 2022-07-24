@@ -3,11 +3,13 @@
 
 {% block content %}
 
+{% if user.is_authenticated %}
 <div class="container-fluid">
     <div class="form-container text-center rounded mx-auto my-2">
         <h2>Staff Submission Form</h2>
     </div>
     <form method="post" action="{% url 'staff_submission' %}" enctype="multipart/form-data">
+        {% csrf_token %}
         <div class="form-container text-center rounded mx-auto my-2 pb-2">
             {{ form.product_type | as_crispy_field }}
             {{ form.stat | as_crispy_field }}
@@ -31,14 +33,16 @@
             {{ form.variable_three_option_one | as_crispy_field }}
             {{ form.variable_three_option_two | as_crispy_field }}
             {{ form.variable_three_option_three | as_crispy_field }}
-            {% csrf_token %}
-        <button type="submit" class="btn btn-md btn-navy my-2">Submit</button>
-        <p>A copy of your submission will be emailed</p>
-        <p>to you at the email address you have on file.</p>
         </div>
-
+        <div class="form-container text-center rounded mx-auto my-2">
+            <button type="submit" class="btn btn-md btn-navy my-2">Submit</button>
+            <p>A copy of your submission will be emailed</p>
+            <p>to you at the email address you have on file.</p>
+        </div>
     </form>
 </div>
-
+{% else %}
+<p>You do not have permission to see this page.</p>
+{% endif %}
 
 {% endblock %}

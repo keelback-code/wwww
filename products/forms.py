@@ -5,7 +5,7 @@ from .models import Product, StaffSubmission
 class StaffSubmissionForm(forms.ModelForm):
     class Meta:
         model = StaffSubmission
-        fields = '__all__'
+        exclude = ('staff_member', 'created_on',)
 
 
 class HatOneForm(forms.ModelForm):
