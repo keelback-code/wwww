@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="form-container text-center rounded mx-auto my-2">
+        <h2>Customer quote</h2>
+    </div>
+
+    
+<div class="form-container text-center rounded mx-auto my-2">
+    <div class="form-container text-center rounded mx-auto my-2">
+        <form method="post" action="{% url 'customer_quote' product.id %}" enctype="multipart/form-data">
+            <p>Variable: {{ product.variable }}</p>
+            <p>Variable name: {{ product.variable.variable_name }}</p>
+            <p>option_one: {{ product.option_one }}</p>
+            <p>option_two: {{ product.option_two }}</p>
+            <p>option_three: {{ product.option_three }}</p>
+            <p>associated_product: {{ product.variable.associated_product }}</p>
+            <p>stat: {{ product.variable.associated_product.stat }}</p>
+            <p>name: {{ product.variable.associated_product.name }}</p>
+            <p>type: {{ product.variable.associated_product.product_type }}</p>
+            <p>colour: {{ product.variable.associated_product.color }}</p>
+
+            {{ form | crispy }}
+            {% csrf_token %}
+           
+            <button type="submit" class="btn btn-md btn-navy my-2">Add Product</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
+
+
