@@ -37,8 +37,8 @@ class StaffSubmission(models.Model):
     """
     staff_member = models.ForeignKey(User, on_delete=models.CASCADE)
     product_type = models.CharField(max_length=50, null=True, blank=True)
-    stat = models.BooleanField()
-    color = models.BooleanField()
+    stat = models.BooleanField(verbose_name="Include stats")
+    color = models.BooleanField(verbose_name="Include colors")
     variable_one = models.CharField(max_length=50, null=True, blank=True)
     variable_one_option_one = models.CharField(max_length=254, null=True, blank=True)
     variable_one_option_two = models.CharField(max_length=254, null=True, blank=True)
