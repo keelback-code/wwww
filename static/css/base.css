@@ -81,41 +81,32 @@ body {
 }
 /* end */
 
+/* Bootstrap toasts, based on Code Institute's Boutique Ado walkthrough */
+.message-container {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 99999999999;
+}
+
+.custom-toast {
+    overflow: visible;
+    width: 20rem;
+}
+/* end */
+
+
+/* Style for loot bag */
+.loot-links:hover {
+    cursor: default;
+}
+
 
 /* Landing page */
-
 .landing-page-links {
     display: flex;
     justify-content: end;
 }
-
-
-/* Product details page */
-
-.product-detail-container {
-    width: 25rem;
-    background-color: #faebd7;
-    color: #050533;
-}
-
-/* CSS for enlarging images on hover from: https://success.appen.com/hc/en-us/articles/202703155-CSS-Guide-to-Enlarge-Images-on-Hover */
-.card-img {
-    max-width: 250px;
-    height: auto;
-    top: -50px;
-    left: -35px;
-    z-index: 999;
-    cursor: pointer;
-    -webkit-transition-property: all;
-    -webkit-transition-duration: 0.3s;
-    -webkit-transition-timing-function: ease;
-}
-
-.card-img:hover {
-    transform: scale(1.8);
-}
-
-
 
 
 /* Privacy policy page */
@@ -161,20 +152,6 @@ body {
 }
 
 
-/* Bootstrap toasts, based on Code Institute's Boutique Ado walkthrough */
-
-.message-container {
-    position: fixed;
-    top: 72px;
-    right: 15px;
-    z-index: 99999999999;
-}
-
-.custom-toast {
-    overflow: visible;
-    width: 20rem;
-}
-/* end */
 
 
 /* About us page */
