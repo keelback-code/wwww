@@ -65,7 +65,7 @@ As a **user**, I can set the stats of each item, so that I can have an experienc
 
 As a **user**, I can see the final stats of my outfit, so that I can have an experience outside of the standard online shopping experience.
 
-As a **user** I can **see the shopping bag** so that **I can keep track of my shopping while I browse the site**.
+As a **user** I can **update the shopping bag** so that **I can keep track of my shopping while I browse the site**.
 
 As a **user** I can **view my order history** so that **I know what I have already ordered**.
 

@@ -175,3 +175,10 @@ body {
     width: 20rem;
 }
 /* end */
+
+
+/* About us page */
+
+.about-us li {
+    list-style-type: none;
+}
