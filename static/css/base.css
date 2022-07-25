@@ -15,6 +15,7 @@ body {
     font-family: 'Anek Latin', monospace, sans-serif;
     color: #faebd7;
 }
+/* end */
 
 .icon {
     color: #faebd7;
@@ -28,14 +29,6 @@ body {
     background-color: #050533;
     color: #faebd7;
 }
-
-/* .icon-test i {
-    opacity: 0;
-}
-
-.icon-test i:hover {
-    opacity: 1;
-} */
 
 .universal-link-styles a,
 .universal-link-styles,
@@ -86,6 +79,7 @@ body {
     border-radius: 100px;
     font-size: 30px;
 }
+/* end */
 
 
 /* Landing page */
@@ -165,3 +159,19 @@ body {
     display: grid;
     grid-template-columns: auto auto;
 }
+
+
+/* Bootstrap toasts, based on Code Institute's Boutique Ado walkthrough */
+
+.message-container {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 99999999999;
+}
+
+.custom-toast {
+    overflow: visible;
+    width: 20rem;
+}
+/* end */
