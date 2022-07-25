@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.contrib.admin.views.decorators import staff_member_required
+from django.utils.decorators import method_decorator
 from django.contrib import messages
 from django.views import View
 from django.contrib.auth.models import User
@@ -202,6 +204,7 @@ class DesignCustomWand(View):
         return render(request, template, context)
 
 
+@method_decorator(staff_member_required, name='dispatch')
 class StaffSubmitView(View):
     """
     Class for staff members to submit a request for a product.

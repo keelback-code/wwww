@@ -33,7 +33,6 @@ def cache_checkout_data(request):
         return HttpResponse(content=e, status=400)
 
 
-
 def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
@@ -108,9 +107,9 @@ def checkout(request):
             try:
                 profile = UserProfile.objects.get(user=request.user)
                 order_form = OrderForm(initial={
-                    'full_name': profile.user.get_full_name(),  # built in from user model
-                    'email': profile.user.email,  # built in from user model
-                    'phone_number': profile.default_phone_number,  # rest from user profile model
+                    'full_name': profile.user.get_full_name(),
+                    'email': profile.user.email,
+                    'phone_number': profile.default_phone_number,
                     'country': profile.default_country,
                     'postcode': profile.default_postcode,
                     'town_or_city': profile.default_town_or_city,
@@ -145,11 +144,8 @@ def checkout_success(request, order_number):
 
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
-        # Attach the user's profile to the order
         order.user_profile = profile
         order.save()
-
-        # Save the user's info
         if save_info:
             profile_data = {
                 'default_phone_number': order.phone_number,
@@ -166,7 +162,7 @@ def checkout_success(request, order_number):
     messages.success(request, f'Order successfully processed! \
         Your order number is {order_number}. A confirmation \
         email will be sent to {order.email}.')
-    # bag deleted after transaction since no longer needed
+
     if 'loot' in request.session:
         del request.session['loot']
 

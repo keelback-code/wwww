@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.models import User
 from django.views import View
 from .models import UserProfile
@@ -56,6 +57,7 @@ def order_history(request, order_number):
     return render(request, template, context)
 
 
+@staff_member_required
 def staff_profile(request):
  
     if not request.user.is_staff:
@@ -72,7 +74,7 @@ def staff_profile(request):
     return render(request, template, context)
 
 
-@login_required
+@staff_member_required
 def staff_order_history(request, order_number):
     
     if not request.user.is_staff:

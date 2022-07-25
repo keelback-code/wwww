@@ -13,8 +13,11 @@
         <div class="form-container text-center rounded mx-auto my-2 pb-2">
             {{ form.product_type | as_crispy_field }}
             {{ form.stat | as_crispy_field }}
+            <p><small>Stats are Courage, Cool, Sun Protection, Spell Casting and Stealth.</small></p>
             {{ form.color | as_crispy_field }}
+            <p><small>Colors are Purple, Navy, Pink, Green and Orange.</small></p>
             {{ form.image | as_crispy_field }}
+            
         </div>
         <div class="form-container text-center rounded mx-auto my-2 pb-2">
             {{ form.variable_one | as_crispy_field }}

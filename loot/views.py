@@ -7,7 +7,6 @@ def view_loot(request):
     """
     Function that renders the loot page.
     """
-
     return render(request, 'loot/loot.html')
 
 
@@ -15,7 +14,6 @@ def add_to_loot(request, item_id):
     """
     Function to add a quantity of the specified product to the bag.
     """
-
     product = get_object_or_404(Product, pk=item_id)
     quantity = int(request.POST.get('quantity'))   # will come from template as string so must convert
     redirect_url = request.POST.get('redirect_url')
@@ -31,8 +29,6 @@ def add_to_loot(request, item_id):
         messages.success(request, f'Added custom product to your bag.')
 
     request.session['loot'] = loot # this overwrites variable with the updated version
-    print(loot)
-    print(item_id)
     return redirect(redirect_url)
 
 
@@ -40,7 +36,6 @@ def adjust_loot(request, item_id):
     """
     Function to adjust the quantity of products in the bag.
     """
-
     product = get_object_or_404(Product, pk=item_id)  # this is here so messages can access info
     quantity = int(request.POST.get('quantity'))
     loot = request.session.get('loot', {})

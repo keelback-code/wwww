@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
-from django.contrib.auth.decorators import login_required
+# from django.contrib.auth.decorators import login_required
+from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib import messages
 from django.views import generic, View
 from .models import Post, Comment
@@ -48,7 +49,7 @@ def view_battle(request, slug):
     return render(request, 'wizard_battles/wizard_battle.html', context)
 
 
-@login_required
+@staff_member_required
 def create_battle(request):
     """
     Function to create wizard battle blog posts.
@@ -78,7 +79,7 @@ def create_battle(request):
     return render(request, template, context)
 
 
-@login_required
+@staff_member_required
 def edit_battle(request, slug):
     """
     Function to retrieve individual wizard battle blog posts for editing.
@@ -108,7 +109,7 @@ def edit_battle(request, slug):
     return render(request, template, context)
 
 
-@login_required
+@staff_member_required
 def delete_battle(request, slug):
     """
     Function to delete wizard battle blog posts.
