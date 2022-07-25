@@ -56,48 +56,46 @@ def order_history(request, order_number):
     return render(request, template, context)
 
 
-class StaffOrderHistory(View):
-    def get(self, request):
-        if not request.user.is_staff:
-            messages.error(request, 'Apologies, only staff can access this page.')
-            return redirect(reverse('landing_page'))
+def staff_profile(request):
+ 
+    if not request.user.is_staff:
+        messages.error(request, 'Apologies, only staff can access this page.')
+        return redirect(reverse('landing_page'))
+    else:
+        orders = Order.objects.all()
+
+    template = 'profiles/staff_profile.html'
+    context = {
+        'orders': orders,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def staff_order_history(request, order_number):
+    
+    if not request.user.is_staff:
+        messages.error(request, 'Apologies, only staff can access this.')
+        return redirect(reverse('landing_page'))
+    else:
+        order = get_object_or_404(Order, order_number=order_number)
+        if request.method == 'POST':
+            form = FulfillmentForm(request.POST, instance=order)
+            if form.is_valid():
+                form.save()
+                messages.success(request, 'Order status successfully updated!')
+                return redirect(reverse('staff_profile'))
+            else:
+                messages.error(request, 'Order status was not updated. Please try again.')
         else:
-            orders = Order.objects.all()
-            for order in orders:
-                form = FulfillmentForm(instance=order)
-            template = 'profiles/staff_profile.html'
-            context = {
-                'orders': orders,
-                'form': form
-            }
+            form = FulfillmentForm(instance=order)
 
-        return render(request, template, context)
-    
-    def post(self, request):
-        if not request.user.is_staff:
-            messages.error(request, 'Apologies, only staff can access this page.')
-            return redirect(reverse('landing_page'))
-        else:
-            # order_obj = get_object_or_404(Order, pk=order_number)
-            orders = Order.objects.all()
-            for order in orders:
-                form = FulfillmentForm(request.POST, instance=order)
-            
-                if form.is_valid():
-                    update = form.save()
-                    messages.success(request, 'Order updated successfully')
-                    return redirect(reverse('staff_order_history'))
-                else:
-                    messages.error(request, 'Update failed. Please ensure the form is valid.')
-                    form = FulfillmentForm()
+        template = 'profiles/staff_order_history.html'
+        context = {
+            'order': order,
+            'form': form,
+            'from_profile': True,
+        }
 
-            template = 'profiles/staff_profile.html'
-            context = {
-                'form': form
-            }
-
-        return render(request, template, context)
-    
-    
-    # else:
-    #     form = UserProfileForm(instance=profile)
+    return render(request, template, context)

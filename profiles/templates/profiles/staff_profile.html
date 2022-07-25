@@ -33,7 +33,7 @@
                         <tr>
                             <td>
                                 <a class="reversed-link-styles"
-                                    href="{% url 'order_history' order.order_number %}">{{ order.order_number }}</a>
+                                    href="{% url 'staff_order_history' order.order_number %}">{{ order.order_number }}</a>
                             </td>
                             <td>{{ order.date }}</td>
                             <td>
@@ -46,14 +46,7 @@
                                 </ul>
                             </td>
                             <td>{{ order.grand_total }}</td>
-                            <td>
-                                {{ order.fulfilled }}
-                                <form method="post" action="{% url 'staff_order_history' %}" enctype="multipart/form-data">
-                                    {{ form | crispy }}
-                                    {% csrf_token %}
-                                    <button type="submit" class="btn btn-md btn-navy my-2">Update</button>
-                                </form>
-                            </td> 
+                            <td>{{ order.fulfilled }}</td> 
                         </tr>
                         {% endfor %}
                     </tbody>
@@ -66,10 +59,4 @@
 {% else %}
 <p>You do not have permission to see this page.</p>
 {% endif %}
-    {% endblock %}
-
-    {% block postloadjs %}
-    {{ block.super }}
-    <!-- js to change country field to same placeholder colour as rest of form -->
-    <script type="text/javascript" src="{% static 'profiles/js/countryfield.js' %}"></script>
-    {% endblock %}
+{% endblock %}
