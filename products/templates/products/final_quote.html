@@ -13,7 +13,7 @@
     <p>{{ product.variable_two }}</p>
     <p>{{ product.variable_three }}</p>
     <p>Colour: {{ product.color }}</p>
-    <p>{{ product.sku }} - ref for elyse</p>
+    <p>{{ product.id }} - ref for elyse</p>
 
     <div>
         <form class="form" action="{% url 'add_to_loot' product.id %}" method="POST">

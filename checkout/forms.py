@@ -41,3 +41,12 @@ class OrderForm(forms.ModelForm):
                 self.fields[field].widget.attrs['placeholder'] = placeholder  # this sets placeholders to their values set in the dict above
             self.fields[field].widget.attrs['class'] = 'stripe-style-input'  # adds a custom css class
             self.fields[field].label = False  # removes form fields labels, as we added our own
+
+
+class FulfillmentForm(forms.ModelForm):
+    """
+    Model form for orders, based on Code Institute's Boutique Ado walkthrough.
+    """ 
+    class Meta:
+        model = Order
+        fields = ('fulfilled',)

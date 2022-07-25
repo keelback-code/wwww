@@ -41,12 +41,7 @@ class Order(models.Model):
     # below two fields to allow for duplicate items in separate orders to not override each other
     original_loot = models.TextField(null=False, blank=False, default='')  # contains original bag in text field
     stripe_pid = models.CharField(max_length=254, null=False, blank=False, default='')
-
-    # def _generate_order_number(self):
-    #     """
-    #     func begins with '_' to indicate that func is private and will only be used within this class
-    #     """
-    #     return shortuuid.ShortUUID().random(length=8).upper()
+    fulfilled = models.BooleanField(null=True, blank=True)
 
     def update_total(self):
         """
@@ -59,7 +54,6 @@ class Order(models.Model):
         # else:        
         self.delivery_cost = self.order_total * settings.STANDARD_DELIVERY_PERCENTAGE / 100
         
-        
         # add order and delivery together to get grand total, then save
         self.grand_total = self.order_total + self.delivery_cost
         self.save()
@@ -71,6 +65,8 @@ class Order(models.Model):
         """
         if not self.order_number:
             self.order_number = random_generator()
+        else:
+            self.order_number = self.order_number
         super().save(*args, **kwargs)
 
     def __str__(self):
@@ -81,7 +77,6 @@ class OrderLineItem(models.Model):
     """
     Individual shopping line item
     """
-
     order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
     # can filter on related name eg Order.lineitems.all and Order.lineitems.filter (or order?)
     product = models.ForeignKey(Product, null=False, blank=False, on_delete=models.CASCADE)
@@ -97,4 +92,4 @@ class OrderLineItem(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return f'SKU {self.product.sku} on order {self.order.order_number}'
+        return f'{self.product.product_type} on order {self.order.order_number}'

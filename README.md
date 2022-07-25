@@ -97,6 +97,8 @@ As a staff member, I can add blog posts to my site so that I can show expertise 
 
 As a staff member, I will be provided with search engine optimisation for my site so that I can receive increased traffic and sales.
 
+As a **staff member** I can **offer a shipping discount to users who sign up for accounts** so that **I receive more users who are more likely to make a purchase/multiple purchases**.
+
 User/Owner
 
 As a user/staff member, I can sign in and out intuitively so that I can use the website easily.
@@ -130,6 +132,7 @@ Made in Lucidchart.
 
 ### Features
 
+Staff able to add custom products: I spent some time developing code for staff to add a custom product, staff were able to add custom products with multiple variables and options for the variables but this was unable to be fed into the quote system without breaking both the bag and checkout systems. After some time I decided to refocus my time for this iteration, for the moment I have a detailed manual form which will hopefully save time not only by being detailed, but the information is saved to the db, so it is easy for the dev to find. For the staff member's peace of mind they will be emailed a copy of the information submitted as well. 
 
 ### Future Features
 
@@ -195,6 +198,21 @@ Performance testing was conducted using Lighthouse. The results are:
 I sent the live link to friends and family members for testing and feedback. The site was received positively; design and usability suggestions were considered and acted on. The site was also put up in the Code Institute Slack community for feedback.
 
 ### Debugging and known bugs
+
+
+Custom product model - originally had my calculations in the model but changed it over to the view with help from this Stack Overflow post:
+https://stackoverflow.com/questions/29228627/djangoget-field-values-using-views-py-from-html-form
+For custom variables on these products, for pricing was able to have separate function and feed in var_one, two and three, but this meant in front and back end the actual name didn’t show, so both users just saw a letter instead of the label. Options were to have more variables feed into the calc function, which is a bit bulky but the other option was to have all the code from the calc function in each class, making this file three times as long and three times as ugly. I opted for feeding 6 variables into my calculation function over repeating my code.
+
+Getting two different product models into the loot/shopping bag - lots of moving around and googling and renaming, playing with the context file as that was new to me. tried to put in same context file, broke everything. tried parent model classes, didn’t work.
+can try feeding product into shopping bag on POST on final quote page, already named product and filtered in in exact same way.
+can try separate loop within contexts func
+if standard do this, if custom do this, then feed all into context
+failing that, just add on POST details into html and db
+Fixed custom quoting system by reapplying migrations and changing product id variables - broke when was all the same
+separate contexts file within cust_prods
+none of that worked, decided to refactor code and shift focus of shop, all products are custom products now. one model, multiple model forms from single model in order for shopping bag to work
+
 
 
 ### Deployment

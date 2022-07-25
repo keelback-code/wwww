@@ -56,24 +56,24 @@ def create_battle(request):
     if not request.user.is_staff:
         messages.error(request, 'Apologies, only staff can access this.')
         return redirect(reverse('landing_page'))
-
-    if request.method == 'POST':
-        form = PostForm(request.POST, request.FILES)
-        if form.is_valid():
-            to_save = form.save(commit=False)
-            to_save.author = request.user
-            to_save.save()
-            messages.success(request, 'Wizard Battle successfully started!')
-            return redirect(reverse('battle_arena'))
-        else:
-            messages.error(request, 'Wizard Battle attempt abandoned. Please try again.')
     else:
-        form = PostForm()
+        if request.method == 'POST':
+            form = PostForm(request.POST, request.FILES)
+            if form.is_valid():
+                to_save = form.save(commit=False)
+                to_save.author = request.user
+                to_save.save()
+                messages.success(request, 'Wizard Battle successfully started!')
+                return redirect(reverse('battle_arena'))
+            else:
+                messages.error(request, 'Wizard Battle attempt abandoned. Please try again.')
+        else:
+            form = PostForm()
 
-    template = 'wizard_battles/create_battle.html'
-    context = {
-        'form': form,
-    }
+        template = 'wizard_battles/create_battle.html'
+        context = {
+            'form': form,
+        }
 
     return render(request, template, context)
 
@@ -86,24 +86,24 @@ def edit_battle(request, slug):
     if not request.user.is_staff:
         messages.error(request, 'Apologies, only staff can access this.')
         return redirect(reverse('landing_page'))
-
-    battle = get_object_or_404(Post, slug=slug)
-    if request.method == 'POST':
-        form = PostForm(request.POST, request.FILES, instance=battle)
-        if form.is_valid():
-            battle = form.save()
-            messages.success(request, 'Wizard Battle successfully updated!')
-            return redirect(reverse('battle_arena'))
-        else:
-            messages.error(request, 'Wizard Battle update attempt abandoned. Please try again.')
     else:
-        form = PostForm(instance=battle)
+        battle = get_object_or_404(Post, slug=slug)
+        if request.method == 'POST':
+            form = PostForm(request.POST, request.FILES, instance=battle)
+            if form.is_valid():
+                battle = form.save()
+                messages.success(request, 'Wizard Battle successfully updated!')
+                return redirect(reverse('battle_arena'))
+            else:
+                messages.error(request, 'Wizard Battle update attempt abandoned. Please try again.')
+        else:
+            form = PostForm(instance=battle)
 
-    template = 'wizard_battles/edit_battle.html'
-    context = {
-        'form': form,
-        'battle': battle
-    }
+        template = 'wizard_battles/edit_battle.html'
+        context = {
+            'form': form,
+            'battle': battle
+        }
 
     return render(request, template, context)
 
@@ -116,8 +116,8 @@ def delete_battle(request, slug):
     if not request.user.is_staff:
         messages.error(request, 'Apologies, only staff can access this.')
         return redirect(reverse('landing_page'))
-    
-    battle = get_object_or_404(Post, slug=slug)
-    battle.delete()
-    messages.success(request, 'Wizard Battle deleted.')
-    return redirect(reverse('battle_arena'))
+    else:
+        battle = get_object_or_404(Post, slug=slug)
+        battle.delete()
+        messages.success(request, 'Wizard Battle deleted.')
+        return redirect(reverse('battle_arena'))
