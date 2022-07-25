@@ -43,27 +43,27 @@ This website will provide the user with an array of wizardly hats and other clot
 
 #### User
 
-As a user, I can clearly see the purpose of the site when I land on the home page so that I stay on the site.
+As a **user**, I can clearly see the purpose of the site when I land on the home page so that I stay on the site.
 
-As a user, I can clearly understand the products I am considering purchasing. so that I can make informed decisions.
+As a **user**, I can clearly understand the products I am considering purchasing. so that I can make informed decisions.
 
-As a user, I have the option to create a custom made hat so that I can have something that better suits me.
+As a **user**, I have the option to create a custom made hat so that I can have something that better suits me.
 
-As a user, I can get an instant quote for a custom hat so that I know how much I will be spending.
+As a **user**, I can get an instant quote for a custom hat so that I know how much I will be spending.
 
-As a user, I can complete the payment process quickly and easily so that I don’t get distracted/dissuaded and leave.
+As a **user**, I can complete the payment process quickly and easily so that I don’t get distracted/dissuaded and leave.
 
-As a user, I will be notified by email when my order has been placed successfully, so that I have trust in the website and I have the order details in a convenient place.
+As a **user**, I will be notified by email when my order has been placed successfully, so that I have trust in the website and I have the order details in a convenient place.
 
-As a user, I have the option for my information to be saved for future purchases so that I can save time on future purchases.
+As a **user**, I have the option for my information to be saved for future purchases so that I can save time on future purchases.
 
-As a user, I can edit or delete my user information so that I can have the correct information.
+As a **user**, I can edit or delete my user information so that I can have the correct information.
 
-As a user, I can easily find the site's privacy policy so that I can use the site knowing I am protected.
+As a **user**, I can easily find the site's privacy policy so that I can use the site knowing I am protected.
 
-As a user, I can see the stats of each item, so that I can have an experience outside of the standard online shopping experience.
+As a **user**, I can set the stats of each item, so that I can have an experience outside of the standard online shopping experience.
 
-As a user, I can see the final stats of my outfit, so that I can have an experience outside of the standard online shopping experience.
+As a **user**, I can see the final stats of my outfit, so that I can have an experience outside of the standard online shopping experience.
 
 As a **user** I can **see the shopping bag** so that **I can keep track of my shopping while I browse the site**.
 
@@ -74,36 +74,42 @@ As a **user** I can **comment on blog posts** so that **I can take part in the b
 
 #### Owner/staff member
 
-As a staff member, I can add products to my shop so that users can see the products I have available.
+As a **staff member**, I can add products to my shop so that users can see the products I have available.
 
 staff edit and delete
 
-As a staff member, I can control stock levels so that I do not accidentally over or undersell a product.
+As a **staff member**, I can control stock levels so that I can control the amount of products I sell.
 
-As a staff member, I will be notified by email if an order comes in so that I can action the sale.
+As a **staff member**, I will be notified by email if an order comes in so that I can action the sale.
 
-As a staff member, I can view my orders and see the current order status so that I know if there is an order I have to process.
+As a **staff member**, I can view my orders and see the current order status so that I know if there is an order I have to process.
 
-As a staff member, I can easily provide the site privacy policy so that I can communicate with users and increase the legitimacy of my website.
+As a **staff member** I can **change the status of an order** so that **I can communicate to other staff that the order has been actioned**.
+
+As a **staff member**, I can easily provide the site privacy policy so that I can communicate with users and increase the legitimacy of my website.
 
 Clear design
 
 Ts and Cs prominent in footer
 
 
-As a staff member, I can use web marketing to increase traffic to my site.
+As a **staff member**, I can use web marketing to increase traffic to my site.
 
-As a staff member, I can add blog posts to my site so that I can show expertise on the subject and correspond with my web marketing.
+As a **staff member**, I can add blog posts to my site so that I can show expertise on the subject and correspond with my web marketing.
 
-As a staff member, I will be provided with search engine optimisation for my site so that I can receive increased traffic and sales.
+As a **staff member** I can **edit/delete posts** so that **users can see the correct information**.
+
+As a **staff member**, I will be provided with search engine optimisation for my site so that I can receive increased traffic and sales.
 
 As a **staff member** I can **offer a shipping discount to users who sign up for accounts** so that **I receive more users who are more likely to make a purchase/multiple purchases**.
 
+As a **staff member** I can **easily contact the developers to add a custom product** so that **I can add new products to the site**.
+
 User/Owner
 
-As a user/staff member, I can sign in and out intuitively so that I can use the website easily.
+As a **user/staff member**, I can sign in and out intuitively so that I can use the website easily.
 
-As a user/staff member, I can navigate the website easily and intuitively.
+As a **userstaff member**, I can navigate the website easily and intuitively.
 
 
 ### Design and UX

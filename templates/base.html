@@ -43,7 +43,6 @@
 
 </head>
 
-
 <body class="d-flex flex-column h-100">
     <header>
         <nav class="navbar navbar-expand-md navbar-dark">
@@ -121,17 +120,11 @@
     </div>
     {% endif %}
 
-    {% block page_header %}
-    {% endblock %}
-
     <main class="flex-shrink-0">
         {% block content %}
-        <!-- <div class="content">
 
-    </div> -->
         {% endblock content %}
     </main>
-
 
     <footer class="footer mt-auto container">
         <div class="row">
@@ -169,9 +162,10 @@
             </div>
             <!--End mc_embed_signup-->
 
-
             <div class="col universal-link-styles text-center">
-                <a href="{% url 'privacy_policy' %}">Privacy Policy</a>
+                <div><a href="{% url 'privacy_policy' %}">Privacy Policy</a></div>
+                <div><a href="{% url 'about_us' %}">About Us</a></div>
+                <div><a href="{% url 'delivery_and_questions' %}">Frequently Asked Questions</a></div>  
             </div>
             <div class="col universal-link-styles text-center">
                 <a class="mx-2" href="#"><i class="fa-brands fa-instagram"></i></a>
@@ -181,7 +175,6 @@
             </div>
         </div>
     </footer>
-
 
     {% block postloadjs %}
     <!-- js to call the toasts, just calls and shows -->

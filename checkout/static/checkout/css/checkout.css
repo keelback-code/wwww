@@ -1,4 +1,4 @@
-/* Css from stripe docs */
+/* CSS from Stripe docs */
 .StripeElement,
 .stripe-style-input {
   box-sizing: border-box;
@@ -23,9 +23,10 @@
 }
 
 .stripe-style-input::placeholder {
-    color: #aab7c4;
+  color: #aab7c4;
 }
-/* end of css from stripe docs */
+
+/* end of CSS from Stripe docs */
 
 .fieldset-label {
   position: relative;
@@ -51,18 +52,19 @@ select option[value=""] {
 }
 
 #loading-overlay {
-display: none;
-position: fixed;
+  display: none;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(23, 162, 184, .85);
+  background: rgba(102, 64, 138, 0.85);
+  /* background: #534582; */
   z-index: 9999;
 }
 
 .loading-spinner {
-display: flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   margin: 0;
