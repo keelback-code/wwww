@@ -150,7 +150,11 @@
                         <p class="mb-0 font-weight-bold">Current Order Status</p>
                     </div>
                     <div class="col-12 col-md-8 text-md-right">
-                        <p class="mb-0">{{ order.fulfilled }}</p>
+                        {% if order.fulfilled is True %}
+                        <p class="mb-0">Order fulfilled</p>
+                        {% else %}
+                        <p class="mb-0">Order not yet fulfilled</p>
+                        {% endif %}
                     </div>
                 </div>
                 <form method="post" action="{% url 'staff_order_history' order.order_number %}" enctype="multipart/form-data">

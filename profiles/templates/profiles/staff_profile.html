@@ -39,14 +39,18 @@
                             <td>
                                 <ul class="list-unstyled">
                                     {% for item in order.lineitems.all %}
-                                        <li class="small">
-                                            {{ item.product.product_type }} x {{ item.quantity }}
-                                        </li>
+                                    <li class="small">
+                                        {{ item.product.product_type }} x {{ item.quantity }}
+                                    </li>
                                     {% endfor %}
                                 </ul>
                             </td>
                             <td>{{ order.grand_total }}</td>
-                            <td>{{ order.fulfilled }}</td> 
+                            {% if order.fulfilled is True %}
+                            <td>Order fulfilled</td>
+                            {% else %}
+                            <td>Order not yet fulfilled</td>
+                            {% endif %}
                         </tr>
                         {% endfor %}
                     </tbody>
