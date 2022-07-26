@@ -6,6 +6,27 @@
     <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
 
+<!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+</script>
+<script type="text/javascript">
+    (function () {
+        emailjs.init("2REUyrfpw3vW8GSyv");
+    })();
+</script>
+<script type="text/javascript">
+    window.onload = function() {
+        document.getElementById('payment-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            emailjs.sendForm('service_yg9it4o', 'checkout_template', this)
+                .then(function() {
+                    document.getElementById('payment-form').submit();
+                    console.log('SUCCESS!');
+                }, function(error) {
+                    console.log('FAILED...', error);
+                });
+        });
+    }
+</script> -->
 
 
 {% block content %}
@@ -28,15 +49,6 @@
                 </div>
                 {% for item in loot_items %}
                     <div class="row">
-                        <div class="col-2 mb-1">
-                            <a href="{% url 'final_quote' item.product.id %}">
-                                {% if item.product.image %}
-                                    <img class="w-100" src="{{ item.product.image.url }}" alt="{{ product.name }}">
-                                {% else %}
-                                    <img class="w-100" src="{{ MEDIA_URL }}placeholder-image-edited-2.png" alt="{{ product.name }}">
-                                {% endif %}
-                            </a>
-                        </div>
                         <div class="col-7">
                             <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
                         </div>
@@ -140,4 +152,26 @@
     {{ stripe_public_key|json_script:"id_stripe_public_key" }}
     {{ client_secret|json_script:"id_client_secret" }}
     <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
+    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("2REUyrfpw3vW8GSyv");
+        })();
+    </script>
+    <script type="text/javascript">
+        window.onload = function() {
+            document.getElementById('payment-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                emailjs.sendForm('service_yg9it4o', 'checkout_template', this)
+                    .then(function() {
+                        // document.getElementById('payment-form').submit();
+                        console.log('SUCCESS!');
+                    }, function(error) {
+                        console.log('FAILED...', error);
+                    });
+            });
+        }
+    </script> -->
+    
 {% endblock %}

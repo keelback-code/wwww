@@ -31,9 +31,6 @@
                     {% for item in loot_items %}
                         <div class="row">
                             <div class="col-12 col-sm-6 mb-2">
-                                {% include "loot/product-image.html" %}
-                            </div>
-                            <div class="col-12 col-sm-6 mb-2">
                                 {% include "loot/product-info.html" %}
                             </div>
                             <div class="col-12 col-sm-6 order-sm-last">
@@ -66,9 +63,6 @@
 
                         {% for item in loot_items %}
                             <tr>
-                                <td class="p-3 w-25">
-                                    {% include "loot/product-image.html" %}
-                                </td>
                                 <td class="py-3">
                                     {% include "loot/product-info.html" %}
                                 </td>
@@ -119,13 +113,11 @@ $('.btt-link').click(function(e) {
 {% include 'products/includes/quantity_input_script.html' %}
 
 <script type="text/javascript">
-// Update quantity on click
 $('.update-link').click(function(e) {
     var form = $(this).prev('.update-form');
     form.submit();
 })
 
-// Remove item and reload on click
 $('.remove-item').click(function(e) {
     var csrfToken = "{{ csrf_token }}";
     var itemId = $(this).attr('id').split('remove_')[1];

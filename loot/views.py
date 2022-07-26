@@ -15,10 +15,9 @@ def add_to_loot(request, item_id):
     Function to add a quantity of the specified product to the bag.
     """
     product = get_object_or_404(Product, pk=item_id)
-    quantity = int(request.POST.get('quantity'))   # will come from template as string so must convert
+    quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
-    loot = request.session.get('loot', {})  # looks for session and initializes to empty dict if doesn't
-    # now that we have dict, can put product in it
+    loot = request.session.get('loot', {})
 
     if item_id in list(loot.keys()):
         loot[item_id] += quantity
@@ -26,7 +25,7 @@ def add_to_loot(request, item_id):
         print("success")
     else:
         loot[item_id] = quantity
-        messages.success(request, f'Added custom product to your bag.')
+        messages.success(request, f'Added custom product to your loot')
 
     request.session['loot'] = loot # this overwrites variable with the updated version
     return redirect(redirect_url)
@@ -47,7 +46,7 @@ def adjust_loot(request, item_id):
         messages.error(request, f'Unable to add more than 10 custom products')
     else:
         loot.pop(item_id)
-        messages.success(request, f'Removed custom product from your loot bag')
+        messages.success(request, f'Removed custom product from your loot')
 
     request.session['loot'] = loot
     return redirect(reverse('view_loot'))
