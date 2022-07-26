@@ -96,11 +96,6 @@ body {
 /* end */
 
 
-/* Style for loot bag */
-.loot-links:hover {
-    cursor: default;
-}
-
 
 /* Landing page */
 .landing-page-links {
@@ -109,26 +104,19 @@ body {
 }
 
 
-/* Privacy policy page */
-.light-background-container {
-    background-color: #faebd7;
-    color: #050533;
+/* Products and product related pages */
+
+.custom-image {
+    /* max-height: 50vh;
+    /* overflow: hidden; */
+    /* object-fit: contain; */
 }
 
-.p-p-heading {
-    width: 40rem;
+/* Style for loot bag */
+.loot-links:hover {
+    cursor: default;
 }
 
-.p-p-text {
-    width: 60rem;
-}
-
-/* Standard product pages */
-
-.all-product-card {
-    background-color: #faebd7;
-    color: #050533;
-}
 
 
 /* Battle arena styling */
@@ -152,10 +140,22 @@ body {
 }
 
 
-
-
 /* About us page */
 
 .about-us li {
     list-style-type: none;
+}
+
+/* Privacy policy page */
+.light-background-container {
+    background-color: #faebd7;
+    color: #050533;
+}
+
+.p-p-heading {
+    width: 40rem;
+}
+
+.p-p-text {
+    width: 60rem;
 }

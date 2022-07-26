@@ -1,4 +1,5 @@
 from django.db import models
+from cloudinary.models import CloudinaryField
 from django.contrib.auth.models import User
 
 
@@ -51,5 +52,5 @@ class StaffSubmission(models.Model):
     variable_three_option_one = models.CharField(max_length=254, null=True, blank=True)
     variable_three_option_two = models.CharField(max_length=254, null=True, blank=True)
     variable_three_option_three = models.CharField(max_length=254, null=True, blank=True)
-    image = models.ImageField(null=True, blank=True)
+    image = CloudinaryField('image', null=True, blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
