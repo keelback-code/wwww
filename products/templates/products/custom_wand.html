@@ -10,18 +10,18 @@
 </div>
 <div class="container">
     <div class="row">
-        <div class="col-md-5 form-container text-center rounded mx-auto m-5 p-2 custom-image img img-thumbnail">
-            {% cloudinary 'cactus-wand_gkfxco.jpg' %}
-        </div>
-        <div class="col-md-2"></div>
-        <div class="col-md-5 form-container text-center rounded mx-auto m-5">
+        <div class="col-md-5 form-container text-center rounded mx-auto my-2 pt-2">
             <form method="post" action="{% url 'custom_wand' %}" enctype="multipart/form-data">
                 {{ form | crispy }}
                 {% csrf_token %}
-                <a class="btn btn-md btn-navy my-2" href="{% url 'all_products' %}"><i class="fas fa-chevron-left"></i>
+                <a class="btn btn-md btn-navy mt-2" href="{% url 'all_products' %}"><i class="fas fa-chevron-left"></i>
                     Keep Exploring</a>
-                <button type="submit" class="btn btn-md btn-navy my-2">Generate Quote</button>
+                <button type="submit" class="btn btn-md btn-navy mt-2">Generate Quote</button>
             </form>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-5 form-container text-center rounded mx-auto my-2 p-2 custom-image">
+            {% cloudinary 'cactus-wand_gkfxco.jpg' width=400 height=350 crop="fill" %}
         </div>
     </div>
 </div>

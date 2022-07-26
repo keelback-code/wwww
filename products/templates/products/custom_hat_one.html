@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-
+{% load cloudinary %}
 {% load crispy_forms_tags %}
 
 {% block content %}
@@ -8,15 +8,22 @@
 <div class="form-container text-center rounded mx-auto my-2">
     <h1 class="fs-2">Design custom hat</h1>
 </div>
-<div class="form-container text-center rounded mx-auto my-2">
-    <form method="post" action="{% url 'custom_hat_one' %}" enctype="multipart/form-data">
-        {{ form | crispy }}
-        {% csrf_token %}
-        <a class="btn btn-md btn-navy my-2" href="{% url 'all_products' %}"><i class="fas fa-chevron-left"></i> Keep Exploring</a>
-        <button type="submit" class="btn btn-md btn-navy my-2">Generate Quote</button>
-    </form>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-5 form-container text-center rounded mx-auto my-2 p-3">
+            <form method="post" action="{% url 'custom_hat_one' %}" enctype="multipart/form-data">
+                {{ form | crispy }}
+                {% csrf_token %}
+                <a class="btn btn-md btn-navy mt-2" href="{% url 'all_products' %}"><i class="fas fa-chevron-left"></i> Keep Exploring</a>
+                <button type="submit" class="btn btn-md btn-navy mt-2">Generate Quote</button>
+            </form>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-5 form-container text-center rounded mx-auto my-2 p-3">
+            {% cloudinary 'blue-top-hat-crop_vy0ihy.jpg' width=350 height=300 crop="fill" %}
+        </div>
+    </div>
 </div>
-
-
 
 {% endblock %}
