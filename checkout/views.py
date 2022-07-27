@@ -54,10 +54,10 @@ def checkout(request):
 
         order_form = OrderForm(form_data)
         if order_form.is_valid():
-            order = order_form.save(commit=False)  # have to save this in a variable in order to access as arg=order.ordernumber later
+            order = order_form.save(commit=False)
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
-            order.original_loot = json.dumps(loot)  # put bag into model for future use as 'original bag'
+            order.original_loot = json.dumps(loot)
             order.save()
             for item_id, item_data in loot.items():
                 try:
@@ -84,25 +84,20 @@ def checkout(request):
             messages.error(request, 'There was an error with your form. \
                 Please double check your information.')
     else: 
-        loot = request.session.get('loot', {})  # this is basically get clause, bag needed in get and post
+        loot = request.session.get('loot', {})
         if not loot:
             messages.error(request, "There's nothing in your loot at the moment")
             return redirect(reverse('all_products'))
 
-        # get bag -needs to be diff name so as not to override
         current_loot = loot_contents(request)
-        # then get grand total key out of current bag
         total = current_loot['grand_total']
-        # maths required for stripe to read as int:
         stripe_total = round(total * 100)
-        stripe.api_key = stripe_secret_key  # set secret key on stripe
-        # then create the paymentIntent
+        stripe.api_key = stripe_secret_key
         intent = stripe.PaymentIntent.create(
             amount=stripe_total,
             currency=settings.STRIPE_CURRENCY,
         )
 
-        # prefill details if user logged in and details saved
         if request.user.is_authenticated:
             try:
                 profile = UserProfile.objects.get(user=request.user)

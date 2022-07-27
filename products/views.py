@@ -1,5 +1,8 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib.admin.views.decorators import staff_member_required
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
+from django.conf import settings
 from django.utils.decorators import method_decorator
 from django.contrib import messages
 from django.views import View
@@ -224,11 +227,25 @@ class StaffSubmitView(View):
         return render(request, template, context)
     
     def post(self, request):
-        form = StaffSubmissionForm(request.POST, request.FILES) 
+        form = StaffSubmissionForm(request.POST, request.FILES)
+        email = request.user.email
         if form.is_valid():
             staff_form = form.save(commit=False)
             staff_form.staff_member = request.user
             form.save()
+            subject = render_to_string('products/staff_submission_emails/submission_subject.txt')
+            body = render_to_string(
+                'products/staff_submission_emails/submission_email.txt',
+                {'form': form,
+                'email': email,
+                'contact_email': settings.DEFAULT_FROM_EMAIL})
+            send_mail(
+                subject,
+                body,
+                settings.DEFAULT_FROM_EMAIL,
+                [email, settings.DEFAULT_FROM_EMAIL]
+            )
+            messages.success(request, 'Your product request has been submitted.')
             return redirect(reverse('landing_page'))
         else:
             messages.error(request, 'Product was not submitted. Please try again.')

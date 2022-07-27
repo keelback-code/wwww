@@ -1,0 +1,31 @@
+Hello!
+
+This is a confirmation of your product submission for Winnifrederico's Wondrous World of Wizards.
+
+Product type: {{ form.product_type.value }}
+Colors: {{ form.color.value }}
+Stats: {{ form.stat.value }}
+Image: {{ form.image.value }}
+
+Variable one: {{ form.variable_one.value }}
+    Option one: {{ form.variable_one_option_one.value }}
+    Option two: {{ form.variable_one_option_two.value }}
+    Option three: {{ form.variable_one_option_three.value }}
+
+Variable two: {{ form.variable_two.value }}
+    Option one: {{ form.variable_two_option_one.value }}
+    Option two: {{ form.variable_two_option_two.value }}
+    Option three: {{ form.variable_two_option_three.value }}
+
+Variable three: {{ form.variable_three.value }}
+    Option one: {{ form.variable_three_option_one.value }}
+    Option two: {{ form.variable_three_option_two.value }}
+    Option three: {{ form.variable_three_option_three.value }}
+
+The devs will look at this and let you know when the product has been added. If you have any questions please get in touch at this email address.
+
+It's Orbin' time.
+
+Sincerely,
+
+WWWW Dev Team
