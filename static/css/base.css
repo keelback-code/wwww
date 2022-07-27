@@ -9,7 +9,7 @@ html {
 
 /* Code for background image from Code Institute's Boutique Ado walkthrough */
 body {
-    background: url('/media/landing-page-hero.jpg') no-repeat center center fixed;
+    background: url('https://res.cloudinary.com/elyserh/image/upload/v1658933734/landing-page-hero_g4w1tp.jpg') no-repeat center center fixed;
     background-size: cover;
     height: calc(100vh - 164px);
     font-family: 'Anek Latin', monospace, sans-serif;
