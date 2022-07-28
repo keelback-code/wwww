@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from cloudinary.models import CloudinaryField
 from django.template.defaultfilters import slugify
 from django.contrib.auth.models import User
 
@@ -12,21 +13,14 @@ class Post(models.Model):
     title = models.CharField(max_length=250)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="battle_posts")
     text_content = models.TextField()
-    image_one = models.ImageField(null=True, blank=True, default="placeholder_one")
-    image_two = models.ImageField(null=True, blank=True, default="placeholder_two")
+    image_one = CloudinaryField(null=True, blank=True, default="placeholder_one")
+    image_two = CloudinaryField(null=True, blank=True, default="placeholder_two")
 
     def __str__(self):
         return self.title
     
     def get_absolute_url(self):
         return reverse("view_battle", kwargs={"slug": self.slug})
-
-    # def save(self, *args, **kwargs):
-    #     if not self.slug:
-    #         self.slug = slugify(self.title)
-    #     else:
-    #         self.slug = self.slug
-    #     return super().save(*args, **kwargs)
 
     def save(self, *args, **kwargs):
         if not self.slug:

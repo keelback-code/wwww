@@ -15,6 +15,9 @@ We've got your phone number on file as {{ order.phone_number }}.
 
 If you have any questions, feel free to contact us at {{ contact_email }}.
 
+If you have an account you can log in and see your order history here:
+https://w-w-w-w.herokuapp.com/profiles/
+
 Thank you for your order!
 
 It's Orbin' time.
