@@ -6,13 +6,6 @@ from django.views import generic, View
 from .models import Post, Comment
 from .forms import PostForm, CommentForm
 
-def test(request):
-    """
-    Function to retrieve a view of all wizard battle blog posts.
-    """
-
-
-    return render(request, 'wizard_battles/test.html')
 
 def battle_arena(request):
     """

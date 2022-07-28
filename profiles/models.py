@@ -7,12 +7,13 @@ from django_countries.fields import CountryField
 Model to create a user profile, based on Code Institute's Boutique Ado walkthrough.
 """
 
+
 class UserProfile(models.Model):
     """
     A user profile model for maintaining default
     delivery information and order history
     """
-    user = models.OneToOneField(User, on_delete=models.CASCADE)  # similar to FK, specifies that each user can only have one profile
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     default_phone_number = models.CharField(max_length=20, null=True, blank=True)
     default_street_address1 = models.CharField(max_length=80, null=True, blank=True)
     default_street_address2 = models.CharField(max_length=80, null=True, blank=True)
@@ -24,9 +25,6 @@ class UserProfile(models.Model):
         return self.user.username
 
 
-# This is a signal - there's only one so just put it here rather than it's own profiles/signals.py file
-# With decorator each time a user object is saved, it'll automatically 
-# either create a new profile or update the existing one
 @receiver(post_save, sender=User)
 def create_or_update_user_profile(sender, instance, created, **kwargs):
     """
@@ -34,5 +32,4 @@ def create_or_update_user_profile(sender, instance, created, **kwargs):
     """
     if created:
         UserProfile.objects.create(user=instance)
-    # Existing users: just save the profile
     instance.userprofile.save()
