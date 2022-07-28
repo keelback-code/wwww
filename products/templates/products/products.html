@@ -4,71 +4,69 @@
 
 {% block content %}
 
-<div class="container-fluid">
+
     <div class="form-container text-center rounded mx-auto my-2">
         <h2>Products</h2>
     </div>
-
-    <div class="row">
-        <div class="col-12 col-md-6">
-            <div class="card text-center battle-card">
-                <a class="card-title reversed-link-styles" href="{% url 'custom_hat_one' %}">
-                    <div>
-                        <p><strong>Hat</strong></p>
-                    </div>
-                    <div class="card-body image-grid-container">
-                        {% cloudinary 'blue-top-hat_mkjfca.jpg' %}
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
-
+   
+    <div class="container">
         <div class="row">
-            <div class="col-12 col-md-6">
-                <div class="card text-center battle-card">
+            <div class="col-12 col-md-6 mb-4">
+                <div class="card text-center product-card">
+                    <a class="card-title reversed-link-styles" href="{% url 'custom_hat_one' %}">
+                        <div>
+                            <p><strong>Hat</strong></p>
+                        </div>
+                        <div class="card-body">
+                            {% cloudinary 'blue-top-hat_mkjfca.jpg' width=400 height=400 crop="limit" %}
+                        </div>
+                    </a>
+                </div>
+            </div>
+       
+            <div class="col-12 col-md-6 mb-4">
+                <div class="card text-center product-card">
                     <a class="card-title reversed-link-styles" href="{% url 'custom_hat_two' %}">
                         <div>
                             <p><strong>Floppy Hat</strong></p>
                         </div>
-                        <div class="card-body image-grid-container">
-                            {% cloudinary 'black-straw-hat_dds4bk.jpg' %}
+                        <div class="card-body">
+                            {% cloudinary 'black-straw-hat_dds4bk.jpg' width=400 height=400 crop="limit" %}
                         </div>
                     </a>
                 </div>
             </div>
         </div>
+    </div>
 
-            <div class="row">
-                <div class="col-12 col-md-6">
-                    <div class="card text-center battle-card">
-                        <a class="card-title reversed-link-styles" href="{% url 'custom_cloak' %}">
-                            <div>
-                                <p><strong>Forest Cloak</strong></p>
-                            </div>
-                            <div class="card-body image-grid-container">
-                                {% cloudinary 'forest-green-cloak_by7wmi.jpg' %}
-                            </div>
-                        </a>
-                    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6 mb-4">
+                <div class="card text-center product-card">
+                    <a class="card-title reversed-link-styles" href="{% url 'custom_cloak' %}">
+                        <div>
+                            <p><strong>Forest Cloak</strong></p>
+                        </div>
+                        <div class="card-body">
+                            {% cloudinary 'forest-green-cloak_by7wmi.jpg' width=400 height=400 crop="limit" %}
+                        </div>
+                    </a>
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-12 col-md-6">
-                    <div class="card text-center battle-card">
-                        <a class="card-title reversed-link-styles" href="{% url 'custom_wand' %}">
-                            <div>
-                                <p><strong>Wand</strong></p>
-                            </div>
-                            <div class="card-body image-grid-container">
-                                {% cloudinary 'cactus-wand_gkfxco.jpg' %}
-                            </div>
-                        </a>
-                    </div>
+            <div class="col-12 col-md-6 mb-4">
+                <div class="card text-center product-card">
+                    <a class="card-title reversed-link-styles" href="{% url 'custom_wand' %}">
+                        <div>
+                            <p><strong>Wand</strong></p>
+                        </div>
+                        <div class="card-body">
+                            {% cloudinary 'cactus-wand_gkfxco.jpg' width=400 height=400 crop="limit" %}
+                        </div>
+                    </a>
                 </div>
             </div>
-
+        </div>
     </div>
 
 {% endblock %}

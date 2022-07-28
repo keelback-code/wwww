@@ -11,7 +11,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-5 form-container text-center rounded mx-auto my-2 p-3">
+        <div class="col-md-5 form-container text-center rounded mx-auto my-auto p-3">
             <form method="post" action="{% url 'custom_hat_one' %}" enctype="multipart/form-data">
                 {{ form | crispy }}
                 {% csrf_token %}
@@ -20,8 +20,8 @@
             </form>
         </div>
         <div class="col-md-1"></div>
-        <div class="col-md-5 form-container text-center rounded mx-auto my-2 p-3">
-            {% cloudinary 'blue-top-hat-crop_vy0ihy.jpg' width=350 height=300 crop="fill" %}
+        <div class="col-md-5 form-container text-center rounded mx-auto my-auto p-3">
+            {% cloudinary 'blue-top-hat_mkjfca.jpg' width=500 height=500 crop="limit" %}
         </div>
     </div>
 </div>
