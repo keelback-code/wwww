@@ -92,6 +92,8 @@ body {
 .custom-toast {
     overflow: visible;
     width: 20rem;
+    /* border-width: 10px;
+    border-color: red; */
 }
 /* end */
 
