@@ -8,7 +8,7 @@ from django.contrib import messages
 from django.views import View
 from django.contrib.auth.models import User
 from .models import Product, StaffSubmission
-from .forms import HatOneForm, HatTwoForm, CloakForm, WandForm, StaffSubmissionForm
+from .forms import HatOneForm, HatTwoForm, CloakForm, WandForm, SunglassesForm, StaffSubmissionForm
 
 
 def calc_variables(variable_one, variable_two, variable_three, a, b, c, d, e, f):
@@ -206,6 +206,46 @@ class DesignCustomWand(View):
 
         return render(request, template, context)
 
+
+class DesignCustomSunglasses(View):
+    """
+    Class to get a quote for a custom wand.
+    """
+    def get(self, request):
+        form = SunglassesForm()
+        template = 'products/custom_sunglasses.html'
+        context = {
+            'form': form,
+        }
+
+        return render(request, template, context)
+
+
+    def post(self, request):
+        form = SunglassesForm(request.POST) 
+        shape = request.POST['variable_one']
+        beam_abilities = request.POST['variable_two']
+        lens_color = request.POST['variable_three']
+        
+        if form.is_valid():
+            priced_form = form.save(commit=False)
+            priced_form.price = calc_variables(
+                shape, beam_abilities, lens_color, 
+                "Shape - Heart", "Shape - Sports Dad", "Shape - Bubble", 
+                "Beam - Woodcutter", "Beam - Laser", "Beam - Super Vision")
+            priced_form.product_type = "Sunglasses"
+            product = form.save()
+            return redirect(reverse('final_quote', args=[product.id]))
+        else:
+            messages.error(request, 'Quote was not generated. Please try again.')
+            form = SunglassesForm()
+
+        template = 'products/custom_sunglasses.html'
+        context = {
+            'form': form,
+        }
+
+        return render(request, template, context)
 
 @method_decorator(staff_member_required, name='dispatch')
 class StaffSubmitView(View):

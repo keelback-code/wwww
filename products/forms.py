@@ -139,3 +139,35 @@ class WandForm(forms.ModelForm):
     class Meta:
         model = Product
         fields = ('color', 'stat', 'variable_one', 'variable_two', 'variable_three',)
+
+
+class SunglassesForm(forms.ModelForm):
+    """
+    Form for designing custom sunglasses
+    """
+    shape = [
+        ('Shape - Heart', "Heart"),
+        ('Shape - Sports Dad', "Sports Dad (unisex)"),
+        ('Shape - Bubble', "Bubble"),
+    ]
+
+    beam_abilities = [
+        ('Beam - Woodcutter', "Woodcutter"),
+        ('Beam - Laser', "Laser"),
+        ('Beam - Super Vision', "Super Vision"),
+    ]
+
+    lens_color = [
+        ('Lens - Metallic', "Metallic"),
+        ('Lens - Sunrise', "Sunrise"),
+        ('Lens - Rainbow', "Rainbow"),
+        ('Lens - None', "None"),
+    ]
+
+    variable_one = forms.ChoiceField(choices=shape, label="Shape")
+    variable_two = forms.ChoiceField(choices=beam_abilities, label="Beam Abilities")
+    variable_three = forms.ChoiceField(choices=lens_color, label="Lens Colors")
+
+    class Meta:
+        model = Product
+        fields = ('color', 'stat', 'variable_one', 'variable_two', 'variable_three',)
