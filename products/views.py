@@ -316,6 +316,7 @@ def final_quote(request, product_id):
     """
     Function to display a quote for a custom product.
     """
+
     product = get_object_or_404(Product, pk=product_id)
 
     context = {

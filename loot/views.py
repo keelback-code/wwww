@@ -22,7 +22,6 @@ def add_to_loot(request, item_id):
     if item_id in list(loot.keys()):
         loot[item_id] += quantity
         messages.success(request, f'Updated custom product quantity to {loot[item_id]}')
-        print("success")
     else:
         loot[item_id] = quantity
         messages.success(request, f'Added custom product to your loot')
@@ -61,6 +60,7 @@ def remove_from_loot(request, item_id):
         loot = request.session.get('loot', {})
         loot.pop(item_id)
         messages.success(request, f'Removed custom product from your loot')
+        product.delete()
 
         request.session['loot'] = loot
         # return this instead of redirect
