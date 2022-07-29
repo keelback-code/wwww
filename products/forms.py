@@ -171,3 +171,99 @@ class SunglassesForm(forms.ModelForm):
     class Meta:
         model = Product
         fields = ('color', 'stat', 'variable_one', 'variable_two', 'variable_three',)
+
+
+class SpellBookForm(forms.ModelForm):
+    """
+    Form for designing custom sunglasses
+    """
+    cover = [
+        ('Cover - Felt', "Felt"),
+        ('Cover - Pineapple Leather', "Pineapple Leather"),
+        ('Cover - School Backpacks', "School Backpacks"),
+    ]
+
+    first_spell = [
+        ('First Spell - Make Sticky', "Make Sticky"),
+        ('First Spell - Clean Dishes', "Clean Dishes"),
+        ('First Spell - Start Car Alarm', "Start Car Alarm"),
+    ]
+
+    second_spell = [
+        ('Second Spell - Mess up Hair', "Mess up Hair"),
+        ('Second Spell - Remove Legs', "Remove Legs"),
+        ('Second Spell - Disintegrate', "Disintegrate"),
+        ('Second Spell - None', "None"),
+    ]
+
+    variable_one = forms.ChoiceField(choices=cover, label="Cover")
+    variable_two = forms.ChoiceField(choices=first_spell, label="First Spell")
+    variable_three = forms.ChoiceField(choices=second_spell, label="Second Spell")
+
+    class Meta:
+        model = Product
+        fields = ('color', 'stat', 'variable_one', 'variable_two', 'variable_three',)
+
+
+class CowboyHatForm(forms.ModelForm):
+    """
+    Form for designing custom sunglasses
+    """
+    animal = [
+        ('Animal - Horse', "Horse"),
+        ('Animal - Cow', "Cow"),
+        ('Animal - Giraffe', "Giraffe"),
+    ]
+
+    weapon = [
+        ('Weapon - Six Shooter', "Six Shooter"),
+        ('Weapon - Knife', "Knife"),
+        ('Weapon - Sword', "Sword"),
+    ]
+
+    musical_instrument = [
+        ('Instrument - Trumpet', "Trumpet"),
+        ('Instrument - Saxophone', "Saxophone"),
+        ('Instrument - Toooooooba', "Toooooooba"),
+        ('Instrument - None', "None"),
+    ]
+
+    variable_one = forms.ChoiceField(choices=animal, label="Animal")
+    variable_two = forms.ChoiceField(choices=weapon, label="Weapon")
+    variable_three = forms.ChoiceField(choices=musical_instrument, label="Musical Instrument")
+
+    class Meta:
+        model = Product
+        fields = ('color', 'stat', 'variable_one', 'variable_two', 'variable_three',)
+
+
+class SatinHatForm(forms.ModelForm):
+    """
+    Form for designing a custom hat.
+    """
+    brim_width = [
+        ('Brim - 20cm', "20cm"),
+        ('Brim - 25cm', "25cm"),
+        ('Brim - 30cm', "30cm"),
+    ]
+
+    hat_material = [
+        ('Material - Satin', "Satin"),
+        ('Material - Felt', "Felt"),
+        ('Material - Scratchy Wool', "Scratchy Wool"),
+    ]
+
+    pattern = [
+        ('Pattern - Floral', "Floral"),
+        ('Pattern - Mushrooms', "Mushrooms with Faces"),
+        ('Pattern - Sixties', "60s Repeating Pattern"),
+        ('Pattern - None', "None"),
+    ]
+
+    variable_one = forms.ChoiceField(choices=brim_width, label="Brim Width")
+    variable_two = forms.ChoiceField(choices=hat_material, label="Hat Material")
+    variable_three = forms.ChoiceField(choices=pattern, label="Pattern")
+
+    class Meta:
+        model = Product
+        fields = ('color', 'stat', 'variable_one', 'variable_two', 'variable_three',)
