@@ -8,7 +8,7 @@ from django.contrib import messages
 from django.views import View
 from django.contrib.auth.models import User
 from .models import Product, StaffSubmission
-from .forms import HatOneForm, HatTwoForm, CloakForm, WandForm, SunglassesForm, StaffSubmissionForm
+from .forms import HatOneForm, HatTwoForm, CloakForm, WandForm, SunglassesForm, SpellBookForm, CowboyHatForm, LargeHatForm, StaffSubmissionForm
 
 
 def calc_variables(variable_one, variable_two, variable_three, a, b, c, d, e, f):
@@ -86,7 +86,7 @@ class DesignCustomHat(View):
 
 class DesignCustomHatTwo(View):
     """
-    Class to get a quote for a second custom hat.
+    Class to get a quote for a floppy custom hat.
     """
     def get(self, request):
         form = HatTwoForm()
@@ -246,6 +246,129 @@ class DesignCustomSunglasses(View):
         }
 
         return render(request, template, context)
+
+
+class DesignCustomSpellBook(View):
+    """
+    Class to get a quote for a custom spellbook.
+    """
+    def get(self, request):
+        form = SpellBookForm()
+        template = 'products/custom_spell_book.html'
+        context = {
+            'form': form,
+        }
+
+        return render(request, template, context)
+
+    def post(self, request):
+        form = SpellBookForm(request.POST) 
+        cover = request.POST['variable_one']
+        first_spell = request.POST['variable_two']
+        second_spell = request.POST['variable_three']
+        
+        if form.is_valid():
+            priced_form = form.save(commit=False)
+            priced_form.price = calc_variables(
+                cover, first_spell, second_spell, 
+                "Cover - Felt", "Cover - Pineapple", "Cover - Backpacks", 
+                "First Spell - Make Sticky", "First Spell - Clean Dishes",
+                "First Spell - Start Car Alarm")
+            priced_form.product_type = "Spell Book"
+            product = form.save()
+            return redirect(reverse('final_quote', args=[product.id]))
+        else:
+            messages.error(request, 'Quote was not generated. Please try again.')
+            form = SpellBookForm()
+
+        template = 'products/custom_spell_book.html'
+        context = {
+            'form': form,
+        }
+
+        return render(request, template, context)
+
+
+class DesignCustomCowboyHat(View):
+    """
+    Class to get a quote for a custom cowboy-style hat.
+    """
+    def get(self, request):
+        form = CowboyHatForm()
+        template = 'products/custom_cowboy_hat.html'
+        context = {
+            'form': form,
+        }
+
+        return render(request, template, context)
+
+    def post(self, request):
+        form = CowboyHatForm(request.POST) 
+        animal = request.POST['variable_one']
+        weapon = request.POST['variable_two']
+        musical_instrument = request.POST['variable_three']
+        
+        if form.is_valid():
+            priced_form = form.save(commit=False)
+            priced_form.price = calc_variables(
+                animal, weapon, musical_instrument, 
+                "Animal - Horse", "Animal - Cow", "Animal - Giraffe", 
+                "Weapon - Six Shooter", "Weapon - Knife",
+                "Weapon - Sword")
+            priced_form.product_type = "Hat"
+            product = form.save()
+            return redirect(reverse('final_quote', args=[product.id]))
+        else:
+            messages.error(request, 'Quote was not generated. Please try again.')
+            form = CowboyHatForm()
+
+        template = 'products/custom_cowboy_hat.html'
+        context = {
+            'form': form,
+        }
+
+        return render(request, template, context)
+
+
+class DesignCustomLargeHat(View):
+    """
+    Class to get a quote for a custom large hat.
+    """
+    def get(self, request):
+        form = LargeHatForm()
+        template = 'products/custom_large_hat.html'
+        context = {
+            'form': form,
+        }
+
+        return render(request, template, context)
+
+    def post(self, request):
+        form = LargeHatForm(request.POST) 
+        brim_width = request.POST['variable_one']
+        hat_material = request.POST['variable_two']
+        pattern = request.POST['variable_three']
+        
+        if form.is_valid():
+            priced_form = form.save(commit=False)
+            priced_form.price = calc_variables(
+                brim_width, hat_material, pattern, 
+                "Brim - 20cm", "Brim - 25cm", "Brim - 30cm", 
+                "Material - Satin", "Material - Felt", "Material - Scratchy Wool")
+            priced_form.product_type = "Hat"
+            product = form.save()
+            return redirect(reverse('final_quote', args=[product.id]))
+        else:
+            messages.error(request, 'Quote was not generated. Please try again.')
+            form = LargeHatForm()
+
+        template = 'products/custom_large_hat.html'
+        context = {
+            'form': form,
+        }
+
+        return render(request, template, context)
+
 
 @method_decorator(staff_member_required, name='dispatch')
 class StaffSubmitView(View):

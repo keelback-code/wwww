@@ -179,8 +179,8 @@ class SpellBookForm(forms.ModelForm):
     """
     cover = [
         ('Cover - Felt', "Felt"),
-        ('Cover - Pineapple Leather', "Pineapple Leather"),
-        ('Cover - School Backpacks', "School Backpacks"),
+        ('Cover - Pineapple', "Pineapple Leather"),
+        ('Cover - Backpacks', "School Backpacks"),
     ]
 
     first_spell = [
@@ -237,7 +237,7 @@ class CowboyHatForm(forms.ModelForm):
         fields = ('color', 'stat', 'variable_one', 'variable_two', 'variable_three',)
 
 
-class SatinHatForm(forms.ModelForm):
+class LargeHatForm(forms.ModelForm):
     """
     Form for designing a custom hat.
     """
