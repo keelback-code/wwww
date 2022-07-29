@@ -33,7 +33,7 @@
                 <div class="col-3 text-left">
                     <p class="my-0 small text-muted">{{ item.product.product_type }}</p>
                 </div>
-                <div class="col-6 text-cente">
+                <div class="col-6 text-center">
                     <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
                 </div>
                 <div class="col-3 text-right">
@@ -66,13 +66,13 @@
             <p class="text-muted my-2">Please fill out the form below to complete your order</p>
             <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                 {% csrf_token %}
-                <fieldset class="rounded px-3 mb-5">
-                    <legend class="fieldset-label small text-black px-2 w-auto">Details</legend>
+                <fieldset class="px-3 mb-5">
+                    <legend class="fieldset-label small px-2 w-auto">Details</legend>
                     {{ order_form.full_name | as_crispy_field }}
                     {{ order_form.email | as_crispy_field }}
                 </fieldset>
-                <fieldset class="rounded px-3 mb-5">
-                    <legend class="fieldset-label small text-black px-2 w-auto">Delivery</legend>
+                <fieldset class="px-3 mb-5">
+                    <legend class="fieldset-label small px-2 w-auto">Delivery</legend>
                     {{ order_form.phone_number | as_crispy_field }}
                     {{ order_form.country | as_crispy_field }}
                     {{ order_form.postcode | as_crispy_field }}
@@ -95,7 +95,6 @@
                         {% endif %}
                     </div>
                 </fieldset>
-
 
                 <!-- Stripe fieldset -->
                 <fieldset class="px-3">
@@ -121,7 +120,6 @@
                         <span>Your card will be charged <strong>${{ grand_total|floatformat:2 }}</strong></span>
                     </p>
                 </div>
-
 
             </form>
         </div>

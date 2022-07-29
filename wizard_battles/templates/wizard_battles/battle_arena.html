@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
+{% load cloudinary %}
 
 {% block content %}
 
-<div class="rounded product-detail-container col-md-8 mx-auto">
+<div class="form-container text-center rounded col-md-8 mx-auto">
     <h1 class="text-center fs-2 m-2">Battle Arena</h1>
 </div>
 
@@ -13,21 +14,22 @@
         <div class="col-md-8 mx-auto m-4">
             <div class="card text-center battle-card h-100">
                 <div>
-                    <a class="card-title reversed-link-styles fs-4 justify-content-center"
+                    <h2><a class="card-title reversed-link-styles justify-content-center"
                         href="{% url 'view_battle' battle.slug %}">
                         {{ battle.title }}
-                    </a>
+                    </a></h2>
                 </div>
                 <div class="card-body image-grid-container">
                     {% if battle.image_one %}
-                    <img class="img-fluid" src="{{ battle.image_one.url }}" alt="{{ battle.title }}">
+                    {% cloudinary battle.image_one.url width=400 height=400 crop="limit" %}
                     {% else %}
-                    <img class="img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ battle.title }}">
+                    {% cloudinary 'placeholder.png' width=400 height=400 crop="fill" %}
                     {% endif %}
+
                     {% if battle.image_two %}
-                    <img class="img-fluid" src="{{ battle.image_two.url }}" alt="{{ battle.title }}">
+                    {% cloudinary battle.image_two.url width=400 height=400 crop="limit" %}
                     {% else %}
-                    <img class="img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ battle.title }}">
+                    {% cloudinary 'placeholder.png' width=400 height=400 crop="fill" %}
                     {% endif %}
                 </div>
             </div>
