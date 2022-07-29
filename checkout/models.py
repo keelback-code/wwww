@@ -23,9 +23,9 @@ class Order(models.Model):
     """
     Order model, will calculate bag as well as create order
     """   
-    order_number = models.CharField(max_length=8, null=False, editable=False)  # editable = False for customers to see their order no but not change it
+    order_number = models.CharField(max_length=8, null=False, editable=False)
     user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
-                                     null=True, blank=True, related_name='orders')  # connects to profiles/models.py. set_null deletes user but we can keep order history
+                                     null=True, blank=True, related_name='orders')
     full_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
@@ -72,7 +72,6 @@ class OrderLineItem(models.Model):
     Individual shopping line item
     """
     order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
-    # can filter on related name eg Order.lineitems.all and Order.lineitems.filter (or order?)
     product = models.ForeignKey(Product, null=False, blank=False, on_delete=models.CASCADE)
     quantity = models.IntegerField(null=False, blank=False, default=0)
     lineitem_total = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
