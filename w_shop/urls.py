@@ -1,4 +1,4 @@
-from .views import handler404
+from .views import handler404, handler500
 from django.contrib import admin
 from django.conf import settings
 from django.urls import path, include
@@ -17,3 +17,4 @@ urlpatterns = [
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 handler404 = 'w_shop.views.handler404'
+handler500 = 'w_shop.views.handler500'
