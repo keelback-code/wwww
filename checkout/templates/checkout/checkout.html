@@ -6,29 +6,6 @@
     <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
 
-<!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
-</script>
-<script type="text/javascript">
-    (function () {
-        emailjs.init("2REUyrfpw3vW8GSyv");
-    })();
-</script>
-<script type="text/javascript">
-    window.onload = function() {
-        document.getElementById('payment-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            emailjs.sendForm('service_yg9it4o', 'checkout_template', this)
-                .then(function() {
-                    document.getElementById('payment-form').submit();
-                    console.log('SUCCESS!');
-                }, function(error) {
-                    console.log('FAILED...', error);
-                });
-        });
-    }
-</script> -->
-
-
 {% block content %}
     <div class="overlay"></div>
     <div class="container">

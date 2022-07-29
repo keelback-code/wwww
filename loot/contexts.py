@@ -5,6 +5,7 @@ from django.shortcuts import get_object_or_404
 from django.contrib.auth.models import User
 from products.models import Product
 
+
 def loot_contents(request):
     """
     Function to make loot bag available across the site;
@@ -22,13 +23,10 @@ def loot_contents(request):
             product_count += item_data
             loot_items.append({
                 'item_id': item_id,
-                'quantity': item_data,  # correct to be item data that was passed in
+                'quantity': item_data,
                 'product': product,
             })
-       
-    # if request.user.is_authenticated:
-    #     delivery = 0
-    # else:
+
     delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
     grand_total = delivery + total
     
