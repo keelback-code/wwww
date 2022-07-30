@@ -132,11 +132,24 @@
 
     <footer class="footer mt-auto container">
         <div class="row">
+            <div class="col-md-4 universal-link-styles text-left">
+                <div><a href="{% url 'privacy_policy' %}">Privacy Policy</a></div>
+                <div><a href="{% url 'about_us' %}">About Us</a></div>
+                <div><a href="{% url 'delivery_and_questions' %}">Frequently Asked Questions</a></div>
+                <div class="universal-link-styles">
+                    <a class="mx-2" href="https://www.instagram.com/" target="_blank" rel="noopener"
+                        aria-label="Opens in a new tab"><i class="fa-brands fa-instagram"></i></a>
+                    <a class="mx-2" href="https://www.facebook.com/" target="_blank" rel="noopener"
+                        aria-label="Opens in a new tab"><i class="fa-brands fa-facebook-square"></i></a>
+                    <a class="mx-2" href="https://www.youtube.com/watch?v=USoIAWVkCvk" target="_blank" rel="noopener"
+                        aria-label="Opens in a new tab"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
 
             <!-- Mailchimp Signup Form -->
             <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7_dtp.css" rel="stylesheet" type="text/css">
 
-            <div>
+            <div class="col-md-8 text-right">
                 <form
                     action="https://gmail.us8.list-manage.com/subscribe/post?u=3da65fc6c6bb5e29434a90318&amp;id=d601635be1"
                     method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate"
@@ -144,7 +157,7 @@
 
                     <div class="mc-field-group">
                         <p>Hear about our wizard battles and receive special promotions by signing up to our
-                            newsletter.</p>
+                            newsletter</p>
                     </div>
                     <div class="mc-field-group" style="display: inline-block">
                         <label for="mce-EMAIL">Email Address <span class="asterisk">*</span></label>
@@ -156,7 +169,6 @@
                             class="btn btn-md btn-navy border border-light">Subscribe</button>
                     </div>
 
-
                     <div id="mce-responses" class="clear foot">
                         <div class="response" id="mce-error-response" style="display:none"></div>
                         <div class="response" id="mce-success-response" style="display:none"></div>
@@ -164,24 +176,13 @@
                     <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
                     <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
                             name="b_3da65fc6c6bb5e29434a90318_d601635be1" tabindex="-1" value=""></div>
-
                 </form>
             </div>
             <!--End mc_embed_signup-->
+         
 
-            <div class="col universal-link-styles text-center">
-                <div><a href="{% url 'privacy_policy' %}">Privacy Policy</a></div>
-                <div><a href="{% url 'about_us' %}">About Us</a></div>
-                <div><a href="{% url 'delivery_and_questions' %}">Frequently Asked Questions</a></div>
-            </div>
-            <div class="col universal-link-styles text-center">
-                <a class="mx-2" href="https://www.instagram.com/" target="_blank" rel="noopener"
-                    aria-label="Opens in a new tab"><i class="fa-brands fa-instagram"></i></a>
-                <a class="mx-2" href="https://www.facebook.com/" target="_blank" rel="noopener"
-                    aria-label="Opens in a new tab"><i class="fa-brands fa-facebook-square"></i></a>
-                <a class="mx-2" href="https://www.youtube.com/watch?v=USoIAWVkCvk" target="_blank" rel="noopener"
-                    aria-label="Opens in a new tab"><i class="fa-brands fa-youtube"></i></a>
-            </div>
+            
+
         </div>
     </footer>
 
