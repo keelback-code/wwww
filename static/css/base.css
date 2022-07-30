@@ -15,6 +15,7 @@ body {
     font-family: 'Anek Latin', monospace, sans-serif;
     color: #faebd7;
 }
+
 /* end */
 
 .icon {
@@ -79,6 +80,7 @@ body {
     border-radius: 100px;
     font-size: 30px;
 }
+
 /* end */
 
 /* Bootstrap toasts, based on Code Institute's Boutique Ado walkthrough */
@@ -92,9 +94,8 @@ body {
 .custom-toast {
     overflow: visible;
     width: 20rem;
-    /* border-width: 10px;
-    border-color: red; */
 }
+
 /* end */
 
 
@@ -114,6 +115,17 @@ body {
     background-color: #faebd7;
     color: #050533;
     text-decoration: none;
+}
+
+.title {
+    font-family: 'Raleway', monospace, sans-serif;
+    text-decoration: none;
+    color: #050533;
+}
+
+.title:hover {
+    text-decoration: underline;
+    color: #050533;
 }
 
 

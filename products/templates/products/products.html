@@ -8,97 +8,72 @@
     <h2>Products</h2>
 </div>
 
-<div class="container">
-    <div class="row">
-        <div class="col-12 col-md-6 mb-4">
-            <div class="card text-center product-card">
-                <a class="card-title reversed-link-styles" href="{% url 'custom_hat_one' %}">
-                    <div>
-                        <p><strong>Hat</strong></p>
-                    </div>
-                    <div class="card-body">
-                        <img class="img-fluid" src="/media/images/blue-top-hat.jpg"
-                            alt="A person in a bright blue hat standing against a yellow wall.">
-                    </div>
-                </a>
+<div class="card-columns m-4">
+    <div class="card text-center product-card">
+        <a class="p-2" href="{% url 'custom_hat_one' %}">
+            <div>
+                <p class="title"><strong>Hat</strong></p>
             </div>
-        </div>
-
-        <div class="col-12 col-md-6 mb-4">
-            <div class="card text-center product-card">
-                <a class="card-title reversed-link-styles" href="{% url 'custom_hat_two' %}">
-                    <div>
-                        <p><strong>Floppy Hat</strong></p>
-                    </div>
-                    <div class="card-body">
-                        <img class="img-fluid" src="/media/images/black-straw-hat.jpg"
-                            alt="A person wearing a black straw hat sitting in a field of cabbages.">
-                    </div>
-                </a>
+            <div class="card-body">
+                <img class="img-fluid" src="/media/images/blue-top-hat.jpg"
+                    alt="A person in a bright blue hat standing against a yellow wall.">
             </div>
-        </div>
+        </a>
+    </div>
+    <div class="card text-center product-card">
+        <a class="p-2" href="{% url 'custom_cloak' %}">
+            <div>
+                <p class="title"><strong>Forest Cloak</strong></p>
+            </div>
+            <div class="card-body">
+                <img class="img-fluid" src="/media/images/forest-green-cloak.jpg"
+                    alt="A person standing in the forest wearing a dark green, floor length cloak.">
+            </div>
+        </a>
+    </div>
+    <div class="card text-center product-card">
+        <a class="p-2" href="{% url 'custom_sunglasses' %}">
+            <div>
+                <p class="title"><strong>Sunglasses</strong></p>
+            </div>
+            <div class="card-body">
+                <img class="img-fluid" src="/media/images/sunnies.jpg"
+                    alt="A person in a red checked suit and waistcoast wearing stylish rounded sunglasses and leaning against a wall.">
+            </div>
+        </a>
+    </div>
+    <div class="card text-center product-card">
+        <a class="p-2" href="{% url 'custom_hat_two' %}">
+            <div>
+                <p class="title"><strong>Floppy Hat</strong></p>
+            </div>
+            <div class="card-body">
+                <img class="img-fluid" src="/media/images/black-straw-hat.jpg"
+                    alt="A person wearing a black straw hat sitting in a field of cabbages.">
+            </div>
+        </a>
+    </div>
+    <div class="card text-center product-card">
+        <a class="p-2" href="{% url 'custom_spell_book' %}">
+            <div>
+                <p class="title"><strong>Spell Book</strong></p>
+            </div>
+            <div class="card-body">
+                <img class="img-fluid" src="/media/images/spellbook.jpg"
+                    alt="A navy book that says 'spellbook' on the front, next to a large crystal.">
+            </div>
+        </a>
+    </div>
+    <div class="card text-center product-card">
+        <a class="p-2" href="{% url 'custom_wand' %}">
+            <div>
+                <p class="title"><strong>Wand</strong></p>
+            </div>
+            <div class="card-body">
+                <img class="img-fluid" src="/media/images/cactus-wand.jpg"
+                    alt="A wand that appears to be a very small cactus on a stick, being held by someone with long purple fingernails.">
+            </div>
+        </a>
     </div>
 </div>
-
-<div class="container">
-    <div class="row">
-        <div class="col-12 col-md-6 mb-4">
-            <div class="card text-center product-card">
-                <a class="card-title reversed-link-styles" href="{% url 'custom_cloak' %}">
-                    <div>
-                        <p><strong>Forest Cloak</strong></p>
-                    </div>
-                    <div class="card-body">
-                        <img class="img-fluid" src="/media/images/forest-green-cloak.jpg"
-                            alt="A person standing in the forest wearing a dark green, floor length cloak.">
-                    </div>
-                </a>
-            </div>
-        </div>
-
-        <div class="col-12 col-md-6 mb-4">
-            <div class="card text-center product-card">
-                <a class="card-title reversed-link-styles" href="{% url 'custom_sunglasses' %}">
-                    <div>
-                        <p><strong>Sunglasses</strong></p>
-                    </div>
-                    <div class="card-body">
-                        <img class="img-fluid" src="/media/images/sunnies.jpg"
-                            alt="A person in a red checked suit and waistcoast wearing stylish rounded sunglasses and leaning against a wall.">
-                    </div>
-                </a>
-            </div>
-        </div>
-
-        <div class="col-12 col-md-6 mb-4">
-            <div class="card text-center product-card">
-                <a class="card-title reversed-link-styles" href="{% url 'custom_wand' %}">
-                    <div>
-                        <p><strong>Wand</strong></p>
-                    </div>
-                    <div class="card-body">
-                        <img class="img-fluid" src="/media/images/cactus-wand.jpg"
-                            alt="A wand that appears to be a very small cactus on a stick, being held by someone with long purple fingernails.">
-                    </div>
-                </a>
-            </div>
-        </div>
-
-        <div class="col-12 col-md-6 mb-4">
-            <div class="card text-center product-card">
-                <a class="card-title reversed-link-styles" href="{% url 'custom_spell_book' %}">
-                    <div>
-                        <p><strong>Spell Book</strong></p>
-                    </div>
-                    <div class="card-body">
-                        <img class="img-fluid" src="/media/images/spellbook.jpg"
-                            alt="A navy book that says 'spellbook' on the front, next to a large crystal.">
-                    </div>
-                </a>
-            </div>
-        </div>
-
-    </div>
-</div>
-
 {% endblock %}
