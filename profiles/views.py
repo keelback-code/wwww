@@ -8,6 +8,7 @@ from .models import UserProfile
 from .forms import UserProfileForm
 from checkout.models import Order
 from checkout.forms import FulfillmentForm
+from products.models import StaffSubmission
 """
 Views for user profiles, based on Code Institute's Boutique Ado walkthrough.
 """
@@ -65,10 +66,12 @@ def staff_profile(request):
         return redirect(reverse('landing_page'))
     else:
         orders = Order.objects.all()
+        staff_products = StaffSubmission.objects.all()
 
     template = 'profiles/staff_profile.html'
     context = {
         'orders': orders,
+        'staff_products': staff_products,
     }
 
     return render(request, template, context)

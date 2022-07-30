@@ -11,12 +11,12 @@
 <div class="container">
     <div class="row">
         <div class="form-container text-center rounded mx-auto my-2">
-            <h2 class="my-2">Staff Access - Order History</h2>
+            <h2 class="my-2">Staff Hub</h2>
         </div>
     </div>
     <div class="row">
         <div class="col-12 form-container rounded mx-auto my-2">
-            <p class="text-muted">Order History</p>
+            <h3>Order History</h3>
             <div class="order-history table-responsive">
                 <table class="table table-sm">
                     <thead>
@@ -51,6 +51,37 @@
                             {% else %}
                             <td>Order not yet fulfilled</td>
                             {% endif %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 form-container rounded mx-auto my-2">
+            <h3>Product Requests</h3>
+            <div class="order-history table-responsive">
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th>Product Type</th>
+                            <th>Date</th>
+                            <th>Variable One</th>
+                            <th>Variable Two</th>
+                            <th>Variable Three</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for product in staff_products %}
+                        <tr>
+                            <td><a class="reversed-link-styles"
+                                href="{% url 'staff_final_quote' product.id %}">{{ product.product_type }}</a></td>
+                            <td>{{ product.created_on }}</td>
+                            <td>{{ product.variable_one }}</td>
+                            <td>{{ product.variable_two }}</td>
+                            <td>{{ product.variable_three }}</td>
+                            
                         </tr>
                         {% endfor %}
                     </tbody>
