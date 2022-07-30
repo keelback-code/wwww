@@ -21,15 +21,18 @@
                 </div>
                 <div class="card-body image-grid-container">
                     {% if battle.image_one %}
-                    <img class="img-fluid" src={{ battle.image_one.url }}>
+                    <img class="img-fluid" src={{ battle.image_one.url }} alt="A wizard ready for battle.">
                     {% else %}
-                    {% cloudinary 'placeholder.png' width=400 height=400 crop="fill" %}
+                    <img class="img-fluid" src="/media/images/placeholder.jpg"
+                            alt="A small frog-like creature in a wizard hat.">
                     {% endif %}
 
-                    {% if battle.image_two %}
-                    <img class="img-fluid" src={{ battle.image_two.url }}>
+                    
+                    {% if battle.image_two is placeholder_two %}
+                    <img class="img-fluid" src="/media/images/placeholder.jpg"
+                            alt="A small frog-like creature in a wizard hat.">
                     {% else %}
-                    {% cloudinary 'placeholder.png' width=400 height=400 crop="fill" %}
+                    <img class="img-fluid" src={{ battle.image_two.url }} alt="A second wizard ready for battle.">
                     {% endif %}
                 </div>
             </div>

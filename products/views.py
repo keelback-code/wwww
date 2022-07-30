@@ -386,13 +386,7 @@ def all_products(request):
     """
     Function to retrieve all products.
     """
-    products = Product.objects.all()
-
-    context = {
-        'products': products
-    }
-
-    return render(request, 'products/products.html', context)
+    return render(request, 'products/products.html')
 
 
 def final_quote(request, product_id):

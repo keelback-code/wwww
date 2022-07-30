@@ -18,13 +18,15 @@
         {% if battle.image_one %}
         <img class="img-fluid" src={{ battle.image_one.url }}>
         {% else %}
-        {% cloudinary 'placeholder.png' width=400 height=400 crop="fill" %}
+        <img class="img-fluid" src="/media/images/placeholder.jpg"
+            alt="A small frog-like creature in a wizard hat.">
         {% endif %}
 
         {% if battle.image_two %}
         <img class="img-fluid" src={{ battle.image_two.url }}>
         {% else %}
-        {% cloudinary 'placeholder.png' width=400 height=400 crop="fill" %}
+        <img class="img-fluid" src="/media/images/placeholder.jpg"
+            alt="A small frog-like creature in a wizard hat.">
         {% endif %}
     </div>
 </div>

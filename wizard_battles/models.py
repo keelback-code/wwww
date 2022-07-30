@@ -13,8 +13,8 @@ class Post(models.Model):
     title = models.CharField(max_length=250)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="battle_posts")
     text_content = models.TextField()
-    image_one = CloudinaryField(null=True, blank=True, default="placeholder_one")
-    image_two = CloudinaryField(null=True, blank=True, default="placeholder_two")
+    image_one = CloudinaryField(null=True, blank=True)
+    image_two = CloudinaryField(null=True, blank=True)
 
     def __str__(self):
         return self.title
