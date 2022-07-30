@@ -7,35 +7,46 @@
 <div class="form-container text-center rounded mx-auto my-2">
     <h1 class="fs-2">Staff details submitted</h1>
 </div>
-<div class="form-container text-center rounded mx-auto my-2">
-    <p>The below details have been emailed to you:</p>
-    <hr>
-    <p>Product type: {{ staff_product.product_type }}</p>
-    <p>Stats included: {{ staff_product.stat }}</p>
-    <p>Colors included: {{ staff_product.color }}</p>
-    <p>Request submitted: {{ staff_product.created_on }}</p>
-    <hr>
-    <p>{{ staff_product.variable_one }}</p>
-    <p>{{ staff_product.variable_one_option_one }}</p>
-    <p>{{ staff_product.variable_one_option_two }}</p>
-    <p>{{ staff_product.variable_one_option_three }}</p>
-    <hr>
-    <p>{{ staff_product.variable_two }}</p>
-    <p>{{ staff_product.variable_two_option_one }}</p>
-    <p>{{ staff_product.variable_two_option_two }}</p>
-    <p>{{ staff_product.variable_two_option_three }}</p>
-    <hr>
-    <p>{{ staff_product.variable_three }}</p>
-    <p>{{ staff_product.variable_three_option_one }}</p>
-    <p>{{ staff_product.variable_three_option_two }}</p>
-    <p>{{ staff_product.variable_three_option_three }}</p>
-    <hr>
+<div class="container">
+    <div class="form-container text-center rounded mx-auto my-2">
+        <p class="p-2">The below details have been emailed to you:</p>
+        <hr>
+        <p>Product type: {{ staff_product.product_type }}</p>
+        <p>Stats included: {{ staff_product.stat }}</p>
+        <p>Colors included: {{ staff_product.color }}</p>
+        <p>Request submitted: {{ staff_product.created_on }}</p>
+        <hr>
+        <p>Variable one: {{ staff_product.variable_one }}</p>
+        <li>Option one: {{ staff_product.variable_one_option_one }}</li>
+        <li>Option two: {{ staff_product.variable_one_option_two }}</li>
+        <li>Option three: {{ staff_product.variable_one_option_three }}</li>
+        </ul>
+        <hr>
+        <p>Variable two: {{ staff_product.variable_two }}</p>
+        <li>Option one: {{ staff_product.variable_two_option_one }}</li>
+        <li>Option two: {{ staff_product.variable_two_option_two }}</li>
+        <li>Option three: {{ staff_product.variable_two_option_three }}</li>
+        <hr>
+        <p>Variable three: {{ staff_product.variable_three }}</p>
+        <li>Option one: {{ staff_product.variable_three_option_one }}</li>
+        <li>Option two: {{ staff_product.variable_three_option_two }}</li>
+        <li>Option three: {{ staff_product.variable_three_option_three }}</li>
+        <hr>
 
-    <p>{{ staff_product.id }} - ref for elyse</p>
+        <a href="{% url 'staff_profile' %}" class="btn btn-md btn-navy my-2">
+            <i class="fas fa-angle-left"></i>
+            <span>Back to Staff Profile</span>
+        </a>
+        <a href="{% url 'staff_edit' staff_product.id %}" class="btn btn-md btn-navy my-2">
+            <i class="fa-solid fa-hat-wizard"></i>
+            <span>Edit Request</span>
+        </a>
 
-</div>
-<div class="rounded form-container mx-auto text-center m-1" style="width: 15rem;">
-    <a class="reversed-link-styles" href="{% url 'staff_edit' staff_product.id %}">Edit Request</a>
+        <div class="p-2">
+            <p>Do you need to delete this request? We have not included a delete option here in case your developer is
+                currently working on this request; please email outproudproject@gmail.com if you have any urgent requests.</p>
+        </div>
+    </div>
 </div>
 {% else %}
 <p>You do not have permission to see this page.</p>
