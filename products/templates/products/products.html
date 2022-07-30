@@ -5,68 +5,101 @@
 {% block content %}
 
 
-    <div class="form-container text-center rounded mx-auto my-2">
-        <h2>Products</h2>
-    </div>
-   
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-md-6 mb-4">
-                <div class="card text-center product-card">
-                    <a class="card-title reversed-link-styles" href="{% url 'custom_hat_one' %}">
-                        <div>
-                            <p><strong>Hat</strong></p>
-                        </div>
-                        <div class="card-body w-50">
-                            {% cloudinary 'https://res.cloudinary.com/elyserh/image/upload/w_auto,q_auto,c_scale/v1658767433/blue-top-hat_mkjfca.jpg' %}
-                        </div>
-                    </a>
-                </div>
+<div class="form-container text-center rounded mx-auto my-2">
+    <h2>Products</h2>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-6 mb-4">
+            <div class="card text-center product-card">
+                <a class="card-title reversed-link-styles" href="{% url 'custom_hat_one' %}">
+                    <div>
+                        <p><strong>Hat</strong></p>
+                    </div>
+                    <div class="card-body">
+                        <img class="img-fluid" src="/media/custom_product_images/blue-top-hat.jpg"
+                            alt="A person in a bright blue hat standing against a yellow wall.">
+                    </div>
+                </a>
             </div>
-       
-            <div class="col-12 col-md-6 mb-4">
-                <div class="card text-center product-card">
-                    <a class="card-title reversed-link-styles" href="{% url 'custom_hat_two' %}">
-                        <div>
-                            <p><strong>Floppy Hat</strong></p>
-                        </div>
-                        <div class="card-body">
-                            {% cloudinary 'black-straw-hat_dds4bk.jpg' width=400 height=400 crop="limit" %}
-                        </div>
-                    </a>
-                </div>
+        </div>
+
+        <div class="col-12 col-md-6 mb-4">
+            <div class="card text-center product-card">
+                <a class="card-title reversed-link-styles" href="{% url 'custom_hat_two' %}">
+                    <div>
+                        <p><strong>Floppy Hat</strong></p>
+                    </div>
+                    <div class="card-body">
+                        <img class="img-fluid" src="/media/custom_product_images/black-straw-hat.jpg"
+                            alt="A person wearing a black straw hat sitting in a field of cabbages.">
+                    </div>
+                </a>
             </div>
         </div>
     </div>
+</div>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-md-6 mb-4">
-                <div class="card text-center product-card">
-                    <a class="card-title reversed-link-styles" href="{% url 'custom_cloak' %}">
-                        <div>
-                            <p><strong>Forest Cloak</strong></p>
-                        </div>
-                        <div class="card-body">
-                            {% cloudinary 'forest-green-cloak_by7wmi.jpg' width=400 height=400 crop="limit" %}
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-12 col-md-6 mb-4">
-                <div class="card text-center product-card">
-                    <a class="card-title reversed-link-styles" href="{% url 'custom_wand' %}">
-                        <div>
-                            <p><strong>Wand</strong></p>
-                        </div>
-                        <div class="card-body">
-                            {% cloudinary 'cactus-wand_gkfxco.jpg' width=400 height=400 crop="limit" %}
-                        </div>
-                    </a>
-                </div>
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-6 mb-4">
+            <div class="card text-center product-card">
+                <a class="card-title reversed-link-styles" href="{% url 'custom_cloak' %}">
+                    <div>
+                        <p><strong>Forest Cloak</strong></p>
+                    </div>
+                    <div class="card-body">
+                        <img class="img-fluid" src="/media/custom_product_images/forest-green-cloak.jpg"
+                            alt="A person standing in the forest wearing a dark green, floor length cloak.">
+                    </div>
+                </a>
             </div>
         </div>
+
+        <div class="col-12 col-md-6 mb-4">
+            <div class="card text-center product-card">
+                <a class="card-title reversed-link-styles" href="{% url 'custom_sunglasses' %}">
+                    <div>
+                        <p><strong>Sunglasses</strong></p>
+                    </div>
+                    <div class="card-body">
+                        <img class="img-fluid" src="/media/custom_product_images/sunnies.jpg"
+                            alt="A person in a red checked suit and waistcoast wearing stylish rounded sunglasses and leaning against a wall.">
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 mb-4">
+            <div class="card text-center product-card">
+                <a class="card-title reversed-link-styles" href="{% url 'custom_wand' %}">
+                    <div>
+                        <p><strong>Wand</strong></p>
+                    </div>
+                    <div class="card-body">
+                        <img class="img-fluid" src="/media/custom_product_images/cactus-wand.jpg"
+                            alt="A wand that appears to be a very small cactus on a stick, being held by someone with long purple fingernails.">
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 mb-4">
+            <div class="card text-center product-card">
+                <a class="card-title reversed-link-styles" href="{% url 'custom_spell_book' %}">
+                    <div>
+                        <p><strong>Spell Book</strong></p>
+                    </div>
+                    <div class="card-body">
+                        <img class="img-fluid" src="/media/custom_product_images/spellbook.jpg"
+                            alt="A navy book that says 'spellbook' on the front, next to a large crystal.">
+                    </div>
+                </a>
+            </div>
+        </div>
+
     </div>
+</div>
 
 {% endblock %}

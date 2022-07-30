@@ -14,15 +14,15 @@
     <div class="text-center">
         <p>{{ battle.text_content | safe }}</p>
     </div>
-    <div class="py-2">
+    <div class="p-4 image-grid-container">
         {% if battle.image_one %}
-        {% cloudinary battle.image_one.url width=100 height=200 crop="limit" %}
+        <img class="img-fluid" src={{ battle.image_one.url }}>
         {% else %}
         {% cloudinary 'placeholder.png' width=400 height=400 crop="fill" %}
         {% endif %}
 
         {% if battle.image_two %}
-        {% cloudinary battle.image_two.url width=100 height=200 crop="limit" %}
+        <img class="img-fluid" src={{ battle.image_two.url }}>
         {% else %}
         {% cloudinary 'placeholder.png' width=400 height=400 crop="fill" %}
         {% endif %}

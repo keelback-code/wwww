@@ -9,8 +9,6 @@ urlpatterns = [
     path('custom_wand/', views.DesignCustomWand.as_view(), name='custom_wand'),
     path('custom_sunglasses/', views.DesignCustomSunglasses.as_view(), name='custom_sunglasses'),
     path('custom_spell_book/', views.DesignCustomSpellBook.as_view(), name='custom_spell_book'),
-    path('custom_cowboy_hat/', views.DesignCustomCowboyHat.as_view(), name='custom_cowboy_hat'),
-    path('custom_large_hat/', views.DesignCustomLargeHat.as_view(), name='custom_large_hat'),
     path('final_quote/<int:product_id>/', views.final_quote, name='final_quote'),
     path('staff_submission/', views.StaffSubmitView.as_view(), name='staff_submission'),
 ]

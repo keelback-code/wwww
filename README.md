@@ -219,6 +219,7 @@ Fixed custom quoting system by reapplying migrations and changing product id var
 separate contexts file within cust_prods
 none of that worked, decided to refactor code and shift focus of shop, all products are custom products now. one model, multiple model forms from single model in order for shopping bag to work
 
+There is currently no option for a staff member to add a product directly, which will be a future feature. I was able to create a cascading form which had associated models for the options and the variables, but I was unable to feed that into the quote system. For this iteration, in it's place I have a very detailed staff submission form, to provide as many details as possible so that implementing the submission takes as little time as possible. Both the developer and staff member are emailed the details. The staff member is emailed the details in order to assure them that the form went through and it will be actioned.
 
 
 ### Deployment

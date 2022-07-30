@@ -8,7 +8,7 @@ from django.contrib import messages
 from django.views import View
 from django.contrib.auth.models import User
 from .models import Product, StaffSubmission
-from .forms import HatOneForm, HatTwoForm, CloakForm, WandForm, SunglassesForm, SpellBookForm, CowboyHatForm, LargeHatForm, StaffSubmissionForm
+from .forms import HatOneForm, HatTwoForm, CloakForm, WandForm, SunglassesForm, SpellBookForm, StaffSubmissionForm
 
 
 def calc_variables(variable_one, variable_two, variable_three, a, b, c, d, e, f):
@@ -323,46 +323,6 @@ class DesignCustomCowboyHat(View):
             form = CowboyHatForm()
 
         template = 'products/custom_cowboy_hat.html'
-        context = {
-            'form': form,
-        }
-
-        return render(request, template, context)
-
-
-class DesignCustomLargeHat(View):
-    """
-    Class to get a quote for a custom large hat.
-    """
-    def get(self, request):
-        form = LargeHatForm()
-        template = 'products/custom_large_hat.html'
-        context = {
-            'form': form,
-        }
-
-        return render(request, template, context)
-
-    def post(self, request):
-        form = LargeHatForm(request.POST) 
-        brim_width = request.POST['variable_one']
-        hat_material = request.POST['variable_two']
-        pattern = request.POST['variable_three']
-        
-        if form.is_valid():
-            priced_form = form.save(commit=False)
-            priced_form.price = calc_variables(
-                brim_width, hat_material, pattern, 
-                "Brim - 20cm", "Brim - 25cm", "Brim - 30cm", 
-                "Material - Satin", "Material - Felt", "Material - Scratchy Wool")
-            priced_form.product_type = "Hat"
-            product = form.save()
-            return redirect(reverse('final_quote', args=[product.id]))
-        else:
-            messages.error(request, 'Quote was not generated. Please try again.')
-            form = LargeHatForm()
-
-        template = 'products/custom_large_hat.html'
         context = {
             'form': form,
         }
