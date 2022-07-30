@@ -11,4 +11,6 @@ urlpatterns = [
     path('custom_spell_book/', views.DesignCustomSpellBook.as_view(), name='custom_spell_book'),
     path('final_quote/<int:product_id>/', views.final_quote, name='final_quote'),
     path('staff_submission/', views.StaffSubmitView.as_view(), name='staff_submission'),
+    path('staff_final_quote/<int:staff_product_id>/', views.staff_final_quote, name='staff_final_quote'),
+    path('staff_edit/<int:staff_product_id>/', views.staff_edit, name='staff_edit'),
 ]

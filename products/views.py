@@ -355,7 +355,7 @@ class StaffSubmitView(View):
         if form.is_valid():
             staff_form = form.save(commit=False)
             staff_form.staff_member = request.user
-            form.save()
+            staff_product = form.save()
             subject = render_to_string('products/staff_submission_emails/submission_subject.txt')
             body = render_to_string(
                 'products/staff_submission_emails/submission_email.txt',
@@ -369,7 +369,7 @@ class StaffSubmitView(View):
                 [email, settings.DEFAULT_FROM_EMAIL]
             )
             messages.success(request, 'Your product request has been submitted.')
-            return redirect(reverse('landing_page'))
+            return redirect(reverse('staff_final_quote', args=[staff_product.id]))
         else:
             messages.error(request, 'Product was not submitted. Please try again.')
             form = StaffSubmissionForm()
@@ -380,6 +380,63 @@ class StaffSubmitView(View):
         }
 
         return render(request, template, context)
+
+
+def staff_final_quote(request, staff_product_id):
+    """
+    Function to display details for staff submissions.
+    """
+
+    staff_product = get_object_or_404(StaffSubmission, pk=staff_product_id)
+
+    context = {
+        'staff_product': staff_product,
+    }
+
+    return render(request, 'products/staff_final_quote.html', context)
+
+
+@staff_member_required
+def staff_edit(request, staff_product_id):
+    """
+    Function for staff to edit products they have submitted.
+    """
+    if not request.user.is_staff:
+        messages.error(request, 'Apologies, only staff can access this.')
+        return redirect(reverse('landing_page'))
+    else:
+        staff_product = get_object_or_404(StaffSubmission, pk=staff_product_id)
+        if request.method == 'POST':
+            email = request.user.email
+            form = StaffSubmissionForm(request.POST, request.FILES, instance=staff_product)
+            if form.is_valid():
+                staff_product = form.save()
+                subject = render_to_string('products/staff_submission_emails/edit_submission_subject.txt')
+                body = render_to_string(
+                    'products/staff_submission_emails/edit_submission_email.txt',
+                    {'form': form,
+                    'email': email,
+                    'contact_email': settings.DEFAULT_FROM_EMAIL})
+                send_mail(
+                    subject,
+                    body,
+                    settings.DEFAULT_FROM_EMAIL,
+                    [email, settings.DEFAULT_FROM_EMAIL]
+                )
+                messages.success(request, 'Product request successfully updated! The update will be emailed to you.')
+                return redirect(reverse('landing_page'))
+            else:
+                messages.error(request, 'Product was not updated. Please try again.')
+        else:
+            form = StaffSubmissionForm(instance=staff_product)
+
+        template = 'products/staff_edit.html'
+        context = {
+            'form': form,
+            'staff_product': staff_product
+        }
+
+    return render(request, template, context)
 
 
 def all_products(request):

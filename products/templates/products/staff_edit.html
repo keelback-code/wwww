@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+<div class="container-fluid">
+    <div class="form-container text-center rounded mx-auto my-2">
+        <h2>Edit</h2>
+    </div>
+    <form method="post" action="{% url 'staff_edit' staff_product.id %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-container text-center rounded mx-auto my-2 pb-2">
+            {{ form.product_type | as_crispy_field }}
+            {{ form.stat | as_crispy_field }}
+            <p><small>Stats are Courage, Cool, Sun Protection, Spell Casting and Stealth.</small></p>
+            {{ form.color | as_crispy_field }}
+            <p><small>Colors are Purple, Navy, Pink, Green and Orange.</small></p>
+            {{ form.image | as_crispy_field }}
+            
+        </div>
+        <div class="form-container text-center rounded mx-auto my-2 pb-2">
+            {{ form.variable_one | as_crispy_field }}
+            {{ form.variable_one_option_one | as_crispy_field }}
+            {{ form.variable_one_option_two | as_crispy_field }}
+            {{ form.variable_one_option_three | as_crispy_field }}
+        </div>
+        <div class="form-container text-center rounded mx-auto my-2 pb-2">
+            {{ form.variable_two | as_crispy_field }}
+            {{ form.variable_two_option_one | as_crispy_field }}
+            {{ form.variable_two_option_two | as_crispy_field }}
+            {{ form.variable_two_option_three | as_crispy_field }}
+        </div>
+        <div class="form-container text-center rounded mx-auto my-2 pb-2">
+            {{ form.variable_three | as_crispy_field }}
+            {{ form.variable_three_option_one | as_crispy_field }}
+            {{ form.variable_three_option_two | as_crispy_field }}
+            {{ form.variable_three_option_three | as_crispy_field }}
+        </div>
+        <div class="form-container text-center rounded mx-auto my-2">
+            <button type="submit" class="btn btn-md btn-navy my-2">Submit</button>
+            <p>A copy of your submission will be emailed</p>
+            <p>to you at the email address you have on file.</p>
+        </div>
+    </form>
+</div>
+{% else %}
+<p>You do not have permission to see this page.</p>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+{% if request.user.is_staff %}
+<div class="form-container text-center rounded mx-auto my-2">
+    <h1 class="fs-2">Staff details submitted</h1>
+</div>
+<div class="form-container text-center rounded mx-auto my-2">
+    <p>The below details have been emailed to you:</p>
+    <hr>
+    <p>Product type: {{ staff_product.product_type }}</p>
+    <p>Stats included: {{ staff_product.stat }}</p>
+    <p>Colors included: {{ staff_product.color }}</p>
+    <p>Request submitted: {{ staff_product.created_on }}</p>
+    <hr>
+    <p>{{ staff_product.variable_one }}</p>
+    <p>{{ staff_product.variable_one_option_one }}</p>
+    <p>{{ staff_product.variable_one_option_two }}</p>
+    <p>{{ staff_product.variable_one_option_three }}</p>
+    <hr>
+    <p>{{ staff_product.variable_two }}</p>
+    <p>{{ staff_product.variable_two_option_one }}</p>
+    <p>{{ staff_product.variable_two_option_two }}</p>
+    <p>{{ staff_product.variable_two_option_three }}</p>
+    <hr>
+    <p>{{ staff_product.variable_three }}</p>
+    <p>{{ staff_product.variable_three_option_one }}</p>
+    <p>{{ staff_product.variable_three_option_two }}</p>
+    <p>{{ staff_product.variable_three_option_three }}</p>
+    <hr>
+
+    <p>{{ staff_product.id }} - ref for elyse</p>
+
+</div>
+<div class="rounded form-container mx-auto text-center m-1" style="width: 15rem;">
+    <a class="reversed-link-styles" href="{% url 'staff_edit' staff_product.id %}">Edit Request</a>
+</div>
+{% else %}
+<p>You do not have permission to see this page.</p>
+{% endif %}
+
+{% endblock %}
