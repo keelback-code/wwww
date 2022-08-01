@@ -50,13 +50,12 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'crispy_forms',
-    'landing_page',
+    'operations',
     'products',
     'loot',
     'checkout',
     'profiles',
     'wizard_battles',
-    'operations',
 ]
 
 SITE_ID = 1
