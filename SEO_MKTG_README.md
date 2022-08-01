@@ -60,7 +60,7 @@ A clear display of hats, hat choices and prices. Easy and straightforward to pur
 How can you make the information easy to understand?
 Intuitive and clear design, high quality clear images, clear and descriptive titles, product description is informative, simple payment process, simple signup/login/logout process
 How can you demonstrate expertise, authoritativeness and trustworthiness in your content?
-FAQs (delivery, returns, how do custom orders work), reviews, terms and conditions
+FAQs (delivery, returns), terms and conditions
 Would there be other pages within your own site you could link to from your chosen page?
 Home page, nav bar, custom page would also link back to primary shop page
 Are there opportunities to link back to external websites that already rank highly on Google?
@@ -74,9 +74,7 @@ video of hats being made, (wizard memes??), blog posts of diff wizards, maybe wi
 Who are your users?
 Wizards? consumers, cosplayers, D&D players, expendable income for hats, not sure of age, not gender specific
 Which online platforms would you find lots of your users?
-Social media - instagram, tiktok, facebook, twitter, tumblr
-Would your users use social media? If yes, which platforms do you think you would find them on?
-Wizards popular on tiktok and tumblr at the moment?
+Social media - instagram, facebook, possibly reach into other platforms dependant on number of staff tiktok, twitter, tumblr
 What do your users need? Could you meet that need with useful content? If yes, how could you best deliver that content to them?
 Cosplay tips, costume tips, perhaps best delivered as a blog, maybe on instagram. My video production skills/cosplay skills aren’t good enough for tiktok, wirtten content may be more effective.
 Would your business run sales or offer discounts? How do you think your users would most like to hear about these offers?
@@ -89,5 +87,3 @@ Low-budget as it is a small-scale and niche business, budget to be reassessed if
 Research (other niche/costume hat businesses)
 https://www.thecostumer.com/c-3333-hats.aspx - utilises social media, posts regularly on instagram
 https://irishdesignshop.com/ - handmade custom items/small business - utilises social media, newsletter sign up on website, blog on website (updated every couple of months)
-
-Subscribe! Hear about our wizard battles and receive special promotions by signing up to our newsletter.

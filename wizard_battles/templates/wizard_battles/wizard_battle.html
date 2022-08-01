@@ -12,17 +12,17 @@
     <div class="text-center">
         <p>{{ battle.text_content | safe }}</p>
     </div>
-    <div class="p-4 image-grid-container">
+    <div class="image-grid-container p-4">
         {% if battle.image_one %}
-        <img class="img-fluid" src={{ battle.image_one.url }} alt="A wizard ready for battle.">
+        <img class="img-fluid rounded" src={{ battle.image_one.url }} alt="A wizard ready for battle.">
         {% else %}
-        <img class="img-fluid" src="/media/images/placeholder.jpg" alt="A small frog-like creature in a wizard hat.">
+        <img class="img-fluid rounded" src="/media/images/placeholder.jpg" alt="A small frog-like creature in a wizard hat.">
         {% endif %}
 
         {% if battle.image_two %}
-        <img class="img-fluid" src={{ battle.image_two.url }} alt="A second wizard ready for battle.">
+        <img class="img-fluid rounded" src={{ battle.image_two.url }} alt="A second wizard ready for battle.">
         {% else %}
-        <img class="img-fluid" src="/media/images/placeholder.jpg" alt="A small frog-like creature in a wizard hat.">
+        <img class="img-fluid rounded" src="/media/images/placeholder.jpg" alt="A small frog-like creature in a wizard hat.">
         {% endif %}
     </div>
 </div>

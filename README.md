@@ -33,29 +33,29 @@ Screenshot:
 
 #### Theme
 
-To sell interesting wizard hats (and other wizard associated clothing items) online.
+To sell custom made interesting wizard hats (and other wizard associated clothing items) online.
 
 #### Epic
 
-This website will provide the user with an array of wizardly hats and other clothing items, products both expected and unexpected. The website will be simple and easy to use; a good experience for the user that will make their time in the shop, so to speak, welcoming. Each product will have Dungeons and Dragons style stats (link) which will be calculated and presented at checkout along with a randomly generated name (link) to ‘create’ a wizard based on these products. The user can choose to accept the generated wizard name and stats, or keep shopping to get a different wizard.
+This website will provide the user with an array of wizardly hats and other clothing items, products both expected and unexpected. The website will be simple and easy to use; a good experience for the user that will make their time in the shop welcoming. Each product will have Dungeons and Dragons style (stats)[https://en.wikipedia.org/wiki/Statistic_(role-playing_games)], along with other variables to choose from in order to customise each product.
 
 #### User stories
 
 #### User
 
-As a **user**, I can clearly see the purpose of the site when I land on the home page so that I stay on the site.
+As a **user**, I can **clearly see the purpose of the site when I land on the home page** so that **I stay on the site**.
 
-As a **user**, I can clearly understand the products I am considering purchasing. so that I can make informed decisions.
+As a **user**, I can **clearly understand the products I am considering purchasing** so that **I can make informed decisions**.
 
-As a **user**, I have the option to create a custom made hat so that I can have something that better suits me.
+As a **user**, I can **have the option to create a custom made product** so that **I can have something that better suits me**.
 
-As a **user**, I can get an instant quote for a custom hat so that I know how much I will be spending.
+As a **user**, I can **get an instant quote for a custom product** so that **I know how much I will be spending**.
 
-As a **user**, I can complete the payment process quickly and easily so that I don’t get distracted/dissuaded and leave.
+As a **user**, I can **complete the payment process quickly and easily** so that **I don’t get distracted/dissuaded and leave**.
 
-As a **user**, I will be notified by email when my order has been placed successfully, so that I have trust in the website and I have the order details in a convenient place.
+As a **user**, I can **be notified by email when my order has been placed successfully,** so that **I have trust in the website and I have the order details in a convenient place**.
 
-As a **user**, I have the option for my information to be saved for future purchases so that I can save time on future purchases.
+As a **user**, I can **have the option for my information to be saved for future purchases** so that **I can save time on future purchases**.
 
 As a **user**, I can **edit my user information** so that **I can have the correct information**.
 
@@ -217,7 +217,7 @@ Fixed custom quoting system by reapplying migrations and changing product id var
 separate contexts file within cust_prods
 none of that worked, decided to refactor code and shift focus of shop, all products are custom products now. one model, multiple model forms from single model in order for shopping bag to work
 
-There is currently no option for a staff member to add a product directly, which will be a future feature. I was able to create a cascading form which had associated models for the options and the variables, but I was unable to feed that into the quote system. For this iteration, in it's place I have a very detailed staff submission form, to provide as many details as possible so that implementing the submission takes as little time as possible. Both the developer and staff member are emailed the details. The staff member is emailed the details in order to assure them that the form went through and it will be actioned.
+There is currently no option for a staff member to add a product directly, which will be a future feature. I was able to create a cascading form which had associated models for the options and the variables, but I was unable to feed that into the quote system. For this iteration, in it's place I have a very detailed staff submission form, to provide as many details as possible so that implementing the submission takes as little time as possible. Both the developer and staff member are emailed the details. The staff member is emailed the details in order to assure them that the form went through and it will be actioned. They can also access the details through the staff hub, and edit the details there if need be. The updated details will be emailed to the staff member and the dev.
 
 
 ### Deployment
@@ -247,29 +247,23 @@ In the same 'Code' dropdown, you can opt to open the code with GitHub Desktop an
 
 ### Resources
 
-Django 3.2 documentation
+(Django 3.2 documentation)[https://docs.djangoproject.com/en/4.0/]
 
-Bootstrap documentation
+(Bootstrap 4 documentation)[https://getbootstrap.com/docs/4.6/getting-started/introduction/]
 
-Cloudinary/Django documentation/AWS
+(Cloudinary documentation)[https://cloudinary.com/documentation]
 
-EmailJS documentation
+Guidance with updating and deleting instances from (GeeksforGeeks)[https://www.geeksforgeeks.org/django-crud-create-retrieve-update-delete-function-based-views/]
 
-Guidance with updating and deleting Page instances from GeeksforGeeks.
+ERD made with (Lucidchart)[https://lucid.co/]
 
-Photo editing from Pixlr.
-
-Favicon generated from Favicon.io
-
-ERD made with Lucidchart
-
-Wireframes made with Balsamiq.
+Wireframes made with (Balsamiq)[https://balsamiq.com/]
 
 Privacy Policy generated from (Privacy Policy Generator)[https://www.privacypolicygenerator.info].
 
 ### Credits
 
-Assistance on toasts, shopping basket functionality (loot) (?) from Code Institute's Boutique Ado code walkthrough.
+Assistance on toasts, shopping basket and checkout functionality from Code Institute's Boutique Ado code walkthrough.
 
 All images from Pexels.
 

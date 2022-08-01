@@ -59,8 +59,7 @@
                 <ul class="navbar-nav">
                     <li class="nav-item d-md-none">
                         <a class="nav-link" href="{% url 'landing_page' %}">Home</a>
-                    </li>
-                    
+                    </li>    
                     {% if user.is_staff %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'profile' %}">Profile</a>
@@ -152,13 +151,11 @@
 
             <!-- Mailchimp Signup Form -->
             <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7_dtp.css" rel="stylesheet" type="text/css">
-
             <div class="col-sm-6 offset-sm-2 text-center mt-2">
                 <form
                     action="https://gmail.us8.list-manage.com/subscribe/post?u=3da65fc6c6bb5e29434a90318&amp;id=d601635be1"
                     method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate"
                     target="_blank" novalidate>
-
                     <div class="mc-field-group">
                             <p class="rounded" style="background-color:#050533;">Hear about our wizard battles and sales by signing up to our
                                 newsletter</p>        
@@ -172,7 +169,6 @@
                         <button type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe"
                             class="btn btn-md btn-navy border border-light">Subscribe</button>
                     </div>
-
                     <div id="mce-responses" class="clear foot">
                         <div class="response" id="mce-error-response" style="display:none"></div>
                         <div class="response" id="mce-success-response" style="display:none"></div>
@@ -183,10 +179,6 @@
                 </form>
             </div>
             <!--End mc_embed_signup-->
-         
-
-            
-
         </div>
     </footer>
 

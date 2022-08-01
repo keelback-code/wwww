@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Anek+Latin&family=Raleway&display=swap');
 
 
-/* Universal */
+/* Universal styling */
 
 html {
     height: 100%;
@@ -23,11 +23,6 @@ body {
 
 .navbar-brand {
     font-family: 'Raleway', monospace, sans-serif;
-}
-
-.dropdown-menu {
-    background-color: #050533;
-    color: #faebd7;
 }
 
 .universal-link-styles a,
@@ -101,12 +96,6 @@ body {
 /* end */
 
 
-
-/* Landing page */
-
-
-
-
 /* Products and product related pages */
 
 .product-card {
@@ -134,8 +123,6 @@ body {
 
 
 /* Battle arena styling */
-
-
 
 .battle-card {
     background-color: #faebd7;
