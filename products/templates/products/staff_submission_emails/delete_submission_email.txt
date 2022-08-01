@@ -1,0 +1,33 @@
+Hello!
+
+This is a confirmation of your delete request submission for Winnifrederico's Wondrous World of Wizards.
+
+The details of the product to be deleted are below. Please note if implementation has already begun there may be some complications; our phone number is (01) 123 4567 if you would like to see the current progress of this request.
+
+Product type: {{ staff_product.product_type.value }}
+Colors: {{ staff_product.color.value }}
+Stats: {{ staff_product.stat.value }}
+Image: {{ staff_product.image.value }}
+
+Variable one: {{ form.variable_one.value }}
+    Option one: {{ form.variable_one_option_one.value }}
+    Option two: {{ form.variable_one_option_two.value }}
+    Option three: {{ form.variable_one_option_three.value }}
+
+Variable two: {{ form.variable_two.value }}
+    Option one: {{ form.variable_two_option_one.value }}
+    Option two: {{ form.variable_two_option_two.value }}
+    Option three: {{ form.variable_two_option_three.value }}
+
+Variable three: {{ form.variable_three.value }}
+    Option one: {{ form.variable_three_option_one.value }}
+    Option two: {{ form.variable_three_option_two.value }}
+    Option three: {{ form.variable_three_option_three.value }}
+
+The devs will look at this and be in touch. If you have any questions please get in touch at this email address.
+
+It's Orbin' time.
+
+Sincerely,
+
+WWWW Dev Team

@@ -133,7 +133,7 @@ body {
 /* Battle arena styling */
 
 .form-container {
-    width: 35rem;
+    /* width: 35rem; */
     background-color: #faebd7;
     color: #050533;
 }
