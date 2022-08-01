@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 
-<div class="form-container text-center rounded col-md-6 mx-auto">
+<div class="col-md-3 form-container text-center rounded mx-auto">
     <h1 class="text-center fs-2 m-2">Battle Arena</h1>
 </div>
 
@@ -36,14 +36,13 @@
         </div>
     </div>
 </div>
-
-
 {% endfor %}
 
 {% if request.user.is_staff %}
-<div class="rounded form-container mx-auto text-center m-5" style="width: 15rem;">
-    <a class="reversed-link-styles" href="{% url 'create_battle' %}">Create Battle <i
-            class="fa-solid fa-hat-wizard"></i></a>
+<div class="col-md-3 form-container text-center rounded mx-auto">
+    <a href="{% url 'create_battle' %}" class="btn btn-md btn-navy my-2">
+        <span>Create Battle <i class="fa-solid fa-hat-wizard"></i></span>
+    </a>
 </div>
 {% endif %}
 

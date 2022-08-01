@@ -15,7 +15,6 @@ body {
     font-family: 'Anek Latin', monospace, sans-serif;
     color: #faebd7;
 }
-
 /* end */
 
 .icon {
@@ -65,6 +64,11 @@ body {
     border: 2px solid #050533;
 }
 
+.form-container {
+    background-color: #faebd7;
+    color: #050533;
+}
+
 /* // Code for back to top button from W3 https://www.w3schools.com/howto/howto_js_scroll_to_top.asp  */
 .back-btn {
     display: none;
@@ -80,7 +84,6 @@ body {
     border-radius: 100px;
     font-size: 30px;
 }
-
 /* end */
 
 /* Bootstrap toasts, based on Code Institute's Boutique Ado walkthrough */
@@ -95,7 +98,6 @@ body {
     overflow: visible;
     width: 20rem;
 }
-
 /* end */
 
 
@@ -133,11 +135,7 @@ body {
 
 /* Battle arena styling */
 
-.form-container {
-    /* width: 35rem; */
-    background-color: #faebd7;
-    color: #050533;
-}
+
 
 .battle-card {
     background-color: #faebd7;
@@ -157,19 +155,6 @@ body {
     list-style-type: none;
 }
 
-/* Privacy policy page */
-/* .light-background-container {
-    background-color: #faebd7;
-    color: #050533;
-}
-
-.p-p-heading {
-    width: 40rem;
-}
-
-.p-p-text {
-    width: 60rem;
-} */
 
 /* Media queries */
 

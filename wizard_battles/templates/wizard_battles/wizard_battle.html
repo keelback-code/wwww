@@ -4,11 +4,11 @@
 
 {% block content %}
 
-<div class="form-container text-center rounded mx-auto my-2">
+<div class="col-md-4 form-container text-center rounded mx-auto my-2">
     <h1 class="text-center m-2 fs-2 heading">{{ battle.title }}</h1>
 </div>
 
-<div class="form-container w-75 text-center rounded mx-auto my-2">
+<div class="col-md-8 form-container text-center rounded mx-auto my-2">
     <div class="text-center">
         <p>{{ battle.text_content | safe }}</p>
     </div>
@@ -16,49 +16,43 @@
         {% if battle.image_one %}
         <img class="img-fluid" src={{ battle.image_one.url }} alt="A wizard ready for battle.">
         {% else %}
-        <img class="img-fluid" src="/media/images/placeholder.jpg"
-            alt="A small frog-like creature in a wizard hat.">
+        <img class="img-fluid" src="/media/images/placeholder.jpg" alt="A small frog-like creature in a wizard hat.">
         {% endif %}
 
         {% if battle.image_two %}
         <img class="img-fluid" src={{ battle.image_two.url }} alt="A second wizard ready for battle.">
         {% else %}
-        <img class="img-fluid" src="/media/images/placeholder.jpg"
-            alt="A small frog-like creature in a wizard hat.">
+        <img class="img-fluid" src="/media/images/placeholder.jpg" alt="A small frog-like creature in a wizard hat.">
         {% endif %}
     </div>
 </div>
 
-<div class="m-5">
-    <div class="rounded form-container mx-auto text-center m-1" style="width: 15rem;">
-        <a class="reversed-link-styles" href="{% url 'battle_arena' %}">Back to Battle Arena<i
+<div class="col-md-4 form-container text-center rounded mx-auto">
+    <div>
+        <a class="btn btn-md btn-navy my-2" href="{% url 'battle_arena' %}">Back to Battle Arena <i
                 class="fa-solid fa-hat-wizard"></i></a>
     </div>
-
     {% if request.user.is_staff %}
-    <div class="rounded form-container mx-auto text-center m-1" style="width: 15rem;">
-        <a class="reversed-link-styles" href="{% url 'edit_battle' battle.slug %}">Edit Battle <i
-                class="fa-solid fa-hat-wizard"></i></a>
-    </div>
-    <div class="rounded form-container mx-auto text-center m-1" style="width: 15rem;">
-        <a class="reversed-link-styles" href="{% url 'delete_battle' battle.slug %}">Delete Battle <i
-                class="fa-solid fa-hat-wizard"></i></a>
+    <div>
+        <a class="btn btn-md btn-navy my-2" href="{% url 'edit_battle' battle.slug %}">Edit Battle <i
+                class="fa-solid fa-wand-sparkles"></i></a>
+        <a class="btn btn-md btn-navy my-2" href="{% url 'delete_battle' battle.slug %}">Delete Battle <i
+                class="fa-solid fa-hand-sparkles"></i></a>
     </div>
     {% endif %}
 </div>
 
 {% for comment in comments %}
-<div class="rounded product-detail-container mx-auto">
-    <p class="text-center m-2">Comment: {{ comment.comment_body }}</p>
-    <p class="text-center m-2">By: {{ comment.name }}</p>
+<div class="col-md-4 form-container text-center rounded mx-auto my-2">
+    <p>Comment: {{ comment.comment_body }}</p>
+    <p>By: {{ comment.name }}</p>
 </div>
 {% endfor %}
 
-<div class="text-center rounded mx-auto my-2">
-    <h2 class="fs-4 mt-4">Leave a comment:</h1>
-</div>
-
-<div class="form-container text-center rounded mx-auto my-2">
+<div class="col-md-6 form-container text-center rounded mx-auto my-2">
+    <div>
+        <h2>Leave a comment:</h1>
+    </div>
     <form method="post" action="{% url 'view_battle' battle.slug %}" enctype="multipart/form-data">
         {{ form | crispy }}
         {% csrf_token %}
