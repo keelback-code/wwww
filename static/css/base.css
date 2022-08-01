@@ -127,7 +127,7 @@ body {
 
 /* Style for loot bag */
 .loot-links:hover {
-    cursor: default;
+    cursor: pointer;
 }
 
 

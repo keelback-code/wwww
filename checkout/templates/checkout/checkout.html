@@ -9,7 +9,7 @@
 
 {% block content %}
 <div class="overlay"></div>
-<div class="form-container text-center rounded mx-auto my-2">
+<div class="col-sm-3 form-container text-center rounded mx-auto my-2">
     <h2 class="my-2">Checkout</h2>
 </div>
 
@@ -56,7 +56,7 @@
             </div>
             <hr class="my-4">
             <div class="row">
-                <div class="col">
+                <div class="col d-none d-md-block">
                     {% cloudinary 'placeholder.png' width=300 height=300 crop="fill" %}
                 </div>
 
@@ -66,20 +66,20 @@
             <p class="text-muted my-2">Please fill out the form below to complete your order</p>
             <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                 {% csrf_token %}
-                <fieldset class="px-3 mb-5">
-                    <legend class="fieldset-label small px-2 w-auto">Details</legend>
+                <fieldset class="mb-5">
+                    <legend class="fieldset-label small w-auto">Details</legend>
                     {{ order_form.full_name | as_crispy_field }}
                     {{ order_form.email | as_crispy_field }}
                 </fieldset>
-                <fieldset class="px-3 mb-5">
-                    <legend class="fieldset-label small px-2 w-auto">Delivery</legend>
+                <fieldset class="mb-5">
+                    <legend class="fieldset-label small w-auto">Delivery</legend>
                     {{ order_form.phone_number | as_crispy_field }}
                     {{ order_form.country | as_crispy_field }}
                     {{ order_form.postcode | as_crispy_field }}
                     {{ order_form.town_or_city | as_crispy_field }}
                     {{ order_form.street_address1 | as_crispy_field }}
                     {{ order_form.street_address2 | as_crispy_field }}
-                    <div class="form-check form-check-inline float-right mr-0">
+                    <div class="form-check form-check-inline">
                         {% if user.is_authenticated %}
                         <label class="form-check-label" for="id-save-info">Save this delivery information to my
                             profile</label>
