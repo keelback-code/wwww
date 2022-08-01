@@ -10,7 +10,7 @@
 {% if user.is_authenticated %}
 <div class="container">
     <div class="row">
-        <div class="form-container text-center rounded mx-auto my-2">
+        <div class="col-sm-3 form-container text-center rounded mx-auto my-2">
             <h2 class="my-2">Staff Hub</h2>
         </div>
     </div>
@@ -92,6 +92,6 @@
 </div>
 
 {% else %}
-<p>You do not have permission to see this page.</p>
+<p class="col-md-6 form-container text-center rounded mx-auto my-2">You do not have permission to see this page.</p>
 {% endif %}
 {% endblock %}

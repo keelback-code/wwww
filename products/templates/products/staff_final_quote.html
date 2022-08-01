@@ -3,12 +3,12 @@
 
 {% block content %}
 
-{% if request.user.is_staff %}
-<div class="form-container text-center rounded mx-auto my-2">
-    <h1 class="fs-2">Staff details submitted</h1>
+{% if user.is_staff %}
+<div class="col-md-4 form-container text-center rounded mx-auto my-2">
+    <h1 class="fs-2">Details for Product Request</h1>
 </div>
 <div class="container">
-    <div class="form-container text-center rounded mx-auto my-2">
+    <div class="col-md-6 form-container text-center rounded mx-auto my-2">
         <p class="p-2">The below details have been emailed to you:</p>
         <hr>
         <p>Product type: {{ staff_product.product_type }}</p>
@@ -38,8 +38,7 @@
             <span>Back to Staff Profile</span>
         </a>
         <a href="{% url 'staff_edit' staff_product.id %}" class="btn btn-md btn-navy my-2">
-            <i class="fa-solid fa-hat-wizard"></i>
-            <span>Edit Request</span>
+            <span>Edit Request <i class="fa-solid fa-hat-wizard"></i></span>
         </a>
 
         <div class="p-2">
@@ -49,7 +48,7 @@
     </div>
 </div>
 {% else %}
-<p>You do not have permission to see this page.</p>
+<p class="col-md-6 form-container text-center rounded mx-auto my-2">You do not have permission to see this page.</p>
 {% endif %}
 
 {% endblock %}

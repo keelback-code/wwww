@@ -3,18 +3,17 @@
 
 {% block content %}
 
-<div class="form-container text-center rounded mx-auto my-2">
-    <h1 class="fs-2">Custom quote (final)</h1>
+<div class="col-sm-3 form-container text-center rounded mx-auto my-2">
+    <h1 class="fs-2">Final Quote</h1>
 </div>
-<div class="form-container text-center rounded mx-auto my-2">
+<div class="col-md-6 form-container text-center rounded mx-auto my-2">
     <h2>The price for your custom item is ${{ product.price }}.</h2>
     <h3>The details are:</h3>
+    <p>Stat: {{ product.stat }}</p>
+    <p>Colour: {{ product.color }}</p>
     <p>{{ product.variable_one }}</p>
     <p>{{ product.variable_two }}</p>
     <p>{{ product.variable_three }}</p>
-    <p>Colour: {{ product.color }}</p>
-    <p>{{ product.id }} - ref for elyse</p>
-
     <div>
         <form class="form" action="{% url 'add_to_loot' product.id %}" method="POST">
             {% csrf_token %}
@@ -47,15 +46,15 @@
                     <i class="fas fa-chevron-left"></i>
                     <span>Keep Shopping</span>
                 </a>
-                <input type="submit" class="btn btn-md btn-navy my-2" value="Add to Bag">
+                <input type="submit" class="btn btn-md btn-navy my-2" value="Add to Loot">
             </div>
+
             <input type="hidden" name="redirect_url" value="{{ request.path }}">
         </form>
     </div>
 </div>
 
 {% endblock %}
-
 
 {% block postloadjs %}
 {{ block.super }}

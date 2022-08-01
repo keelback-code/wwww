@@ -5,17 +5,16 @@
 <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
 {% endblock %}
 
-
 {% block content %}
 
 <div class="container">
     <div class="row">
-        <div class="form-container text-center rounded mx-auto my-2">
-            <h2 class="my-2">My Profile</h2>
+        <div class="col-md-4 form-container text-center rounded mx-auto my-2">
+            <h2 class="my-2">My Customer Profile</h2>
         </div>
     </div>
     <div class="row">
-        <div class="col-12 col-lg-6 form-container rounded mx-auto my-2">
+        <div class="col-12 col-lg-6 form-container rounded mx-auto my-2 text-center">
             <p class="text-muted">Default Delivery Information</p>
             <form class="mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
                 {% csrf_token %}
@@ -46,9 +45,9 @@
                             <td>
                                 <ul class="list-unstyled">
                                     {% for item in order.lineitems.all %}
-                                        <li class="small">
-                                            {{ item.product.product_type }} x {{ item.quantity }}
-                                        </li>
+                                    <li class="small">
+                                        {{ item.product.product_type }} x {{ item.quantity }}
+                                    </li>
                                     {% endfor %}
                                 </ul>
                             </td>
@@ -61,10 +60,9 @@
         </div>
     </div>
 </div>
-    {% endblock %}
+{% endblock %}
 
-    {% block postloadjs %}
-    {{ block.super }}
-    <!-- js to change country field to same placeholder colour as rest of form -->
-    <script type="text/javascript" src="{% static 'profiles/js/countryfield.js' %}"></script>
-    {% endblock %}
+{% block postloadjs %}
+{{ block.super }}
+<script type="text/javascript" src="{% static 'profiles/js/countryfield.js' %}"></script>
+{% endblock %}
