@@ -57,13 +57,11 @@ As a **user**, I will be notified by email when my order has been placed success
 
 As a **user**, I have the option for my information to be saved for future purchases so that I can save time on future purchases.
 
-As a **user**, I can edit or delete my user information so that I can have the correct information.
+As a **user**, I can **edit my user information** so that **I can have the correct information**.
 
-As a **user**, I can easily find the site's privacy policy so that I can use the site knowing I am protected.
+As a **user**, I can **easily find the site's privacy policy** so that **I can use the site knowing I am protected**.
 
-As a **user**, I can set the stats of each item, so that I can have an experience outside of the standard online shopping experience.
-
-As a **user**, I can see the final stats of my outfit, so that I can have an experience outside of the standard online shopping experience.
+As a **user**, I can **assign the stats of each item**, so that **I can have an experience outside of the standard online shopping experience**.
 
 As a **user** I can **update the shopping bag** so that **I can keep track of my shopping while I browse the site**.
 

@@ -60,28 +60,32 @@
                     <li class="nav-item d-md-none">
                         <a class="nav-link" href="{% url 'landing_page' %}">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'all_products' %}">Custom Products</a>
-                    </li>
+                    
                     {% if user.is_staff %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'staff_submission' %}">Add Product</a>
+                        <a class="nav-link" href="{% url 'profile' %}">Profile</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'staff_profile' %}">Staff Hub</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'profile' %}">Customer Profile</a>
+                        <a class="nav-link" href="{% url 'all_products' %}">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'staff_submission' %}">Add Product</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'battle_arena' %}">Battles</a>
                     </li>
                     {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'profile' %}">Profile</a>
+                        <a class="nav-link" href="{% url 'all_products' %}">Shop</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'battle_arena' %}">Battle Arena</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'profile' %}">Profile</a>
                     </li>
                     {% endif %}
                     {% if user.is_authenticated %}
@@ -132,7 +136,7 @@
 
     <footer class="footer mt-auto container">
         <div class="row">
-            <div class="col-md-4 universal-link-styles text-left">
+            <div class="col-sm-4 universal-link-styles text-center">
                 <div><a href="{% url 'privacy_policy' %}">Privacy Policy</a></div>
                 <div><a href="{% url 'about_us' %}">About Us</a></div>
                 <div><a href="{% url 'delivery_and_questions' %}">Frequently Asked Questions</a></div>
@@ -149,15 +153,15 @@
             <!-- Mailchimp Signup Form -->
             <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7_dtp.css" rel="stylesheet" type="text/css">
 
-            <div class="col-md-8 text-right">
+            <div class="col-sm-6 offset-sm-2 text-center">
                 <form
                     action="https://gmail.us8.list-manage.com/subscribe/post?u=3da65fc6c6bb5e29434a90318&amp;id=d601635be1"
                     method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate"
                     target="_blank" novalidate>
 
                     <div class="mc-field-group">
-                        <p>Hear about our wizard battles and sales by signing up to our
-                            newsletter</p>
+                            <p class="rounded" style="background-color:#050533;">Hear about our wizard battles and sales by signing up to our
+                                newsletter</p>        
                     </div>
                     <div class="mc-field-group" style="display: inline-block">
                         <label for="mce-EMAIL">Email Address <span class="asterisk">*</span></label>
