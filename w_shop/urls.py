@@ -1,4 +1,4 @@
-from .views import handler404, handler500
+from .views import handler404, handler500, handler403, handler405
 from django.contrib import admin
 from django.conf import settings
 from django.urls import path, include
@@ -17,3 +17,5 @@ urlpatterns = [
 
 handler404 = 'w_shop.views.handler404'
 handler500 = 'w_shop.views.handler500'
+handler403 = 'w_shop.views.handler403'
+handler405 = 'w_shop.views.handler405'
