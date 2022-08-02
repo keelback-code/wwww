@@ -17,24 +17,15 @@ from django.contrib.messages import constants as messages
 if os.path.isfile('env.py'):
     import env
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
+DEBUG = False
 
 ALLOWED_HOSTS = ['w-w-w-w.herokuapp.com', 'localhost']
-
-
-# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -91,11 +82,11 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'django.template.context_processors.media',  # allows html to access MEDIA_URL
+                'django.template.context_processors.media',
                 'loot.contexts.loot_contents',
             ],
             'builtins': [
-                'crispy_forms.templatetags.crispy_forms_tags',  # these two lines mean you don't have use to use load crispy on every page
+                'crispy_forms.templatetags.crispy_forms_tags',
                 'crispy_forms.templatetags.crispy_forms_field',
             ]
         },
@@ -139,7 +130,6 @@ DATABASES = {
         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
@@ -158,7 +148,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
@@ -171,7 +160,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
@@ -188,48 +176,14 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
-# if 'USE_AWS' in os.environ:
-#     # Cache control for files that don't need to change often
-#     AWS_S3_OBJECT_PARAMETERS = {
-#         'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
-#         'CacheControl': 'max-age=94608000',
-#     }
-
-#     # Bucket Config
-#     AWS_STORAGE_BUCKET_NAME = 'elyserh-bado'
-#     AWS_S3_REGION_NAME = 'eu-west-1'
-#     AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
-#     AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
-#     AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'  # bucket name defined above
-
-#     # Static and media files (when collect static is run)
-#     STATICFILES_STORAGE = 'custom_storages.StaticStorage'  # this is from Class set in custom_storages file
-#     STATICFILES_LOCATION = 'static'  # telling settings to save static files here
-#     DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
-#     MEDIAFILES_LOCATION = 'media'
-
-#     # Override static and media URLs in production using new locations set above
-#     STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
-#     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# Stripe
-
 STRIPE_CURRENCY = 'usd'
 STANDARD_DELIVERY_PERCENTAGE = 10
-# USER_DELIVERY_PERCENTAGE = 10
-STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY', '')  # '' sets to default blank
+STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.environ.get('STRIPE_WH_SECRET', '')
-  
 
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST = 'smtp.gmail.com'

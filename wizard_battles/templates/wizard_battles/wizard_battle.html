@@ -9,10 +9,10 @@
 </div>
 
 <div class="col-md-8 form-container text-center rounded mx-auto my-2">
-    <div class="text-center">
+    <div class="pt-2">
         <p>{{ battle.text_content | safe }}</p>
     </div>
-    <div class="image-grid-container p-4">
+    <div class="image-grid-container p-2">
         {% if battle.image_one %}
         <img class="img-fluid rounded" src={{ battle.image_one.url }} alt="A wizard ready for battle.">
         {% else %}
@@ -29,11 +29,18 @@
     </div>
 </div>
 
+{% for comment in comments %}
+<div class="col-md-4 form-container text-center rounded mx-auto my-2">
+    <p>Comment: {{ comment.comment_body | safe }}</p>
+    <p>By: {{ comment.name | safe }}</p>
+    {% if request.user.is_staff %}
+    <a class="btn btn-md btn-navy my-2" href="{% url 'delete_comment' comment.id %}">Delete Comment <i
+            class="fa-solid fa-hand-sparkles"></i></a>
+    {% endif %}
+</div>
+{% endfor %}
+
 <div class="col-md-4 form-container text-center rounded mx-auto">
-    <div>
-        <a class="btn btn-md btn-navy my-2" href="{% url 'battle_arena' %}">Back to Battle Arena <i
-                class="fa-solid fa-hat-wizard"></i></a>
-    </div>
     {% if request.user.is_staff %}
     <div>
         <a class="btn btn-md btn-navy my-2" href="{% url 'edit_battle' battle.slug %}">Edit Battle <i
@@ -42,18 +49,11 @@
                 class="fa-solid fa-hand-sparkles"></i></a>
     </div>
     {% endif %}
+    <div>
+        <a class="btn btn-md btn-navy my-2" href="{% url 'battle_arena' %}">Back to Battle Arena <i
+                class="fa-solid fa-hat-wizard"></i></a>
+    </div>
 </div>
-
-{% for comment in comments %}
-<div class="col-md-4 form-container text-center rounded mx-auto my-2">
-    <p>Comment: {{ comment.comment_body }}</p>
-    <p>By: {{ comment.name }}</p>
-    {% if request.user.is_staff %}
-    <a class="btn btn-md btn-navy my-2" href="{% url 'delete_comment' comment.id %}">Delete Comment <i
-            class="fa-solid fa-hand-sparkles"></i></a>
-    {% endif %}
-</div>
-{% endfor %}
 
 <div class="col-md-6 form-container text-center rounded mx-auto my-2">
     <div>
