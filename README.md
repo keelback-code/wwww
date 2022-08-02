@@ -37,7 +37,7 @@ To sell custom made interesting wizard hats (and other wizard associated clothin
 
 #### Epic
 
-This website will provide the user with an array of wizardly hats and other clothing items, products both expected and unexpected. The website will be simple and easy to use; a good experience for the user that will make their time in the shop welcoming. Each product will have Dungeons and Dragons style (stats)[https://en.wikipedia.org/wiki/Statistic_(role-playing_games)], along with other variables to choose from in order to customise each product.
+This website will provide the user with an array of wizardly hats and other clothing items, products both expected and unexpected. The website will be simple and easy to use; a good experience for the user that will make their time in the shop welcoming. Each product will have Dungeons and Dragons style (stats)["https://en.wikipedia.org/wiki/Statistic_(role-playing_games)"], along with other variables to choose from in order to customise each product.
 
 #### User stories
 

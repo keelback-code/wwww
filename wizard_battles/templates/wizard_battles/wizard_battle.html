@@ -16,13 +16,15 @@
         {% if battle.image_one %}
         <img class="img-fluid rounded" src={{ battle.image_one.url }} alt="A wizard ready for battle.">
         {% else %}
-        <img class="img-fluid rounded" src="/media/images/placeholder.jpg" alt="A small frog-like creature in a wizard hat.">
+        <img class="img-fluid rounded" src="/media/images/placeholder.jpg"
+            alt="A small frog-like creature in a wizard hat.">
         {% endif %}
 
         {% if battle.image_two %}
         <img class="img-fluid rounded" src={{ battle.image_two.url }} alt="A second wizard ready for battle.">
         {% else %}
-        <img class="img-fluid rounded" src="/media/images/placeholder.jpg" alt="A small frog-like creature in a wizard hat.">
+        <img class="img-fluid rounded" src="/media/images/placeholder.jpg"
+            alt="A small frog-like creature in a wizard hat.">
         {% endif %}
     </div>
 </div>
@@ -46,6 +48,10 @@
 <div class="col-md-4 form-container text-center rounded mx-auto my-2">
     <p>Comment: {{ comment.comment_body }}</p>
     <p>By: {{ comment.name }}</p>
+    {% if request.user.is_staff %}
+    <a class="btn btn-md btn-navy my-2" href="{% url 'delete_comment' comment.id %}">Delete Comment <i
+            class="fa-solid fa-hand-sparkles"></i></a>
+    {% endif %}
 </div>
 {% endfor %}
 

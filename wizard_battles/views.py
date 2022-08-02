@@ -1,5 +1,4 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
-# from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib import messages
 from django.views import generic, View
@@ -38,7 +37,6 @@ def view_battle(request, slug):
             messages.error(request, 'Your comment was not received by the wizards. Please try again.')
     else:
         form = CommentForm()
-
 
     context = {
         'battle': battle,
@@ -121,4 +119,19 @@ def delete_battle(request, slug):
         battle = get_object_or_404(Post, slug=slug)
         battle.delete()
         messages.success(request, 'Wizard Battle deleted.')
+        return redirect(reverse('battle_arena'))
+
+
+@staff_member_required
+def delete_comment(request, comment_id):
+    """
+    Function to delete comments from wizard battle blog posts.
+    """
+    if not request.user.is_staff:
+        messages.error(request, 'Apologies, only staff can access this.')
+        return redirect(reverse('landing_page'))
+    else:
+        comment = get_object_or_404(Comment, pk=comment_id)
+        comment.delete()
+        messages.success(request, 'Comment deleted.')
         return redirect(reverse('battle_arena'))
