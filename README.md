@@ -37,7 +37,7 @@ To sell custom made interesting wizard hats (and other wizard associated clothin
 
 #### Epic
 
-This website will provide the user with an array of wizardly hats and other clothing items, products both expected and unexpected. The website will be simple and easy to use; a good experience for the user that will make their time in the shop welcoming. Each product will have Dungeons and Dragons style (stats)["https://en.wikipedia.org/wiki/Statistic_(role-playing_games)"], along with other variables to choose from in order to customise each product.
+This website will provide the user with an array of wizardly hats and other clothing items, products both expected and unexpected. The website will be simple and easy to use; a good experience for the user that will make their time in the shop welcoming. Each product will have Dungeons and Dragons style stats (see: [https://en.wikipedia.org/wiki/Statistic_(role-playing_games)] ), along with other variables to choose from in order to customise each product.
 
 #### User stories
 
@@ -59,7 +59,7 @@ As a **user**, I can **have the option for my information to be saved for future
 
 As a **user**, I can **edit my user information** so that **I can have the correct information**.
 
-As a **user**, I can **easily find the site's privacy policy** so that **I can use the site knowing I am protected**.
+As a **user**, I can **easily find the site's privacy policy and other important information** so that **I can use the site knowing I am protected**.
 
 As a **user**, I can **assign the stats of each item**, so that **I can have an experience outside of the standard online shopping experience**.
 
@@ -72,42 +72,37 @@ As a **user** I can **comment on blog posts** so that **I can take part in the b
 
 #### Owner/staff member
 
-As a **staff member**, I can add products to my shop so that users can see the products I have available.
+As a **staff member**, I can **control stock levels** so that **I can control the amount of products I sell**.
 
-staff edit and delete
+As a **staff member**, I can **be notified by email if an order comes in** so that **I can action the sale**.
 
-As a **staff member**, I can control stock levels so that I can control the amount of products I sell.
-
-As a **staff member**, I will be notified by email if an order comes in so that I can action the sale.
-
-As a **staff member**, I can view my orders and see the current order status so that I know if there is an order I have to process.
+As a **staff member**, I can **view all orders placed on the site and see the current order status** so that **I know if there is an order I have to process**.
 
 As a **staff member** I can **change the status of an order** so that **I can communicate to other staff that the order has been actioned**.
 
-As a **staff member**, I can easily provide the site privacy policy so that I can communicate with users and increase the legitimacy of my website.
+As a **staff member**, I can **easily provide the site privacy policy** so that **I can communicate with users and increase the legitimacy of my website**. Clear design Ts and Cs prominent in footer
 
-Clear design
+As a **staff member**, I can **use web marketing to increase traffic to my site** so that **I can increase website traffic and sales**.
 
-Ts and Cs prominent in footer
-
-
-As a **staff member**, I can use web marketing to increase traffic to my site.
-
-As a **staff member**, I can add blog posts to my site so that I can show expertise on the subject and correspond with my web marketing.
+As a **staff member**, I can **add blog posts to my site** so that **I can show expertise on the subject that corresponds with my web marketing**.
 
 As a **staff member** I can **edit/delete posts** so that **users can see the correct information**.
 
-As a **staff member**, I will be provided with search engine optimisation for my site so that I can receive increased traffic and sales.
+As a **staff member**, I can **delete comments from blog posts** so that **my website can have a friendly environment**.
+
+As a **staff member**, I will **be provided with search engine optimisation for my site** so that **I can receive increased traffic and sales**.
 
 As a **staff member** I can **offer a shipping discount to users who sign up for accounts** so that **I receive more users who are more likely to make a purchase/multiple purchases**.
 
-As a **staff member** I can **easily contact the developers to add a custom product** so that **I can add new products to the site**.
+As a **staff member** I can **easily add a request for a custom product** so that **I can add new products to the site**. - email for assurance
+
+As a **staff member** I can **easily edit product requests** so that **I can make changes without a lengthy back and forth of emails**.
 
 User/Owner
 
-As a **user/staff member**, I can sign in and out intuitively so that I can use the website easily.
+As a **user/staff member**, I can **sign in and out intuitively** so that **I can use the website easily**.
 
-As a **userstaff member**, I can navigate the website easily and intuitively.
+As a **userstaff member**, I can **navigate the website easily and intuitively** so that **I can explore the website freely**.
 
 
 ### Design and UX
@@ -201,6 +196,64 @@ Performance testing was conducted using Lighthouse. The results are:
 
 I sent the live link to friends and family members for testing and feedback. The site was received positively; design and usability suggestions were considered and acted on. The site was also put up in the Code Institute Slack community for feedback.
 
+#### User Stories Testing
+
+As a **user**, I can **clearly see the purpose of the site when I land on the home page** so that **I stay on the site**.
+
+As a **user**, I can **clearly understand the products I am considering purchasing** so that **I can make informed decisions**.
+
+As a **user**, I can **have the option to create a custom made product** so that **I can have something that better suits me**.
+
+As a **user**, I can **get an instant quote for a custom product** so that **I know how much I will be spending**.
+
+As a **user**, I can **complete the payment process quickly and easily** so that **I don’t get distracted/dissuaded and leave**.
+
+As a **user**, I can **be notified by email when my order has been placed successfully,** so that **I have trust in the website and I have the order details in a convenient place**.
+
+As a **user**, I can **have the option for my information to be saved for future purchases** so that **I can save time on future purchases**.
+
+As a **user**, I can **edit my user information** so that **I can have the correct information**.
+
+As a **user**, I can **easily find the site's privacy policy and other important information** so that **I can use the site knowing I am protected**.
+
+As a **user**, I can **assign the stats of each item**, so that **I can have an experience outside of the standard online shopping experience**.
+
+As a **user** I can **update the shopping bag** so that **I can keep track of my shopping while I browse the site**.
+
+As a **user** I can **view my order history** so that **I know what I have already ordered**.
+
+As a **user** I can **comment on blog posts** so that **I can take part in the battle arena**.
+
+As a **staff member**, I can **control stock levels** so that **I can control the amount of products I sell**.
+
+As a **staff member**, I can **be notified by email if an order comes in** so that **I can action the sale**.
+
+As a **staff member**, I can **view all orders placed on the site and see the current order status** so that **I know if there is an order I have to process**.
+
+As a **staff member** I can **change the status of an order** so that **I can communicate to other staff that the order has been actioned**.
+
+As a **staff member**, I can **easily provide the site privacy policy** so that **I can communicate with users and increase the legitimacy of my website**. Clear design Ts and Cs prominent in footer
+
+As a **staff member**, I can **use web marketing to increase traffic to my site** so that **I can increase website traffic and sales**.
+
+As a **staff member**, I can **add blog posts to my site** so that **I can show expertise on the subject that corresponds with my web marketing**.
+
+As a **staff member** I can **edit/delete posts** so that **users can see the correct information**.
+
+As a **staff member**, I can **delete comments from blog posts** so that **my website can have a friendly environment**.
+
+As a **staff member**, I will **be provided with search engine optimisation for my site** so that **I can receive increased traffic and sales**.
+
+As a **staff member** I can **offer a shipping discount to users who sign up for accounts** so that **I receive more users who are more likely to make a purchase/multiple purchases**.
+
+As a **staff member** I can **easily add a request for a custom product** so that **I can add new products to the site**. - email for assurance
+
+As a **staff member** I can **easily edit product requests** so that **I can make changes without a lengthy back and forth of emails**.
+
+As a **user/staff member**, I can **sign in and out intuitively** so that **I can use the website easily**.
+
+As a **userstaff member**, I can **navigate the website easily and intuitively** so that **I can explore the website freely**.
+
 ### Debugging and known bugs
 
 
@@ -255,7 +308,7 @@ In the same 'Code' dropdown, you can opt to open the code with GitHub Desktop an
 
 Guidance with updating and deleting instances from (GeeksforGeeks)[https://www.geeksforgeeks.org/django-crud-create-retrieve-update-delete-function-based-views/]
 
-ERD made with (Lucidchart)[https://lucid.co/]
+ERD made with (Lucidchart)[https://lucid.app/]
 
 Wireframes made with (Balsamiq)[https://balsamiq.com/]
 

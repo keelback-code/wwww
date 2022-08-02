@@ -63,7 +63,6 @@ def remove_from_loot(request, item_id):
         product.delete()
 
         request.session['loot'] = loot
-        # return this instead of redirect
         return HttpResponse(status=200)
 
     except Exception as e:
