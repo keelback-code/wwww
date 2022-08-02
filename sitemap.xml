@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://w-w-w-w.herokuapp.com/</loc>
+  <lastmod>2022-08-02T13:52:33+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://w-w-w-w.herokuapp.com/products/products/</loc>
+  <lastmod>2022-08-02T13:52:33+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://w-w-w-w.herokuapp.com/wizard_battles/battle_arena/</loc>
+  <lastmod>2022-08-02T13:52:33+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://w-w-w-w.herokuapp.com/accounts/login/?next=/profiles/</loc>
+  <lastmod>2022-08-02T13:52:33+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://w-w-w-w.herokuapp.com/accounts/signup/</loc>
+  <lastmod>2022-08-02T13:52:33+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://w-w-w-w.herokuapp.com/accounts/login/</loc>
+  <lastmod>2022-08-02T13:52:33+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://w-w-w-w.herokuapp.com/loot/</loc>
+  <lastmod>2022-08-02T13:52:33+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://w-w-w-w.herokuapp.com/privacy_policy/</loc>
+  <lastmod>2022-08-02T13:52:33+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://w-w-w-w.herokuapp.com/about_us/</loc>
+  <lastmod>2022-08-02T13:52:33+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://w-w-w-w.herokuapp.com/delivery_and_questions/</loc>
+  <lastmod>2022-08-02T13:52:33+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://w-w-w-w.herokuapp.com/products/custom_hat_one/</loc>
+  <lastmod>2022-08-02T13:52:33+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://w-w-w-w.herokuapp.com/products/custom_cloak/</loc>
+  <lastmod>2022-08-02T13:52:33+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://w-w-w-w.herokuapp.com/products/custom_sunglasses/</loc>
+  <lastmod>2022-08-02T13:52:33+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://w-w-w-w.herokuapp.com/products/custom_hat_two/</loc>
+  <lastmod>2022-08-02T13:52:33+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://w-w-w-w.herokuapp.com/products/custom_spell_book/</loc>
+  <lastmod>2022-08-02T13:52:33+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://w-w-w-w.herokuapp.com/products/custom_wand/</loc>
+  <lastmod>2022-08-02T13:52:33+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://w-w-w-w.herokuapp.com/wizard_battles/wizard_battle/test-battle/</loc>
+  <lastmod>2022-08-02T13:52:33+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://w-w-w-w.herokuapp.com/wizard_battles/wizard_battle/white-witch-vs-jareth/</loc>
+  <lastmod>2022-08-02T13:52:33+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://w-w-w-w.herokuapp.com/accounts/signup/?next=%2Fprofiles%2F</loc>
+  <lastmod>2022-08-02T13:52:33+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://w-w-w-w.herokuapp.com/accounts/password/reset/</loc>
+  <lastmod>2022-08-02T13:52:33+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://w-w-w-w.herokuapp.com/accounts/login/?next=%2Fprofiles%2F</loc>
+  <lastmod>2022-08-02T13:52:33+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+
+
+</urlset>

@@ -3,3 +3,4 @@ Disallow: /accounts/
 Disallow: /loot/
 Disallow: /checkout/
 Disallow: /profiles/
+Sitemap: https://w-w-w-w.herokuapp.com/sitemap.xml
