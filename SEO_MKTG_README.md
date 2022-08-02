@@ -1,4 +1,10 @@
-Keywords
+## SEO and Marketing Readme
+
+### Table of contents:
+
+[Keywords](#keywords) 
+
+### Keywords
 1.Brainstorm general topics
 Hats, Wizard, Wizard costume
 2. Brain dump possible keywords for each topic
@@ -84,6 +90,6 @@ The goal is to sell hats. Email marketing and organic social media marketing in 
 Would your business have a budget to spend on advertising? Or would it need to work with free or low cost options to market itself?
 Low-budget as it is a small-scale and niche business, budget to be reassessed if becomes successful. Definitely work with email and social media.
 
-Research (other niche/costume hat businesses)
+### Similar businesses used for research (other niche/costume hat businesses)
 https://www.thecostumer.com/c-3333-hats.aspx - utilises social media, posts regularly on instagram
 https://irishdesignshop.com/ - handmade custom items/small business - utilises social media, newsletter sign up on website, blog on website (updated every couple of months)
