@@ -2,26 +2,43 @@
 
 ### Table of contents:
 
-Theme, Epic and User Stories
-Design and UX
-Wireframes
-Database model
-Features
-Future Features
-SEO and Marketing
-Technologies
-Testing
-Code Validation
-Browser Compatibility
-Accessibility Testing
-Performance Testing
-Manual Testing
-User Stories Testing
-Debugging and known bugs
-Deployment
-Credits
-Resources
-Acknowledgements
+[Theme, Epic and User Stories](#theme-epic-and-user-stories) 
+
+[Design and UX](#design-and-ux) 
+* [Wireframes](#wireframes)
+* [Database model](#database-model)
+
+[Features](#features)
+
+[Future Features](#future-features)
+
+[SEO and Marketing](#seo-and-marketing)
+
+[Technologies](#technologies)
+
+[Testing ](#testing)
+
+* [Code Validation](#code-validation)
+
+* [Browser Compatibility](#browser-compatibility)
+
+* [Accessibility Testing](#accessibility-testing)
+
+* [Performance Testing](#performance-testing)
+
+* [Manual Testing](#manual-testing)
+
+* [User Stories Testing](#user-stories-testing)
+
+[Debugging and known bugs](#debugging-and-known-bugs)
+
+[Deployment](#deployment)
+
+[Credits](#credits)
+
+[Resources](#resources)
+
+[Acknowledgements](#acknowledgements)
 
 Name: Winnifrederico's Wondrous World of Wizards (WWWW)
 
@@ -144,18 +161,31 @@ Staff able to add custom products: I spent some time developing code for staff t
 ### Technologies
 
 Languages used:
+
 Python 3
+
 HTML5
-CSS
+
+CSS3
+
 Javascript
+
 Frameworks, Libraries and Programs Used:
+
 Django/allauth - Python framework
-Bootstrap - CSS package
-AWS - for hosting the images
+
+Bootstrap 4
+
+Cloudinary - for hosting the images
+
 SQLite (default Django database)
-EmailJS/Django email - for sending the personalised/automated emails
+
+Django email - for sending the personalised/automated emails
+
 GitHub - for hosting the site
+
 Heroku - for the deployment of the site
+
 Gitpod - for editing the files
 
 ### Testing
@@ -313,6 +343,8 @@ ERD made with (Lucidchart)[https://lucid.app/]
 Wireframes made with (Balsamiq)[https://balsamiq.com/]
 
 Privacy Policy generated from (Privacy Policy Generator)[https://www.privacypolicygenerator.info].
+
+SItemap generated (here)[https://www.xml-sitemaps.com/]
 
 ### Credits
 

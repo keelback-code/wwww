@@ -23,7 +23,6 @@ body {
 
 .navbar-brand {
     font-family: 'Raleway', monospace, sans-serif;
-    color: #faebd7;
 }
 
 .universal-link-styles a,
@@ -146,9 +145,12 @@ body {
 
 /* Media queries */
 
-/* 
-@media screen and (min-width: 600px) {
-    .information-container {
-      text-align: center;
+
+@media screen and (max-width: 768px) {
+    .navbar-brand-switch {
+      display: block;
     }
-  } */
+    .navbar-brand {
+        display: none;
+      }
+  }
