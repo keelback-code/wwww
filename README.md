@@ -22,9 +22,9 @@
 
 [Deployment](#deployment)
 
-[Credits](#credits)
-
 [Resources](#resources)
+
+[Credits](#credits)
 
 [Acknowledgements](#acknowledgements)
 
@@ -105,10 +105,17 @@ User/Owner
 
 As a **user/staff member**, I can **sign in and out intuitively** so that **I can use the website easily**.
 
-As a **userstaff member**, I can **navigate the website easily and intuitively** so that **I can explore the website freely**.
+As a **user/staff member**, I can **navigate the website easily and intuitively** so that **I can explore the website freely**.
 
 
 ### Design and UX
+
+Light text on a dark background can be very striking, but hard to parse for large amounts of text. For my navbar, footer and landing page I chose light text on a dark background as it is arresting and blends seamlessly with the background. For larger amounts of text, such as posts in the battle arena, or anything with an image that needs to be overlaid, such as the shop, I switched back to a light background with dark text to make it easier for the user to take in. To keep the dark theme throughout the website, I kept the dark background and placed the text and images on cards or card-like elements so that all pages felt unified.
+
+The colors implemented across the site are:
+Dark options: #050533
+Light options: #faebd7
+Anyhting requiring a third colour (such as hovering over darker links which are on a light background): #534582
 
 ### Wireframes
 
@@ -199,7 +206,9 @@ Edit request email - as per request email, with warnings to the staff member abo
 Delete request - unavailable in order to avoid wasting time, contact details provided instead.
 Staff submission
 
-Battle arena - Posts
+Battle arena
+
+Battle details
 
 Create/Edit/Delete
 
@@ -264,22 +273,15 @@ Gitpod - for editing the files
 
 ### Debugging and known bugs
 
-Custom product model - originally had my calculations in the model but changed it over to the view with help from this Stack Overflow post:
-https://stackoverflow.com/questions/29228627/djangoget-field-values-using-views-py-from-html-form
-For custom variables on these products, for pricing was able to have separate function and feed in var_one, two and three, but this meant in front and back end the actual name didn’t show, so both users just saw a letter instead of the label. Options were to have more variables feed into the calc function, which is a bit bulky but the other option was to have all the code from the calc function in each class, making this file three times as long and three times as ugly. I opted for feeding 6 variables into my calculation function over repeating my code.
+Custom product model - I originally had my calculations in the model but it wasn't working so I changed it over to the view with help from [this Stack Overflow post](https://stackoverflow.com/questions/29228627/djangoget-field-values-using-views-py-from-html-form):
 
-Getting two different product models into the loot/shopping bag - lots of moving around and googling and renaming, playing with the context file as that was new to me. tried to put in same context file, broke everything. tried parent model classes, didn’t work.
-can try feeding product into shopping bag on POST on final quote page, already named product and filtered in in exact same way.
-can try separate loop within contexts func
-if standard do this, if custom do this, then feed all into context
-failing that, just add on POST details into html and db
-Fixed custom quoting system by reapplying migrations and changing product id variables - broke when was all the same
-separate contexts file within cust_prods
-none of that worked, decided to refactor code and shift focus of shop, all products are custom products now. one model, multiple model forms from single model in order for shopping bag to work
+For custom variables on these products, for pricing I was able to have separate functions and feed in variables one, two and three, but this meant in the front and back ends the actual name didn’t show, so both users just saw a letter (a, b, c, etc) instead of the label. Options were to have more variables feed into the calc function, which is a bit bulky but the other option was to have all the code from the calcuation function in each class, making this file six times as long and six times as ugly. I opted for feeding 6 variables into my calculation function instead of repeating my code more than I already am.
 
-There is currently no option for a staff member to add a product directly, which will be a future feature. I was able to create a cascading form which had associated models for the options and the variables, but I was unable to feed that into the quote system. For this iteration, in it's place I have a very detailed staff submission form, to provide as many details as possible so that implementing the submission takes as little time as possible. Both the developer and staff member are emailed the details. The staff member is emailed the details in order to assure them that the form went through and it will be actioned. They can also access the details through the staff hub, and edit the details there if need be. The updated details will be emailed to the staff member and the dev.
+Getting two different product models into the loot/shopping bag - originally this shop had two types of products, standard products (similar to the products in Boutique Ado) and custom products. Feeding two models into the loot function broke it immediately; I did a lot of moving around, researching and renaming, and playing with the context file as that aspect of django was new to me. I tried to put the custom products in the same function in the context file, or a different function in the same context file, or a separate context file in the same app or in a different app. I also tried parent model classes, which unfortunately also didn’t work.
 
-I spent some time developing code for staff to add a custom product, staff were able to add custom products with multiple variables and options for the variables but this was unable to be fed into the quote system without breaking both the bag and checkout systems. After some time I decided to refocus my time for this iteration, for the moment I have a detailed manual form which will hopefully save time not only by being detailed, but the information is saved to the db, so it is easy for the dev to find. For the staff member's peace of mind they will be emailed a copy of the information and it will be available in the staff hub.
+After a few days I decided to refocus my website as it was becoming clear that I couldn't achieve my current goal with my current skills and timeframe. I changed the shop to be only custom products.
+
+The downside of this is that, due to the quoting system I was able to implement, there is currently no option for a staff member to add a product directly, which will be a future feature. I was able to create a cascading form which had associated models for the options and the variables, but I was unable to feed that into the quote system for customers, which is arguably more important as without customers there is no point having a shop. For this iteration, in place of staff being able to add a product directly I have a very detailed staff product submission form, to provide as many details as possible so that implementing the submission takes as little time as possible for the dev. Both the developer and staff member are emailed the details. The staff member is emailed the details in order to assure them that the form went through and it will be actioned. It is saved to the db so that the staff member can see and edit the details from the staff hub, and the dev can see the details on the back end. If the staff member edits the details, the updated details will be emailed to the staff member and the dev. A delete option is unavailable as this would be potentially disruptive to the developer's work; in it's place there is a polite message and contact details.
 
 ### Deployment
 

@@ -3,6 +3,8 @@
 ### Table of contents:
 
 [Keywords](#keywords) 
+[User Needs](#user-needs)
+[Marketing Strategies](#marketing-strategies)
 
 ### Keywords
 1.Brainstorm general topics
