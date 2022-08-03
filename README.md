@@ -324,13 +324,15 @@ Wireframes made with (Balsamiq)[https://balsamiq.com/]
 
 Privacy Policy generated from (Privacy Policy Generator)[https://www.privacypolicygenerator.info].
 
-SItemap generated (here)[https://www.xml-sitemaps.com/]
+Sitemap generated (here)[https://www.xml-sitemaps.com/]
 
 ### Credits
 
 Assistance on toasts, shopping basket and checkout functionality from Code Institute's Boutique Ado code walkthrough.
 
 All images from Pexels, except checkout frog/battle placeholder image from artist [Bee](https://beebeedibapbeediboop.tumblr.com/); used with permission from the artist.
+
+Recommendations for transparent backing behind text on landing page from ChrisU_alumni on the Code Institute Slack peer code review channel.
 
 In code credits as marked.
 

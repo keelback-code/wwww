@@ -3,8 +3,11 @@
 ### Table of contents:
 
 [Keywords](#keywords) 
+
 [User Needs](#user-needs)
+
 [Marketing Strategies](#marketing-strategies)
+
 [Facebook Wireframe](#facebook-wireframe)
 
 ### Keywords
@@ -104,3 +107,9 @@ Low-budget as it is a small-scale and niche business, budget to be reassessed if
 [Irish Design Shop](https://irishdesignshop.com/) - handmade custom items/small business - utilises social media, newsletter sign up on website, blog on website (updated every couple of months)
 
 ### Facebook Wireframe
+
+Example of what the WWWW Facebook page would look like:
+
+![Screenshot of a Facebook page](static/media/readme_media/fb-snip-one.jpg)
+
+![Screenshot of a Facebook page](static/media/readme_media/fb-snip-two.jpg)
