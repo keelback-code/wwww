@@ -119,23 +119,37 @@ Anyhting requiring a third colour (such as hovering over darker links which are 
 
 ### Wireframes
 
-Home page
+The size of the site grew between the initial wireframe stage and completion of the site, including the addition of the battle arena and the staff hub, which is why they are not represented here.
 
 Shop page
 
+![Wireframe for main shop page](static/media/readme_media/shop-wf.jpg)
+
+Product detail
+
+![Wireframe for product detail page](static/media/readme_media/details-wf.jpg)
+
+Custom product confirmation
+
+![Wireframe for final quote page](static/media/readme_media/quote-product-wf.jpg)
+
 Shopping bag view
+
+![Wireframe for shopping bat](static/media/readme_media/loot-wf.jpg)
 
 Checkout view
 
-Standard hat product detail
-
-Custom hat page
+![Wireframe for checkout](static/media/readme_media/checkout-wf.jpg)
 
 User profile page
 
+![Wireframe for user profile](static/media/readme_media/profile-wf.jpg)
+
 About Us page (related links)
 
-Database model
+![Wireframe for about us page](static/media/readme_media/about-us-wf.jpg)
+
+### Database model
 
 ![Entity relationship diagram](static/media/readme_media/erd.jpg)
 
