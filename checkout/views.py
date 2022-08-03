@@ -156,7 +156,8 @@ def checkout_success(request, order_number):
 
     messages.success(request, f'Order successfully processed! \
         Your order number is {order_number}. A confirmation \
-        email will be sent to {order.email}; it may take a few minutes.')
+        email will be sent to {order.email}; it may take a few minutes. \
+        Please check your spam if you do not receive it.')
 
     if 'loot' in request.session:
         del request.session['loot']

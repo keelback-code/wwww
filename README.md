@@ -52,7 +52,7 @@ As a **user**, I can **clearly see the purpose of the site when I land on the ho
 
 As a **user**, I can **clearly understand the products I am considering purchasing** so that **I can make informed decisions**.
 
-As a **user**, I can **have the option to create a custom made product** so that **I can have something that better suits me**.
+As a **user**, I **have the option to create a custom made product** so that **I can have something that better suits me**.
 
 As a **user**, I can **get an instant quote for a custom product** so that **I know how much I will be spending**.
 
@@ -127,11 +127,11 @@ Shop page
 
 Product detail
 
-![Wireframe for product detail page](static/media/readme_media/details-wf.jpg)
+![Wireframe for product detail page](static/media/readme_media/quote-product-wf.jpg)
 
 Custom product confirmation
 
-![Wireframe for final quote page](static/media/readme_media/quote-product-wf.jpg)
+![Wireframe for final quote page](static/media/readme_media/details-wf.jpg)
 
 Shopping bag view
 
