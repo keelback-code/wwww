@@ -33,32 +33,36 @@ why do wizards wear a pointy hat, blue wizard hat, what is a wizards hat called,
 4. Ensure have short and long tail
 5. Assess choice for relevance and authoritativeness, and dig into the data available on keyword volume and competition using wordtracker.com
 
-Word tracker results (volume, competition, iaat):
+Keyword research from [Wordtracker](https://www.wordtracker.com/):
 
-wizard hat:
+Wizard hat:
+![Wizard hat keyword research](static/media/readme_media/wiz-hat-ss.png)
 
-
-wizard costume:
-top results all dorothy related but also had this:
-
-
-wizard hat for halloween:
+Wizard costume:
+Top results all Dorothy related but also had this:
+![Wizard costume keyword research](static/media/readme_media/wizard-costume-ss.png)
 
 
-wizard cosplay:
+Wizard hat for halloween:
+![Wizard hat for halloween keyword research](static/media/readme_media/wizard-halloween-hat-ss.png)
+
+Wizard cosplay:
+![Wizard cosplay keyword research](static/media/readme_media/wizard-cosplay-ss.png)
+
+Gandalf hat:
+![Gandalf keyword research](static/media/readme_media/gandalf-hat-ss.png)
+
+Pointy wizard hat:
+![Pointy hat keyword research](static/media/readme_media/pointy-hat-ss.png)
+
+Wizard hat for costume:
+First few Dorothy related then:
+![Wizard hat for costume keyword research](static/media/readme_media/wizard-hat-for-costume-ss.png)
 
 
-gandalf hat:
-
-
-pointy wizard hat:
-
-
-wizard hat for costume:
-first few dorothy related then:
-
-
+The keywords I settled on are:
 wizard hat, wizard costume, wizard hat costume, gandalf hat, gandalf costume, wizard hat adult, halloween wizard hat, wizard cosplay, good wizard costume for adults, what is a wizard costume, gandalf wizard hat, pointed wizard hat, where to get wizard hat for costume
+
 
 Content challenge - Shop page
 What do your users need?
