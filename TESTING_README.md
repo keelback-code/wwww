@@ -46,15 +46,15 @@ The results are organised by app, as follows:
 
 Browser Compatibility checks were run using BrowserStack and my computer. The results are:
 
-Firefox - 
+Firefox - &#9745;
 
-Chrome - 
+Chrome - &#9745;
 
-Opera - 
+Opera - &#9745;
 
-Microsoft Edge - 
+Microsoft Edge - &#9745;
 
-Due to Bootstrap the styling is not ideal on some browser/OS combinations - this is as per the Bootstrap documentation below. All systems still function as needed on all combinations. Bootstrap Browser Compatibility
+Safari - &#9745;
 
 #### Accessibility Testing
 
@@ -65,6 +65,8 @@ Accessibility testing was conducted using Accessibility Test.org. The results ar
 #### Performance Testing
 
 Performance testing was conducted using Lighthouse. The results are:
+
+![Screenshot from Lighthouse](static/media/readme_media/lighthouse-wwww.jpg)
 
 #### Manual Testing
 

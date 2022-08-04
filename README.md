@@ -34,6 +34,8 @@ Live link: https://w-w-w-w.herokuapp.com/
 
 Screenshot:
 
+![Screenshot from am i responsive](static/media/readme_media/am-i-responsive-www.jpg)
+
 ### Theme, Epic and User Stories
 
 #### Theme
