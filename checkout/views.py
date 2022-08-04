@@ -1,29 +1,31 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+import json
+import stripe
+from django.shortcuts import render, redirect, \
+    reverse, get_object_or_404, HttpResponse
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
-from .forms import OrderForm
-from .models import Order, OrderLineItem
 from products.models import Product
-from profiles.forms import UserProfileForm
 from profiles.models import UserProfile
+from profiles.forms import UserProfileForm
 from loot.contexts import loot_contents
-import stripe
-import json
-
+from .models import Order, OrderLineItem
+from .forms import OrderForm
 """
 Checkout functionality based on Code Institute's Boutique Ado wakthrough.
 """
 
+
 @require_POST
 def cache_checkout_data(request):
-    # before we call confirm card payment method in js we'll make a post request to this view
-    # and pass it the client secret (pid is payment id for payment intent)
+    """
+    Store checkout data
+    """
     try:
-        pid = request.POST.get('client_secret').split('_secret')[0]  # split this just to get the payment id
+        pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
         stripe.PaymentIntent.modify(pid, metadata={
-                'loot': json.dumps(request.session.get('loot', {})),  # this is to save info and use later
+                'loot': json.dumps(request.session.get('loot', {})),
                 'save_info': request.POST.get('save_info'),
                 'username': request.user,
         })
@@ -39,8 +41,6 @@ def checkout(request):
 
     if request.method == 'POST':
         loot = request.session.get('loot', {})
-
-        # doing for_data manually in order to skip 'save info'
         form_data = {
             'full_name': request.POST['full_name'],
             'email': request.POST['email'],
@@ -72,21 +72,24 @@ def checkout(request):
 
                 except Product.DoesNotExist:
                     messages.error(request, (
-                        "One of the products in your loot wasn't found in our database. "
+                        "One of the products in your loot \
+                         wasn't found in our database. "
                         "Please contact us for assistance!")
                     )
                     order.delete()
                     return redirect(reverse('view_loot'))
 
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('checkout_success', args=[order.order_number]))
+            return redirect(reverse('checkout_success',
+                            args=[order.order_number]))
         else:
             messages.error(request, 'There was an error with your form. \
                 Please double check your information.')
-    else: 
+    else:
         loot = request.session.get('loot', {})
         if not loot:
-            messages.error(request, "There's nothing in your loot at the moment")
+            messages.error(request,
+                           "There's nothing in your loot at the moment")
             return redirect(reverse('all_products'))
 
         current_loot = loot_contents(request)

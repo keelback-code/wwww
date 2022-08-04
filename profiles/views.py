@@ -32,9 +32,9 @@ def profile(request):
 
     template = 'profiles/profile.html'
     context = {
-        'form': form,  # don't need to specify profile as profile is in form
+        'form': form,
         'orders': orders,
-        'on_profile_page': True,  # this is for success msg so it shows msg rather than shopping bag contents. added to toast success html {}
+        'on_profile_page': True,
     }
 
     return render(request, template, context)

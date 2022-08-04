@@ -12,6 +12,10 @@
   transition: box-shadow 150ms ease;
 }
 
+.stripe-style-input {
+  min-width: 25rem;
+}
+
 .StripeElement--focus,
 .stripe-style-input:focus,
 .stripe-style-input:active {
@@ -38,8 +42,6 @@
   color: #000;
   border: 1px solid #000;
 }
-
-/* diff colour if selected or unselected */
 
 select,
 select option {
