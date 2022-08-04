@@ -1,7 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib import messages
-from django.views import generic, View
 from .models import Post, Comment
 from .forms import PostForm, CommentForm
 
@@ -34,7 +33,8 @@ def view_battle(request, slug):
             messages.success(request, 'Comment successfully sent by raven!')
             return redirect(reverse('battle_arena'))
         else:
-            messages.error(request, 'Your comment was not received by the wizards. Please try again.')
+            messages.error(request, 'Your comment was not received by the wizards. \
+                           Please try again.')
     else:
         form = CommentForm()
 
@@ -62,10 +62,11 @@ def create_battle(request):
                 to_save = form.save(commit=False)
                 to_save.author = request.user
                 to_save.save()
-                messages.success(request, 'Wizard Battle successfully started!')
+                messages.success(request, 'Wizard Battle successfully begun!')
                 return redirect(reverse('battle_arena'))
             else:
-                messages.error(request, 'Wizard Battle attempt abandoned. Please try again.')
+                messages.error(request, 'Wizard Battle attempt abandoned. \
+                               Please try again.')
         else:
             form = PostForm()
 
@@ -91,10 +92,11 @@ def edit_battle(request, slug):
             form = PostForm(request.POST, request.FILES, instance=battle)
             if form.is_valid():
                 battle = form.save()
-                messages.success(request, 'Wizard Battle successfully updated!')
+                messages.success(request, 'Wizard Battle successfully updated')
                 return redirect(reverse('battle_arena'))
             else:
-                messages.error(request, 'Wizard Battle update attempt abandoned. Please try again.')
+                messages.error(request, 'Wizard Battle update attempt abandoned. \
+                               Please try again.')
         else:
             form = PostForm(instance=battle)
 

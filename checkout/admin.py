@@ -1,19 +1,18 @@
 from django.contrib import admin
 from .models import Order, OrderLineItem
 """
-Classes to see checkout objects in the admin, based on Code Institute's Boutique Ado walkthrough.
-""" 
+Classes to see checkout objects in the admin,
+based on Code Institute's Boutique Ado walkthrough.
+"""
+
 
 class OrderLineItemAdminInline(admin.TabularInline):
     model = OrderLineItem
     readonly_fields = ('lineitem_total',)
-    # passed in to below class
 
 
 class OrderAdmin(admin.ModelAdmin):
-    # this is from above inline class
     inlines = (OrderLineItemAdminInline,)
-
     readonly_fields = ('order_number', 'date',
                        'delivery_cost', 'order_total',
                        'grand_total', 'original_loot', 'stripe_pid')
@@ -29,5 +28,6 @@ class OrderAdmin(admin.ModelAdmin):
                     'fulfilled', 'grand_total',)
 
     ordering = ('-date',)
+
 
 admin.site.register(Order, OrderAdmin)

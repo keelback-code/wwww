@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
+from django.shortcuts import render, redirect, reverse, \
+                             HttpResponse, get_object_or_404
 from django.contrib import messages
 from products.models import Product
 
@@ -21,12 +22,13 @@ def add_to_loot(request, item_id):
 
     if item_id in list(loot.keys()):
         loot[item_id] += quantity
-        messages.success(request, f'Updated custom product quantity to {loot[item_id]}')
+        messages.success(request,
+                         f'Updated custom product quantity to {loot[item_id]}')
     else:
         loot[item_id] = quantity
         messages.success(request, f'Added custom product to your loot')
 
-    request.session['loot'] = loot # this overwrites variable with the updated version
+    request.session['loot'] = loot
     return redirect(redirect_url)
 
 
@@ -34,13 +36,14 @@ def adjust_loot(request, item_id):
     """
     Function to adjust the quantity of products in the bag.
     """
-    product = get_object_or_404(Product, pk=item_id)  # this is here so messages can access info
+    product = get_object_or_404(Product, pk=item_id)
     quantity = int(request.POST.get('quantity'))
     loot = request.session.get('loot', {})
 
     if quantity <= 10:
         loot[item_id] = quantity
-        messages.success(request, f'Updated custom product quantity to {loot[item_id]}')
+        messages.success(request,
+                         f'Updated custom product quantity to {loot[item_id]}')
     elif quantity > 10:
         messages.error(request, f'Unable to add more than 10 custom products')
     else:

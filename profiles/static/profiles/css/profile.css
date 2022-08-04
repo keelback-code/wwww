@@ -1,15 +1,13 @@
 /* Style for user profile from Code Institute's Boutique Ado walkthrough. */
 .order-history {
-    max-height: 416px; /* height of profile form + submit button */
+    max-height: 416px;
     overflow-y: auto;
 }
 
-/* user text input colour */
 #profile-update-form .form-control {
     color: #000;
 }
 
-/* form placeholder text colour */
 #profile-update-form input::placeholder {
     color: #aab7c4;
 }

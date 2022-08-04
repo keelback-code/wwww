@@ -11,10 +11,11 @@ from .models import Product, StaffSubmission
 from .forms import HatOneForm, HatTwoForm, CloakForm, WandForm, SunglassesForm, SpellBookForm, StaffSubmissionForm
 
 
-def calc_variables(variable_one, variable_two, variable_three, a, b, c, d, e, f):
+def calc_variables(variable_one, variable_two, variable_three,
+                   a, b, c, d, e, f):
     """
-    Top level function to calculate the variables
-    for each following custom product.
+    Top level function to calculate the price
+    variables for each following custom product.
     """
     price = 20
 
@@ -25,7 +26,7 @@ def calc_variables(variable_one, variable_two, variable_three, a, b, c, d, e, f)
     elif variable_one == c:
         price = price + 15
     else:
-        price + 0
+        price = price + 0
 
     if variable_two == d:
         price = price + 5
@@ -39,7 +40,7 @@ def calc_variables(variable_one, variable_two, variable_three, a, b, c, d, e, f)
     if variable_three == 'None':
         price = price + 0
     else:
-        price = price + 2 
+        price = price + 2
 
     return price
 
@@ -58,22 +59,23 @@ class DesignCustomHat(View):
         return render(request, template, context)
 
     def post(self, request):
-        form = HatOneForm(request.POST) 
+        form = HatOneForm(request.POST)
         brim_width = request.POST['variable_one']
         hat_height = request.POST['variable_two']
         patch = request.POST['variable_three']
-        
+
         if form.is_valid():
             priced_form = form.save(commit=False)
             priced_form.price = calc_variables(
-                brim_width, hat_height, patch, 
-                "Brim - 5cm", "Brim - 10cm", "Brim - 15cm", 
+                brim_width, hat_height, patch,
+                "Brim - 5cm", "Brim - 10cm", "Brim - 15cm",
                 "Height - 15cm", "Height - 20cm", "Height - 25cm")
             priced_form.product_type = "Hat"
             product = form.save()
             return redirect(reverse('final_quote', args=[product.id]))
         else:
-            messages.error(request, 'Quote was not generated. Please try again.')
+            messages.error(request,
+                           'Quote was not generated. Please try again.')
             form = HatOneForm()
 
         template = 'products/custom_hat_one.html'
@@ -99,7 +101,7 @@ class DesignCustomHatTwo(View):
         return render(request, template, context)
 
     def post(self, request):
-        form = HatTwoForm(request.POST) 
+        form = HatTwoForm(request.POST)
         spell_choices = request.POST['variable_one']
         hat_floppiness = request.POST['variable_two']
         patch = request.POST['variable_three']
@@ -107,14 +109,15 @@ class DesignCustomHatTwo(View):
         if form.is_valid():
             priced_form = form.save(commit=False)
             priced_form.price = calc_variables(
-                spell_choices, hat_floppiness, patch, 
-                "Spell - Freeze", "Spell - Wither", "Spell - Overexplain", 
+                spell_choices, hat_floppiness, patch,
+                "Spell - Freeze", "Spell - Wither", "Spell - Overexplain",
                 "Fairly floppy", "Very floppy", "Very extremely floppy")
             priced_form.product_type = "Floppy Hat"
             product = form.save()
             return redirect(reverse('final_quote', args=[product.id]))
         else:
-            messages.error(request, 'Quote was not generated. Please try again.')
+            messages.error(request,
+                           'Quote was not generated. Please try again.')
             form = HatTwoForm()
 
         template = 'products/custom_hat_two.html'
@@ -140,22 +143,25 @@ class DesignCustomCloak(View):
         return render(request, template, context)
 
     def post(self, request):
-        form = CloakForm(request.POST) 
+        form = CloakForm(request.POST)
         cloak_length = request.POST['variable_one']
         cloak_pattern = request.POST['variable_two']
         clasp_choices = request.POST['variable_three']
-        
+
         if form.is_valid():
             priced_form = form.save(commit=False)
             priced_form.price = calc_variables(
-                cloak_length, cloak_pattern, clasp_choices, 
-                "Length - Mini", "Length - Midi", "Length - So Long You Will Step On It", 
-                "Pattern - Tartan", "Pattern - Leaves", "Pattern - Bowling alley carpet")
+                cloak_length, cloak_pattern, clasp_choices,
+                "Length - Mini", "Length - Midi",
+                "Length - So Long You Will Step On It",
+                "Pattern - Tartan", "Pattern - Leaves",
+                "Pattern - Bowling alley carpet")
             priced_form.product_type = "Cloak"
             product = form.save()
             return redirect(reverse('final_quote', args=[product.id]))
         else:
-            messages.error(request, 'Quote was not generated. Please try again.')
+            messages.error(request,
+                           'Quote was not generated. Please try again.')
             form = CloakForm()
 
         template = 'products/custom_cloak.html'
@@ -179,24 +185,24 @@ class DesignCustomWand(View):
 
         return render(request, template, context)
 
-
     def post(self, request):
-        form = WandForm(request.POST) 
+        form = WandForm(request.POST)
         wand_length = request.POST['variable_one']
         wand_point = request.POST['variable_two']
         starting_spells = request.POST['variable_three']
-        
+
         if form.is_valid():
             priced_form = form.save(commit=False)
             priced_form.price = calc_variables(
-                wand_length, wand_point, starting_spells, 
-                "Length - 10cm", "Length - 15cm", "Length - 20cm", 
+                wand_length, wand_point, starting_spells,
+                "Length - 10cm", "Length - 15cm", "Length - 20cm",
                 "Point - Cactus", "Point - Orb", "Point - Ice Lolly")
             priced_form.product_type = "Wand"
             product = form.save()
             return redirect(reverse('final_quote', args=[product.id]))
         else:
-            messages.error(request, 'Quote was not generated. Please try again.')
+            messages.error(request,
+                           'Quote was not generated. Please try again.')
             form = WandForm()
 
         template = 'products/custom_wand.html'
@@ -220,24 +226,24 @@ class DesignCustomSunglasses(View):
 
         return render(request, template, context)
 
-
     def post(self, request):
-        form = SunglassesForm(request.POST) 
+        form = SunglassesForm(request.POST)
         shape = request.POST['variable_one']
         beam_abilities = request.POST['variable_two']
         lens_color = request.POST['variable_three']
-        
+
         if form.is_valid():
             priced_form = form.save(commit=False)
             priced_form.price = calc_variables(
-                shape, beam_abilities, lens_color, 
-                "Shape - Heart", "Shape - Sports Dad", "Shape - Bubble", 
+                shape, beam_abilities, lens_color,
+                "Shape - Heart", "Shape - Sports Dad", "Shape - Bubble",
                 "Beam - Woodcutter", "Beam - Laser", "Beam - Super Vision")
             priced_form.product_type = "Sunglasses"
             product = form.save()
             return redirect(reverse('final_quote', args=[product.id]))
         else:
-            messages.error(request, 'Quote was not generated. Please try again.')
+            messages.error(request,
+                           'Quote was not generated. Please try again.')
             form = SunglassesForm()
 
         template = 'products/custom_sunglasses.html'
@@ -262,67 +268,27 @@ class DesignCustomSpellBook(View):
         return render(request, template, context)
 
     def post(self, request):
-        form = SpellBookForm(request.POST) 
+        form = SpellBookForm(request.POST)
         cover = request.POST['variable_one']
         first_spell = request.POST['variable_two']
         second_spell = request.POST['variable_three']
-        
+
         if form.is_valid():
             priced_form = form.save(commit=False)
             priced_form.price = calc_variables(
-                cover, first_spell, second_spell, 
-                "Cover - Felt", "Cover - Pineapple", "Cover - Backpacks", 
+                cover, first_spell, second_spell,
+                "Cover - Felt", "Cover - Pineapple", "Cover - Backpacks",
                 "First Spell - Make Sticky", "First Spell - Clean Dishes",
                 "First Spell - Start Car Alarm")
             priced_form.product_type = "Spell Book"
             product = form.save()
             return redirect(reverse('final_quote', args=[product.id]))
         else:
-            messages.error(request, 'Quote was not generated. Please try again.')
+            messages.error(request,
+                           'Quote was not generated. Please try again.')
             form = SpellBookForm()
 
         template = 'products/custom_spell_book.html'
-        context = {
-            'form': form,
-        }
-
-        return render(request, template, context)
-
-
-class DesignCustomCowboyHat(View):
-    """
-    Class to get a quote for a custom cowboy-style hat.
-    """
-    def get(self, request):
-        form = CowboyHatForm()
-        template = 'products/custom_cowboy_hat.html'
-        context = {
-            'form': form,
-        }
-
-        return render(request, template, context)
-
-    def post(self, request):
-        form = CowboyHatForm(request.POST) 
-        animal = request.POST['variable_one']
-        weapon = request.POST['variable_two']
-        musical_instrument = request.POST['variable_three']
-        
-        if form.is_valid():
-            priced_form = form.save(commit=False)
-            priced_form.price = calc_variables(
-                animal, weapon, musical_instrument, 
-                "Animal - Horse", "Animal - Cow", "Animal - Giraffe", 
-                "Weapon - Six Shooter", "Weapon - Knife",
-                "Weapon - Sword")
-            priced_form.product_type = "Hat"
-            product = form.save()
-            return redirect(reverse('final_quote', args=[product.id]))
-        else:
-            messages.error(request, 'Quote was not generated. Please try again.')
-            form = CowboyHatForm()
-
-        template = 'products/custom_cowboy_hat.html'
         context = {
             'form': form,
         }
@@ -348,7 +314,7 @@ class StaffSubmitView(View):
         }
 
         return render(request, template, context)
-    
+
     def post(self, request):
         form = StaffSubmissionForm(request.POST, request.FILES)
         email = request.user.email
@@ -356,22 +322,27 @@ class StaffSubmitView(View):
             staff_form = form.save(commit=False)
             staff_form.staff_member = request.user
             staff_product = form.save()
-            subject = render_to_string('products/staff_submission_emails/submission_subject.txt')
+            subject = render_to_string(
+                      'products/staff_submission_emails/submission_subject.txt'
+                      )
             body = render_to_string(
                 'products/staff_submission_emails/submission_email.txt',
                 {'form': form,
-                'email': email,
-                'contact_email': settings.DEFAULT_FROM_EMAIL})
+                 'email': email,
+                 'contact_email': settings.DEFAULT_FROM_EMAIL})
             send_mail(
                 subject,
                 body,
                 settings.DEFAULT_FROM_EMAIL,
                 [email, settings.DEFAULT_FROM_EMAIL]
             )
-            messages.success(request, 'Your product request has been submitted.')
-            return redirect(reverse('staff_final_quote', args=[staff_product.id]))
+            messages.success(request,
+                             'Your product request has been submitted.')
+            return redirect(reverse('staff_final_quote',
+                            args=[staff_product.id]))
         else:
-            messages.error(request, 'Product was not submitted. Please try again.')
+            messages.error(request,
+                           'Product was not submitted. Please try again.')
             form = StaffSubmissionForm()
 
         template = 'products/staff_submission.html'
@@ -408,25 +379,30 @@ def staff_edit(request, staff_product_id):
         staff_product = get_object_or_404(StaffSubmission, pk=staff_product_id)
         if request.method == 'POST':
             email = request.user.email
-            form = StaffSubmissionForm(request.POST, request.FILES, instance=staff_product)
+            form = StaffSubmissionForm(request.POST,
+                                       request.FILES, instance=staff_product)
             if form.is_valid():
                 staff_product = form.save()
-                subject = render_to_string('products/staff_submission_emails/edit_submission_subject.txt')
+                subject = render_to_string(
+                          'products/staff_submission_emails/edit_subject.txt')
                 body = render_to_string(
-                    'products/staff_submission_emails/edit_submission_email.txt',
+                    'products/staff_submission_emails/edit_email.txt',
                     {'form': form,
-                    'email': email,
-                    'contact_email': settings.DEFAULT_FROM_EMAIL})
+                     'email': email,
+                     'contact_email': settings.DEFAULT_FROM_EMAIL})
                 send_mail(
                     subject,
                     body,
                     settings.DEFAULT_FROM_EMAIL,
                     [email, settings.DEFAULT_FROM_EMAIL]
                 )
-                messages.success(request, 'Product request successfully updated! The update will be emailed to you.')
+                messages.success(request,
+                                 'Product request successfully updated! \
+                                 The update will be emailed to you.')
                 return redirect(reverse('landing_page'))
             else:
-                messages.error(request, 'Product was not updated. Please try again.')
+                messages.error(request,
+                               'Product was not updated. Please try again.')
         else:
             form = StaffSubmissionForm(instance=staff_product)
 

@@ -7,7 +7,7 @@
 
 
 {% block content %}
-{% if user.is_authenticated %}
+{% if user.is_staff %}
 <div class="container">
     <div class="row">
         <div class="col-sm-3 form-container text-center rounded mx-auto my-2">
@@ -15,8 +15,22 @@
         </div>
     </div>
     <div class="row">
+        <div class="col-md-6 form-container text-center rounded mx-auto">
+            <div>
+                <a href="{% url 'staff_submission' %}" class="btn btn-md btn-navy my-2">
+                    <span>Submit a Product Request <i class="fa-solid fa-wand-sparkles"></i></span>
+                </a>
+          
+                <a href="{% url 'create_battle' %}" class="btn btn-md btn-navy my-2">
+                    <span>Create Wizard Battle <i class="fa-solid fa-hat-wizard"></i></span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-12 form-container rounded mx-auto my-2">
             <h3>Order History</h3>
+            <p>To change the fulfillment status please click the order number.</p>
             <div class="order-history table-responsive">
                 <table class="table table-sm">
                     <thead>
@@ -76,12 +90,12 @@
                         {% for product in staff_products %}
                         <tr>
                             <td><a class="reversed-link-styles"
-                                href="{% url 'staff_final_quote' product.id %}">{{ product.product_type }}</a></td>
+                                    href="{% url 'staff_final_quote' product.id %}">{{ product.product_type }}</a></td>
                             <td>{{ product.created_on }}</td>
                             <td>{{ product.variable_one }}</td>
                             <td>{{ product.variable_two }}</td>
                             <td>{{ product.variable_three }}</td>
-                            
+
                         </tr>
                         {% endfor %}
                     </tbody>

@@ -2,7 +2,6 @@
 from decimal import Decimal
 from django.conf import settings
 from django.shortcuts import get_object_or_404
-from django.contrib.auth.models import User
 from products.models import Product
 
 
@@ -29,7 +28,7 @@ def loot_contents(request):
 
     delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
     grand_total = delivery + total
-    
+
     context = {
         'loot_items': loot_items,
         'total': total,

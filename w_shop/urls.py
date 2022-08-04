@@ -1,8 +1,9 @@
-from .views import handler404, handler500, handler403, handler405
 from django.contrib import admin
 from django.conf import settings
 from django.urls import path, include
 from django.conf.urls.static import static
+from .views import handler404, handler500, handler403, handler405
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),

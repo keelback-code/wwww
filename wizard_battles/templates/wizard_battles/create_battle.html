@@ -4,7 +4,7 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-
+{% if user.is_staff %}
 <div class="col-md-6 form-container text-center rounded mx-auto my-2">
     <h1 class="fs-2">Create Wizard Battle Post</h1>
 </div>
@@ -15,5 +15,8 @@
         <button type="submit" class="btn btn-md btn-navy my-2">Submit</button>
     </form>
 </div>
+{% else %}
+<p class="col-md-6 form-container text-center rounded mx-auto my-2">You do not have permission to see this page.</p>
+{% endif %}
 
 {% endblock %}

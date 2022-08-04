@@ -39,7 +39,7 @@
 </div>
 {% endfor %}
 
-{% if request.user.is_staff %}
+{% if user.is_staff %}
 <div class="col-md-3 form-container text-center rounded mx-auto">
     <a href="{% url 'create_battle' %}" class="btn btn-md btn-navy my-2">
         <span>Create Battle <i class="fa-solid fa-hat-wizard"></i></span>

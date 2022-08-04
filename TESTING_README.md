@@ -17,13 +17,13 @@
 
 #### Code Validation
 
-Python validator
+[Python validator](http://pep8online.com/)
 
-Javascript validator
+[Javascript validator](https://jshint.com/)
 
-HTML validator
+[HTML validator](https://validator.w3.org/)
 
-CSS validator
+[CSS validator](https://jigsaw.w3.org/css-validator/)
 
 #### Browser Compatibility
 
@@ -138,6 +138,8 @@ I sent the live link to friends and family members for testing and feedback. The
 * From individual battle posts there is an option to edit and delete posts. When editing a post, the form is pre-filled with information from the relevant post.
 
 *As a staff member, I can delete comments from blog posts so that my website can have a friendly environment.*
+
+* Delete button beneath each comment which is only visible to staff members.
 
 *As a staff member, I will be provided with search engine optimisation for my site so that I can receive increased traffic and sales.*
 

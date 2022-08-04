@@ -351,3 +351,5 @@ Recommendations for transparent backing behind text on landing page from ChrisU_
 In code credits as marked.
 
 ### Acknowledgements
+
+Sincere thanks to my mentor Brian Macharia for his help throughout this project and course.

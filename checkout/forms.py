@@ -5,7 +5,7 @@ from .models import Order
 class OrderForm(forms.ModelForm):
     """
     Model form for orders, based on Code Institute's Boutique Ado walkthrough.
-    """ 
+    """
     class Meta:
         model = Order
         fields = ('full_name', 'email', 'phone_number',
@@ -17,7 +17,6 @@ class OrderForm(forms.ModelForm):
         Add placeholders and classes, remove auto-generated
         labels and set autofocus on first field
         """
-        # call init, then create dict with nicer looking labels
         super().__init__(*args, **kwargs)
         placeholders = {
             'full_name': 'Full Name',
@@ -29,24 +28,23 @@ class OrderForm(forms.ModelForm):
             'street_address2': 'Street Address 2',
         }
 
-        # autofocus means cursor will start here, then iterate through fields
-        # include check for country
         self.fields['full_name'].widget.attrs['autofocus'] = True
         for field in self.fields:
             if field != 'country':
                 if self.fields[field].required:
-                    placeholder = f'{placeholders[field]} *'  # this adds * if required
+                    placeholder = f'{placeholders[field]} *'
                 else:
                     placeholder = placeholders[field]
-                self.fields[field].widget.attrs['placeholder'] = placeholder  # this sets placeholders to their values set in the dict above
-            self.fields[field].widget.attrs['class'] = 'stripe-style-input'  # adds a custom css class
-            self.fields[field].label = False  # removes form fields labels, as we added our own
+                self.fields[field].widget.attrs['placeholder'] = placeholder
+            self.fields[field].widget.attrs['class'] = 'stripe-style-input'
+            self.fields[field].label = False
 
 
 class FulfillmentForm(forms.ModelForm):
     """
-    Model form for orders, based on Code Institute's Boutique Ado walkthrough.
-    """ 
+    Model form for setting order fulfillment status,
+    based on Code Institute's Boutique Ado walkthrough.
+    """
     class Meta:
         model = Order
         fields = ('fulfilled',)

@@ -1,10 +1,11 @@
-from .models import Post, Comment
 from django import forms
+from .models import Post, Comment
 
 
 class PostForm(forms.ModelForm):
     """
-    Model form for the site owner to create, edit and delete wizard battle posts.
+    Model form for the site owner to create,
+    edit and delete wizard battle posts.
     """
     class Meta:
         model = Post

@@ -1,8 +1,8 @@
 from django.db import models
 from django.urls import reverse
-from cloudinary.models import CloudinaryField
 from django.template.defaultfilters import slugify
 from django.contrib.auth.models import User
+from cloudinary.models import CloudinaryField
 
 
 class Post(models.Model):
@@ -11,14 +11,15 @@ class Post(models.Model):
     """
     slug = models.SlugField(unique=True, primary_key=True)
     title = models.CharField(max_length=250)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="battle_posts")
+    author = models.ForeignKey(User, on_delete=models.CASCADE,
+                               related_name="battle_posts")
     text_content = models.TextField()
     image_one = CloudinaryField(null=True, blank=True)
     image_two = CloudinaryField(null=True, blank=True)
 
     def __str__(self):
         return self.title
-    
+
     def get_absolute_url(self):
         return reverse("view_battle", kwargs={"slug": self.slug})
 
@@ -28,16 +29,17 @@ class Post(models.Model):
         else:
             self.slug = self.slug
         return super().save(*args, **kwargs)
-    
+
 
 class Comment(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
+    post = models.ForeignKey(Post, on_delete=models.CASCADE,
+                             related_name='comments')
     name = models.CharField(max_length=80)
     comment_body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         ordering = ['created_on']
-    
+
     def __str__(self):
         return f"Comment {self.comment_body} by {self.name}"
