@@ -15,7 +15,6 @@ body {
     font-family: 'Anek Latin', monospace, sans-serif;
     color: #faebd7;
 }
-
 /* end */
 
 .icon {
@@ -80,7 +79,6 @@ body {
     border-radius: 100px;
     font-size: 30px;
 }
-
 /* end */
 
 /* Bootstrap toasts, based on Code Institute's Boutique Ado walkthrough */
@@ -95,7 +93,6 @@ body {
     overflow: visible;
     width: 20rem;
 }
-
 /* end */
 
 .footer-background {
@@ -126,6 +123,7 @@ body {
 
 
 /* Style for loot bag */
+
 .loot-links:hover {
     cursor: pointer;
 }
