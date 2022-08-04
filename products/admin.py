@@ -3,6 +3,9 @@ from .models import Product, StaffSubmission
 
 
 class ProductAdmin(admin.ModelAdmin):
+    """
+    Class for seeing products in the Django Admin.
+    """
     list_display = (
         'product_type',
         'stat',
@@ -12,6 +15,9 @@ class ProductAdmin(admin.ModelAdmin):
 
 
 class StaffSubmissionAdmin(admin.ModelAdmin):
+    """
+    Class for seeing staff submissions in the Django Admin.
+    """
     list_display = (
         'staff_member',
         'product_type',

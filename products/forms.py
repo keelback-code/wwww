@@ -3,6 +3,10 @@ from .models import Product, StaffSubmission
 
 
 class StaffSubmissionForm(forms.ModelForm):
+    """
+    Form for allowing a staff member to request
+    a product.
+    """
     class Meta:
         model = StaffSubmission
         exclude = ('staff_member', 'created_on',)
@@ -35,11 +39,13 @@ class HatOneForm(forms.ModelForm):
 
     variable_one = forms.ChoiceField(choices=brim_width, label="Brim Width")
     variable_two = forms.ChoiceField(choices=hat_height, label="Hat Height")
-    variable_three = forms.ChoiceField(choices=patch_choices, label="Patch Options")
+    variable_three = forms.ChoiceField(choices=patch_choices,
+                                       label="Patch Options")
 
     class Meta:
         model = Product
-        fields = ('color', 'stat', 'variable_one', 'variable_two', 'variable_three',)
+        fields = ('color', 'stat', 'variable_one',
+                  'variable_two', 'variable_three',)
 
 
 class HatTwoForm(forms.ModelForm):
@@ -67,14 +73,18 @@ class HatTwoForm(forms.ModelForm):
         ('Patch - None', "None"),
     ]
 
-    variable_one = forms.ChoiceField(choices=spell_choices, label="Built-in Spell Options")
-    variable_two = forms.ChoiceField(choices=hat_floppiness, label="Hat Floppiness")
-    variable_three = forms.ChoiceField(choices=patch_choices_two, label="Patch Options")
+    variable_one = forms.ChoiceField(choices=spell_choices,
+                                     label="Built-in Spell Options")
+    variable_two = forms.ChoiceField(choices=hat_floppiness,
+                                     label="Hat Floppiness")
+    variable_three = forms.ChoiceField(choices=patch_choices_two,
+                                       label="Patch Options")
 
     class Meta:
         model = Product
-        fields = ('color', 'stat', 'variable_one', 'variable_two', 'variable_three',)
-    
+        fields = ('color', 'stat', 'variable_one',
+                  'variable_two', 'variable_three',)
+
 
 class CloakForm(forms.ModelForm):
     """
@@ -83,7 +93,8 @@ class CloakForm(forms.ModelForm):
     cloak_length = [
         ('Length - Mini', "Mini"),
         ('Length - Midi', "Midi"),
-        ('Length - So Long You Will Step On It', "So Long You Will Step On It"),
+        ('Length - So Long You Will Step On It',
+         "So Long You Will Step On It"),
     ]
 
     cloak_pattern = [
@@ -106,7 +117,8 @@ class CloakForm(forms.ModelForm):
 
     class Meta:
         model = Product
-        fields = ('color', 'stat', 'variable_one', 'variable_two', 'variable_three',)
+        fields = ('color', 'stat', 'variable_one',
+                  'variable_two', 'variable_three',)
 
 
 class WandForm(forms.ModelForm):
@@ -134,16 +146,18 @@ class WandForm(forms.ModelForm):
 
     variable_one = forms.ChoiceField(choices=wand_length, label="Length")
     variable_two = forms.ChoiceField(choices=wand_point, label="Pointy End")
-    variable_three = forms.ChoiceField(choices=starting_spells, label="Starting Spell")
+    variable_three = forms.ChoiceField(choices=starting_spells,
+                                       label="Starting Spell")
 
     class Meta:
         model = Product
-        fields = ('color', 'stat', 'variable_one', 'variable_two', 'variable_three',)
+        fields = ('color', 'stat', 'variable_one',
+                  'variable_two', 'variable_three',)
 
 
 class SunglassesForm(forms.ModelForm):
     """
-    Form for designing custom sunglasses
+    Form for designing custom sunglasses.
     """
     shape = [
         ('Shape - Heart', "Heart"),
@@ -165,17 +179,19 @@ class SunglassesForm(forms.ModelForm):
     ]
 
     variable_one = forms.ChoiceField(choices=shape, label="Shape")
-    variable_two = forms.ChoiceField(choices=beam_abilities, label="Beam Abilities")
+    variable_two = forms.ChoiceField(choices=beam_abilities,
+                                     label="Beam Abilities")
     variable_three = forms.ChoiceField(choices=lens_color, label="Lens Colors")
 
     class Meta:
         model = Product
-        fields = ('color', 'stat', 'variable_one', 'variable_two', 'variable_three',)
+        fields = ('color', 'stat', 'variable_one',
+                  'variable_two', 'variable_three',)
 
 
 class SpellBookForm(forms.ModelForm):
     """
-    Form for designing custom sunglasses
+    Form for designing a custom spellbook.
     """
     cover = [
         ('Cover - Felt', "Felt"),
@@ -198,8 +214,10 @@ class SpellBookForm(forms.ModelForm):
 
     variable_one = forms.ChoiceField(choices=cover, label="Cover")
     variable_two = forms.ChoiceField(choices=first_spell, label="First Spell")
-    variable_three = forms.ChoiceField(choices=second_spell, label="Second Spell")
+    variable_three = forms.ChoiceField(choices=second_spell,
+                                       label="Second Spell")
 
     class Meta:
         model = Product
-        fields = ('color', 'stat', 'variable_one', 'variable_two', 'variable_three',)
+        fields = ('color', 'stat', 'variable_one',
+                  'variable_two', 'variable_three',)

@@ -32,6 +32,9 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
+    """
+    Class for modelling comments on wizard battle posts.
+    """
     post = models.ForeignKey(Post, on_delete=models.CASCADE,
                              related_name='comments')
     name = models.CharField(max_length=80)

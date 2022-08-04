@@ -26,7 +26,7 @@ def add_to_loot(request, item_id):
                          f'Updated custom product quantity to {loot[item_id]}')
     else:
         loot[item_id] = quantity
-        messages.success(request, f'Added custom product to your loot')
+        messages.success(request, 'Added custom product to your loot')
 
     request.session['loot'] = loot
     return redirect(redirect_url)
@@ -45,10 +45,10 @@ def adjust_loot(request, item_id):
         messages.success(request,
                          f'Updated custom product quantity to {loot[item_id]}')
     elif quantity > 10:
-        messages.error(request, f'Unable to add more than 10 custom products')
+        messages.error(request, 'Unable to add more than 10 custom products')
     else:
         loot.pop(item_id)
-        messages.success(request, f'Removed custom product from your loot')
+        messages.success(request, 'Removed custom product from your loot')
 
     request.session['loot'] = loot
     return redirect(reverse('view_loot'))
@@ -62,7 +62,7 @@ def remove_from_loot(request, item_id):
         product = get_object_or_404(Product, pk=item_id)
         loot = request.session.get('loot', {})
         loot.pop(item_id)
-        messages.success(request, f'Removed custom product from your loot')
+        messages.success(request, 'Removed custom product from your loot')
         product.delete()
 
         request.session['loot'] = loot

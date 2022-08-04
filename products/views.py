@@ -8,7 +8,8 @@ from django.contrib import messages
 from django.views import View
 from django.contrib.auth.models import User
 from .models import Product, StaffSubmission
-from .forms import HatOneForm, HatTwoForm, CloakForm, WandForm, SunglassesForm, SpellBookForm, StaffSubmissionForm
+from .forms import HatOneForm, HatTwoForm, CloakForm, WandForm, \
+                   SunglassesForm, SpellBookForm, StaffSubmissionForm
 
 
 def calc_variables(variable_one, variable_two, variable_three,
@@ -215,7 +216,7 @@ class DesignCustomWand(View):
 
 class DesignCustomSunglasses(View):
     """
-    Class to get a quote for a custom wand.
+    Class to get a quote for custom sunglasses.
     """
     def get(self, request):
         form = SunglassesForm()
@@ -353,6 +354,7 @@ class StaffSubmitView(View):
         return render(request, template, context)
 
 
+@staff_member_required
 def staff_final_quote(request, staff_product_id):
     """
     Function to display details for staff submissions.

@@ -4,19 +4,19 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.models import User
 from django.views import View
-from .models import UserProfile
-from .forms import UserProfileForm
 from checkout.models import Order
 from checkout.forms import FulfillmentForm
 from products.models import StaffSubmission
-"""
-Views for user profiles, based on Code Institute's Boutique Ado walkthrough.
-"""
+from .models import UserProfile
+from .forms import UserProfileForm
 
 
 @login_required
 def profile(request):
-    """ Display the user's profile. """
+    """
+    Display the user's profile, based on
+    Code Institute's Boutique Ado walkthrough.
+    """
     profile = get_object_or_404(UserProfile, user=request.user)
 
     if request.method == 'POST':
@@ -25,7 +25,8 @@ def profile(request):
             form.save()
             messages.success(request, 'Profile updated successfully')
         else:
-            messages.error(request, 'Update failed. Please ensure the form is valid.')
+            messages.error(request,
+                           'Update failed. Please ensure the form is valid.')
     else:
         form = UserProfileForm(instance=profile)
     orders = profile.orders.all()
@@ -42,6 +43,9 @@ def profile(request):
 
 @login_required
 def order_history(request, order_number):
+    """
+    Display the user's individual orders.
+    """
     order = get_object_or_404(Order, order_number=order_number)
 
     messages.info(request, (
@@ -60,7 +64,9 @@ def order_history(request, order_number):
 
 @staff_member_required
 def staff_profile(request):
- 
+    """
+    Display all orders placed on the site for the Staff Hub.
+    """
     if not request.user.is_staff:
         messages.error(request, 'Apologies, only staff can access this page.')
         return redirect(reverse('landing_page'))
@@ -79,7 +85,10 @@ def staff_profile(request):
 
 @staff_member_required
 def staff_order_history(request, order_number):
-    
+    """
+    Display a user's individual orders and
+    allow staff to change its' fulfillment status.
+    """
     if not request.user.is_staff:
         messages.error(request, 'Apologies, only staff can access this.')
         return redirect(reverse('landing_page'))
@@ -92,7 +101,8 @@ def staff_order_history(request, order_number):
                 messages.success(request, 'Order status successfully updated!')
                 return redirect(reverse('staff_profile'))
             else:
-                messages.error(request, 'Order status was not updated. Please try again.')
+                messages.error(request,
+                               'Status was not updated. Please try again.')
         else:
             form = FulfillmentForm(instance=order)
 
