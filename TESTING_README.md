@@ -25,6 +25,23 @@
 
 [CSS validator](https://jigsaw.w3.org/css-validator/)
 
+The results are organised by app, as follows:
+
+![Code validation results](static/media/readme_media/checkout-validation.jpg)
+
+![Code validation results](static/media/readme_media/loot-validation.jpg)
+
+![Code validation results](static/media/readme_media/operations-validation.jpg)
+
+![Code validation results](static/media/readme_media/products-validation.jpg)
+
+![Code validation results](static/media/readme_media/profiles-validation.jpg)
+
+![Code validation results](static/media/readme_media/wizard-battles-validation.jpg)
+
+![Code validation results](static/media/readme_media/w-shop-validation.jpg)
+
+
 #### Browser Compatibility
 
 Browser Compatibility checks were run using BrowserStack and my computer. The results are:
@@ -42,6 +59,8 @@ Due to Bootstrap the styling is not ideal on some browser/OS combinations - this
 #### Accessibility Testing
 
 Accessibility testing was conducted using Accessibility Test.org. The results are:
+
+![Results of the accessibility test: 96/100](static/media/readme_media/accessibility.jpg)
 
 #### Performance Testing
 
