@@ -70,7 +70,21 @@ Performance testing was conducted using Lighthouse. The results are:
 
 #### Manual Testing
 
-I sent the live link to friends and family members for testing and feedback. The site was received positively; design and usability suggestions were considered and acted on. The site was also put up in the Code Institute Slack community for feedback.
+I sent the live link to friends and family members for testing and feedback. The site was received positively; design and usability suggestions were considered and acted on. The site was also put up in the Code Institute Slack community for feedback. Manual testing was grouped similarily to code validation and recorded as below:
+
+![Global manual testing results](static/media/readme_media/global-testing.jpg)
+
+![Operations manual testing results](static/media/readme_media/operations-testing.jpg)
+
+![Battles manual testing results](static/media/readme_media/battles-testing.jpg)
+
+![Profiles manual testing results](static/media/readme_media/profiles-testing.jpg)
+
+![Products manual testing results](static/media/readme_media/products-testing.jpg)
+
+![Loot manual testing results](static/media/readme_media/loot-testing.jpg)
+
+![Checkout manual testing results](static/media/readme_media/checkout-testing.jpg)
 
 #### User Stories Testing
 
