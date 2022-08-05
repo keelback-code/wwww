@@ -164,87 +164,207 @@ Made in Lucidchart.
 
 Landing page - statement that describes site
 
-Navbar - Brand
+On smaller viewports, where the text is not as bold against the background, a semi-transparent background kicks in.
+
+![Landing page](static/media/readme_media/feature-landing.jpg)
+
+![Landing mobile page](static/media/readme_media/feature-transparent-landing.jpg)
+
+Navbar - Logo
+
 Changes to 'WWWW' on smaller viewports
 
+![WWWW Desktop](static/media/readme_media/feature-logo.jpg)
+
+![WWWW Mobile](static/media/readme_media/feature-logo-mobile.jpg)
+
+Navbar - mobile view
+
+![Hamburger](static/media/readme_media/feature-hamburger.jpg)
+
+![Hamburger menu](static/media/readme_media/feature-hamburger-dropdown.jpg)
+
 Navbar - user view
+
 Changes dependent on active status, 'Shop' listed first as it is the most important feature
+
+![User navbar](static/media/readme_media/feature-staff-nav.jpg)
 
 Navbar - staff view
 users receive a more streamlined experience so that they don't get overwhelembed and leave. Staff receive further information as they have more to do on the site.
 
-Has profile view if staff member has any personal orders
+Has profile view as well if staff member has any personal orders
+
+![Staff navbar](static/media/readme_media/feature-user-nav.jpg)
+
+Navbar - Signup/Login shows instead of Logout if user is not logged in
+
+![Navbar](static/media/readme_media/feature-user-nav.jpg)
 
 Shop - masonry style card display
 
+Changes to single column on smallest viewport
+
+![Shop](static/media/readme_media/feature-masonry-shop.jpg)
+
 Product detail - image, example of the product their custom product will be based on
 
-Product detail - details of options available
+![Product detail](static/media/readme_media/feature-product.jpg)
 
 Final quote
+
 Ability for user to check details and then add quantity to bag if they are happy with the product and price
 
+![Final quote](static/media/readme_media/feature-quote.jpg)
+
 User feedback
+
 Provided for user and staff actions
 
+![Edit feedback](static/media/readme_media/feature-edit-toast.jpg)
+
+![Email feedback](static/media/readme_media/feature-email-toast.jpg)
+
+![Success feedback](static/media/readme_media/feature-success-toast.jpg)
+
+![Removed feedback](static/media/readme_media/feature-removed-product.jpg)
+
+![Error feedback](static/media/readme_media/feature-stock-toast.jpg)
+
 Loot
-Ability to update amount of products, or remove products. Stock control present, along with product details.
+
+Ability to update amount of products, or remove products. Product details and subtotal shown.
+
+![Loot](static/media/readme_media/feature-loot-bag.jpg)
 
 Checkout
+
 Summary of products, total of products, personal details and option to save details or create an account. On larger viewports there is a placeholder image to balance the page.
 
+![Checkout](static/media/readme_media/feature-checkout-summary.jpg)
+
+![Login to save details](static/media/readme_media/feature-save-delivery-alternate.jpg)
+
+![Save details](static/media/readme_media/feature-save-delivery.jpg)
+
 Stripe payments
+
 Payment element with clear notion of how much will be charged. Webhooks connected.
 
+![Payment form](static/media/readme_media/feature-loot-bag.jpg)
+
+![Confirmation of webhook success](static/media/readme_media/testing-webhooks.jpg)
+
 Confirmation email
-Also sent to staff so that they can see an order has been placed without checking the staff hub
+
+Staff copied in so that they can see an order has been placed without checking the staff hub
+
+Variables present in email
+
+![Order email](static/media/readme_media/feature-order-email-staff-email.jpg)
 
 Confirmation page
-Details of booking
+
+Details of booking that has just been placed
+
+![New order](static/media/readme_media/feature-order-from-checkout.jpg)
 
 User profile
+
 Ability to see past orders and delivery information, ability to edit delivery information
+
+![Address information](static/media/readme_media/feature-user-profile.jpg)
 
 Able to click through and check individual orders
 
-Staff Hub - All current orders placed
+![Old order](static/media/readme_media/feature-order-from-profile.jpg)
+
+Staff Hub
+
+![Staff hub](static/media/readme_media/feature-staff-hub.jpg)
 
 Able to click through and check individual orders, and change fulfillment status
 
+![Fulfillment](static/media/readme_media/feature-status-form.jpg)
+
 Staff Hub - All current product requests placed
-Able to click through and check individual past orders
+
+![Staff hub requests](static/media/readme_media/feature-staff-hub-two.jpg)
 
 Product request - detailed form to send workflow request to the developers. This will provide as much information as possible in order to reduce communication time.
 
-Request email - emailed to staff so that they feel assured, and emailed to developers so that they have notification of the job and the information. The information is also saved to the db.
+![Request form](static/media/readme_media/feature-request-form.jpg)
+
+Request email - emailed to staff so that they feel assured, and emailed to developers so that they have notification of the job and the information. The information is also saved to the database for easy dev access.
+
+![Request email](static/media/readme_media/feature-staff-request-email.jpg)
 
 Edit product request - able to edit, form pre populated. 
 
+![Edit form](static/media/readme_media/feature-request-edit-form.jpg)
+
 Edit request email - as per request email, with warnings to the staff member about delays if the dev has already begun the task
 
+![Edit email](static/media/readme_media/feature-staff-edit-email.jpg)
+
 Delete request - unavailable in order to avoid wasting time, contact details provided instead.
-Staff submission
+
+![Delete notice](static/media/readme_media/feature-submission-info.jpg)
 
 Battle arena
 
+![Battle arena](static/media/readme_media/feature-battle-arena-card.jpg)
+
 Battle details
 
-Create/Edit/Delete
+Create battle
 
-Comments
+![Create battle](static/media/readme_media/feature-create-battle.jpg)
 
-Delete comments
+Edit battle
+
+![Edit battle](static/media/readme_media/feature-battle-edit.jpg)
+
+Delete
+
+![Delete battle](static/media/readme_media/feature-delete-toast.jpg)
+
+Comment form
+
+![Comment form](static/media/readme_media/feature-comment-form.jpg)
+
+User view of published comment
+
+![Published comment](static/media/readme_media/feature-user-comment.jpg)
+
+Staff view of published comment
+
+![Staff comment view](static/media/readme_media/feature-staff-view-comment.jpg)
+
+Back to top button
+
+![Back to top button](static/media/readme_media/feature-back-btn.jpg)
 
 About Us
+Opportunity to utilise SEO keywords and include high-quality links for SEO.
+
+![About us](static/media/readme_media/feature-about-us.jpg)
 
 FAQ
 
+![FAQ](static/media/readme_media/feature-faq.jpg)
+
 Privacy Policy
 
-Mailchimp signup
+![Privacy policy](static/media/readme_media/feature-policy.jpg)
 
-Socials and Mailchimp newsletter - lines up with battle arena posts
+Footer with Mailchimp signup, link to static pages and socials
 
+![Footer](static/media/readme_media/feature-desktop-footer.jpg)
+
+Error pages
+
+![404 page](static/media/readme_media/feature-error-page.jpg)
 
 ### Future Features
 
