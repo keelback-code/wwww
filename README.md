@@ -115,9 +115,12 @@ As a **user/staff member**, I can **navigate the website easily and intuitively*
 Light text on a dark background can be very striking, but hard to parse for large amounts of text. For my navbar, footer and landing page I chose light text on a dark background as it is arresting and blends seamlessly with the background. For larger amounts of text, such as posts in the battle arena, or anything with an image that needs to be overlaid, such as the shop, I switched back to a light background with dark text to make it easier for the user to take in. To keep the dark theme throughout the website, I kept the dark background and placed the text and images on cards or card-like elements so that all pages felt unified.
 
 The colors implemented across the site are:
+
 Dark options: #050533
+
 Light options: #faebd7
-Anyhting requiring a third colour (such as hovering over darker links which are on a light background): #534582
+
+Anything requiring a third colour (such as hovering over darker links which are on a light background): #534582
 
 ### Wireframes
 

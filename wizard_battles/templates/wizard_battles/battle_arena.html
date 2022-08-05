@@ -20,14 +20,14 @@
                         {% if battle.image_one %}
                         <img class="img-fluid rounded" src={{ battle.image_one.url }} alt="A wizard ready for battle.">
                         {% else %}
-                        <img class="img-fluid rounded" src="/media/images/placeholder.jpg"
+                        <img class="img-fluid rounded" src="{% static 'media/images/placeholder.png' %}"
                             alt="A small frog-like creature in a wizard hat.">
                         {% endif %}
 
                         {% if battle.image_two %}
                         <img class="img-fluid rounded" src={{ battle.image_two.url }} alt="A wizard ready for battle.">
                         {% else %}
-                        <img class="img-fluid rounded" src="/media/images/placeholder.jpg"
+                        <img class="img-fluid rounded" src="{% static 'media/images/placeholder.png' %}"
                             alt="A small frog-like creature in a wizard hat.">
                         {% endif %}
 

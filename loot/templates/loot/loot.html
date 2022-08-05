@@ -85,13 +85,13 @@
                 </table>
             </div>
             {% else %}
-            <p class="lead mb-5">Your bag is empty.</p>
-            <a href="{% url 'all_products' %}" class="btn rounded">
-                <span class="icon">
-                    <i class="fas fa-chevron-left reversed-link-styles"></i>
-                </span>
-                <span class="reversed-link-styles">Keep Exploring</span>
-            </a>
+            <p class="my-2">Your loot is empty.</p>
+            <div>
+                <a href="{% url 'all_products' %}" class="btn btn-md btn-navy my-2">
+                    <i class="fas fa-chevron-left"></i>
+                    <span>Keep Shopping</span>
+                </a>
+            </div>
             {% endif %}
         </div>
     </div>
