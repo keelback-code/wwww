@@ -40,11 +40,11 @@ Screenshot:
 
 #### Theme
 
-To sell custom made interesting wizard hats (and other wizard associated clothing items) online.
+To sell custom made interesting wizard hats (and other wizard-associated clothing items) online.
 
 #### Epic
 
-This website will provide the user with an array of wizardly hats and other clothing items, products both expected and unexpected. The website will be simple and easy to use; a good experience for the user that will make their time in the shop welcoming. Each product will have Dungeons and Dragons style stats (see: [https://en.wikipedia.org/wiki/Statistic_(role-playing_games)] ), along with other variables to choose from in order to customise each product.
+This website will provide the user with an array of wizardly hats and other clothing items, products both expected and unexpected. The website will be simple and easy to use; a good experience for the user that will make their time in the shop welcoming. Each product will have Dungeons and Dragons style stats (see: [https://en.wikipedia.org/wiki/Statistic_(role-playing_games)] ), along with other variables to choose from to customise each product.
 
 #### User stories
 
@@ -87,7 +87,7 @@ As a **staff member**, I can **view all orders placed on the site and see the cu
 
 As a **staff member** I can **change the status of an order** so that **I can communicate to other staff that the order has been actioned**.
 
-As a **staff member**, I can **easily provide the site privacy policy** so that **I can communicate with users and increase the legitimacy of my website**. Clear design Ts and Cs prominent in footer
+As a **staff member**, I can **easily provide the site privacy policy** so that **I can communicate with users and increase the legitimacy of my website**.
 
 As a **staff member**, I can **use web marketing to increase traffic to my site** so that **I can increase website traffic and sales**.
 
@@ -162,64 +162,65 @@ Made in Lucidchart.
 
 ### Features
 
-Landing page - statement that describes site
-
-On smaller viewports, where the text is not as bold against the background, a semi-transparent background kicks in.
+Landing page - statement that describes the site and a striking image.
 
 ![Landing page](static/media/readme_media/feature-landing.jpg)
+
+On smaller viewports, where the text is not as bold against the background, a semi-transparent background kicks in.
 
 ![Landing mobile page](static/media/readme_media/feature-transparent-landing.jpg)
 
 Navbar - Logo
 
-Changes to 'WWWW' on smaller viewports
-
 ![WWWW Desktop](static/media/readme_media/feature-logo.jpg)
+
+Changes to 'WWWW' on smaller viewports
 
 ![WWWW Mobile](static/media/readme_media/feature-logo-mobile.jpg)
 
-Navbar - mobile view
+Navbar - mobile view - hamburger for a visual cue
 
 ![Hamburger](static/media/readme_media/feature-hamburger.jpg)
+
+Mobile dropdown menu - Home option added because the logo is not as obvious as on larger viewports
 
 ![Hamburger menu](static/media/readme_media/feature-hamburger-dropdown.jpg)
 
 Navbar - user view
 
-Changes dependent on active status, 'Shop' listed first as it is the most important feature
+Changes dependent on active status, 'Shop' is listed first as it is the most important feature.
 
-![User navbar](static/media/readme_media/feature-staff-nav.jpg)
+Users receive a more streamlined experience so that they don't get overwhelmed and leave. Staff receive further information as they have more to do on the site.
+
+![User navbar](static/media/readme_media/feature-user-nav.jpg)
 
 Navbar - staff view
-users receive a more streamlined experience so that they don't get overwhelembed and leave. Staff receive further information as they have more to do on the site.
 
-Has profile view as well if staff member has any personal orders
+Has profile view as well as staff functionality in case staff member has any personal orders.
 
-![Staff navbar](static/media/readme_media/feature-user-nav.jpg)
+![Staff navbar](static/media/readme_media/feature-staff-nav.jpg.jpg)
 
 Navbar - Signup/Login shows instead of Logout if user is not logged in
 
-![Navbar](static/media/readme_media/feature-user-nav.jpg)
+![Navbar](static/media/readme_media/feature-signed-out-nav.jpg)
 
-Shop - masonry style card display
+Shop - masonry style card display 
 
-Changes to single column on smallest viewport
+Changes to a single column on the smallest viewport
 
 ![Shop](static/media/readme_media/feature-masonry-shop.jpg)
 
-Product detail - image, example of the product their custom product will be based on
+Product detail - high-quality image, an example of the product the user's custom product will be based on. Form contains dropdowns with all variables with their available options.
 
 ![Product detail](static/media/readme_media/feature-product.jpg)
 
-Final quote
-
-Ability for user to check details and then add quantity to bag if they are happy with the product and price
+Final quote - ability for the user to check details and then add quantity to bag if they are happy with the product and price.
 
 ![Final quote](static/media/readme_media/feature-quote.jpg)
 
 User feedback
 
-Provided for user and staff actions
+Provided for user and staff actions; some examples are:
 
 ![Edit feedback](static/media/readme_media/feature-edit-toast.jpg)
 
@@ -233,15 +234,23 @@ Provided for user and staff actions
 
 Loot
 
-Ability to update amount of products, or remove products. Product details and subtotal shown.
+Ability to update the number of products, or remove products. Product details and subtotal are shown.
 
 ![Loot](static/media/readme_media/feature-loot-bag.jpg)
 
 Checkout
 
-Summary of products, total of products, personal details and option to save details or create an account. On larger viewports there is a placeholder image to balance the page.
+Summary of products, total of products, personal details and option to save details or create an account. On larger viewports, there is a placeholder image to balance the page.
 
 ![Checkout](static/media/readme_media/feature-checkout-summary.jpg)
+
+Forms to enter personal and delivery details
+
+![Checkout details](static/media/readme_media/feature-checkout-details.jpg)
+
+![Checkout delivery](static/media/readme_media/feature-checkout-delivery.jpg)
+
+Options to save details, based on active user status
 
 ![Login to save details](static/media/readme_media/feature-save-delivery-alternate.jpg)
 
@@ -249,17 +258,17 @@ Summary of products, total of products, personal details and option to save deta
 
 Stripe payments
 
-Payment element with clear notion of how much will be charged. Webhooks connected.
+Payment element with clear indication of how much will be charged. Webhooks connected.
 
-![Payment form](static/media/readme_media/feature-loot-bag.jpg)
+![Payment form](static/media/readme_media/feature-payment-element.jpg)
 
 ![Confirmation of webhook success](static/media/readme_media/testing-webhooks.jpg)
 
 Confirmation email
 
-Staff copied in so that they can see an order has been placed without checking the staff hub
+Staff copied in so that they can see an order has been placed without checking the staff hub.
 
-Variables present in email
+Variables from order present in email
 
 ![Order email](static/media/readme_media/feature-order-email-staff-email.jpg)
 
@@ -279,11 +288,11 @@ Able to click through and check individual orders
 
 ![Old order](static/media/readme_media/feature-order-from-profile.jpg)
 
-Staff Hub
+Staff Hub - able to access all orders placed on site, staff access only
 
 ![Staff hub](static/media/readme_media/feature-staff-hub.jpg)
 
-Able to click through and check individual orders, and change fulfillment status
+Able to click through and check individual orders, and change fulfillment status. Status is immediately reflected in the hub.
 
 ![Fulfillment](static/media/readme_media/feature-status-form.jpg)
 
@@ -299,7 +308,7 @@ Request email - emailed to staff so that they feel assured, and emailed to devel
 
 ![Request email](static/media/readme_media/feature-staff-request-email.jpg)
 
-Edit product request - able to edit, form pre populated. 
+Edit product request - staff can edit requests with a pre-populated form. 
 
 ![Edit form](static/media/readme_media/feature-request-edit-form.jpg)
 
@@ -307,15 +316,13 @@ Edit request email - as per request email, with warnings to the staff member abo
 
 ![Edit email](static/media/readme_media/feature-staff-edit-email.jpg)
 
-Delete request - unavailable in order to avoid wasting time, contact details provided instead.
+Delete request - unavailable to avoid wasting time, a polite note and contact details are provided instead.
 
 ![Delete notice](static/media/readme_media/feature-submission-info.jpg)
 
 Battle arena
 
 ![Battle arena](static/media/readme_media/feature-battle-arena-card.jpg)
-
-Battle details
 
 Create battle
 
@@ -325,11 +332,13 @@ Edit battle
 
 ![Edit battle](static/media/readme_media/feature-battle-edit.jpg)
 
-Delete
+Delete battle
 
-![Delete battle](static/media/readme_media/feature-delete-toast.jpg)
+![Delete battle button](static/media/readme_media/feature-del-battle.jpg)
 
-Comment form
+![Delete battle confirmation](static/media/readme_media/feature-delete-toast.jpg)
+
+Comment form - at the bottom of individual battle pages
 
 ![Comment form](static/media/readme_media/feature-comment-form.jpg)
 
@@ -341,28 +350,31 @@ Staff view of published comment
 
 ![Staff comment view](static/media/readme_media/feature-staff-view-comment.jpg)
 
-Back to top button
+Back to top button - only visible when the page becomes longer than height of the current viewport
 
 ![Back to top button](static/media/readme_media/feature-back-btn.jpg)
 
 About Us
+
 Opportunity to utilise SEO keywords and include high-quality links for SEO.
 
 ![About us](static/media/readme_media/feature-about-us.jpg)
 
-FAQ
+FAQ - includes the same benefits as About Us page and assures the user that the site is trustworthy
 
 ![FAQ](static/media/readme_media/feature-faq.jpg)
 
-Privacy Policy
+Privacy Policy - assures users that the site is trustworthy and can be used safely
 
 ![Privacy policy](static/media/readme_media/feature-policy.jpg)
 
-Footer with Mailchimp signup, link to static pages and socials
+Footer with Mailchimp signup, links to static pages and socials
+
+Semi-transparent background for footer on all viewports to help it stand out against background image
 
 ![Footer](static/media/readme_media/feature-desktop-footer.jpg)
 
-Error pages
+Error pages - 403, 404, 405 and 500 - each with an informative message and 'Keep exploring' option to guide users to shop.
 
 ![404 page](static/media/readme_media/feature-error-page.jpg)
 
@@ -370,7 +382,7 @@ Error pages
 
 Ability for staff to add products without contacting the developer.
 
-Further integration of stats into the website eg calculated value for each item and final calculation of all items at checkout
+Further integration of stats into the website eg calculated value for each item and final calculation of all items at checkout.
 
 ### SEO and Marketing
 
@@ -414,13 +426,15 @@ Gitpod - for editing the files
 
 Custom product model - I originally had my calculations in the model but it wasn't working so I changed it over to the view with help from [this Stack Overflow post](https://stackoverflow.com/questions/29228627/djangoget-field-values-using-views-py-from-html-form):
 
-For custom variables on these products, for pricing I was able to have separate functions and feed in variables one, two and three, but this meant in the front and back ends the actual name didn’t show, so both users just saw a letter (a, b, c, etc) instead of the label. Options were to have more variables feed into the calc function, which is a bit bulky but the other option was to have all the code from the calcuation function in each class, making this file six times as long and six times as ugly. I opted for feeding 6 variables into my calculation function instead of repeating my code more than I already am.
+In regards to custom variables on these products, for pricing I was able to have separate functions and feed in variables one, two and three, but this meant in the front and back ends the actual name didn’t show, so both users just saw a letter (a, b, c, etc) instead of the label. Options were to have more variables feed into the calc function, which is a bit bulky but the other option was to have all the code from the calculation function in each class, making this file six times as long and six times as ugly. I opted for feeding 6 variables into my calculation function instead of repeating my code more than I already am.
 
 Getting two different product models into the loot/shopping bag - originally this shop had two types of products, standard products (similar to the products in Boutique Ado) and custom products. Feeding two models into the loot function broke it immediately; I did a lot of moving around, researching and renaming, and playing with the context file as that aspect of django was new to me. I tried to put the custom products in the same function in the context file, or a different function in the same context file, or a separate context file in the same app or in a different app. I also tried parent model classes, which unfortunately also didn’t work.
 
-After a few days I decided to refocus my website as it was becoming clear that I couldn't achieve my current goal with my current skills and timeframe. I changed the shop to be only custom products.
+After a few days, I decided to refocus my website as it was becoming clear that I couldn't achieve my current goal with my current skills and timeframe. I changed the shop to be only custom products.
 
-The downside of this is that, due to the quoting system I was able to implement, there is currently no option for a staff member to add a product directly, which will be a future feature. I was able to create a cascading form which had associated models for the options and the variables, but I was unable to feed that into the quote system for customers, which is arguably more important as without customers there is no point having a shop. For this iteration, in place of staff being able to add a product directly I have a very detailed staff product submission form, to provide as many details as possible so that implementing the submission takes as little time as possible for the dev. Both the developer and staff member are emailed the details. The staff member is emailed the details in order to assure them that the form went through and it will be actioned. It is saved to the db so that the staff member can see and edit the details from the staff hub, and the dev can see the details on the back end. If the staff member edits the details, the updated details will be emailed to the staff member and the dev. A delete option is unavailable as this would be potentially disruptive to the developer's work; in it's place there is a polite message and contact details.
+The downside of this is that, due to the quoting system I was able to implement, there is currently no option for a staff member to add a product directly, which will be a future feature. I was able to create a cascading form which had associated models for the options and the variables, but I was unable to feed that into the quote system for customers, which is arguably more important as without customers there is no point having a shop. For this iteration, in place of staff being able to add a product directly I have a very detailed staff product submission form, to provide as many details as possible so that implementing the submission takes as little time as possible for the dev. Both the developer and staff member are emailed the details. The staff member is emailed the details in order to assure them that the form went through and it will be actioned. It is saved to the db so that the staff member can see and edit the details from the staff hub, and the dev can see the details on the back end. If the staff member edits the details, the updated details will be emailed to the staff member and the dev. A delete option is unavailable as this would be potentially disruptive to the developer's work; in its place there is a polite message and contact details.
+
+No known bugs. If you find any please let us know at outproudproject@gmail.com.
 
 ### Deployment
 
@@ -449,21 +463,19 @@ In the same 'Code' dropdown, you can opt to open the code with GitHub Desktop an
 
 ### Resources
 
-(Django 3.2 documentation)[https://docs.djangoproject.com/en/4.0/]
+[Django 3.2 documentation](https://docs.djangoproject.com/en/4.0/)
 
-(Bootstrap 4 documentation)[https://getbootstrap.com/docs/4.6/getting-started/introduction/]
+[Bootstrap 4 documentation](https://getbootstrap.com/docs/4.6/getting-started/introduction/)
 
-(Cloudinary documentation)[https://cloudinary.com/documentation]
+[Cloudinary documentation](https://cloudinary.com/documentation)
 
-Guidance with updating and deleting instances from (GeeksforGeeks)[https://www.geeksforgeeks.org/django-crud-create-retrieve-update-delete-function-based-views/]
+ERD made with [Lucidchart](https://lucid.app/)
 
-ERD made with (Lucidchart)[https://lucid.app/]
+Wireframes made with [Balsamiq](https://balsamiq.com/)
 
-Wireframes made with (Balsamiq)[https://balsamiq.com/]
+Privacy Policy generated from (https://www.privacypolicygenerator.info)[Privacy Policy Generator].
 
-Privacy Policy generated from (Privacy Policy Generator)[https://www.privacypolicygenerator.info].
-
-Sitemap generated (here)[https://www.xml-sitemaps.com/]
+Sitemap generated at https://www.xml-sitemaps.com/.
 
 ### Credits
 
