@@ -198,7 +198,7 @@ Navbar - staff view
 
 Has profile view as well as staff functionality in case staff member has any personal orders.
 
-![Staff navbar](static/media/readme_media/feature-staff-nav.jpg.jpg)
+![Staff navbar](static/media/readme_media/feature-staff-nav.jpg)
 
 Navbar - Signup/Login shows instead of Logout if user is not logged in
 
