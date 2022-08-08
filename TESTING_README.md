@@ -160,7 +160,7 @@ I sent the live link to friends and family members for testing and feedback. The
 
 * Footer with clear links to the privacy policy along with other pages that will increase the legitimacy of the site, such as 'About Us' and 'FAQ' pages. Privacy policy personalised for site, including GDPR requirements as site is based in Europe.
 
-*As a staff member, I can use web marketing to increase traffic to my site so that I can increase website traffic and sales.*
+*As a staff member, I can use web marketing so that I can increase website traffic and sales.*
 
 * Integrated plans for web marketing across the site, emails and social media, as documented in the SEO and Marketing section of this readme file.
 

@@ -49,6 +49,8 @@ wizard hat, wizard costume, wizard hat costume, gandalf hat, gandalf costume, wi
 
 ### User Needs
 
+B2C business:
+
 Questions asked:
 
 What do your users need?

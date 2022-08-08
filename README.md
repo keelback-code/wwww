@@ -89,7 +89,7 @@ As a **staff member** I can **change the status of an order** so that **I can co
 
 As a **staff member**, I can **easily provide the site privacy policy** so that **I can communicate with users and increase the legitimacy of my website**.
 
-As a **staff member**, I can **use web marketing to increase traffic to my site** so that **I can increase website traffic and sales**.
+As a **staff member**, I can **use web marketing** so that **I can increase website traffic and sales**.
 
 As a **staff member**, I can **add blog posts to my site** so that **I can show expertise on the subject that corresponds with my web marketing**.
 
@@ -99,7 +99,7 @@ As a **staff member**, I can **delete comments from blog posts** so that **my we
 
 As a **staff member**, I will **be provided with search engine optimisation for my site** so that **I can receive increased traffic and sales**.
 
-As a **staff member** I can **easily add a request for a custom product** so that **I can add new products to the site**. - email for assurance
+As a **staff member** I can **easily add a request for a custom product** so that **I can add new products to the site**.
 
 As a **staff member** I can **easily edit product requests** so that **I can make changes without a lengthy back and forth of emails**.
 
@@ -434,7 +434,9 @@ After a few days, I decided to refocus my website as it was becoming clear that 
 
 The downside of this is that, due to the quoting system I was able to implement, there is currently no option for a staff member to add a product directly, which will be a future feature. I was able to create a cascading form which had associated models for the options and the variables, but I was unable to feed that into the quote system for customers, which is arguably more important as without customers there is no point having a shop. For this iteration, in place of staff being able to add a product directly I have a very detailed staff product submission form, to provide as many details as possible so that implementing the submission takes as little time as possible for the dev. Both the developer and staff member are emailed the details. The staff member is emailed the details in order to assure them that the form went through and it will be actioned. It is saved to the db so that the staff member can see and edit the details from the staff hub, and the dev can see the details on the back end. If the staff member edits the details, the updated details will be emailed to the staff member and the dev. A delete option is unavailable as this would be potentially disruptive to the developer's work; in its place there is a polite message and contact details.
 
-No known bugs. If you find any please let us know at outproudproject@gmail.com.
+Users are only able to order 10 of any single product; this works fully as intended on the final quote page but on the loot page the user is able to get a number over 10. However, the user receives an error if they try to update the total and are unable to place an order with more than 10 of a single product. This bug will be fixed in the next iteration.
+
+No other known bugs. If you find any please let us know at outproudproject@gmail.com.
 
 ### Deployment
 
